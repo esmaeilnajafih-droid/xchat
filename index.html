@@ -6,7 +6,7 @@
     <title>💬 پیام‌رسان کامل</title>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ===== استایل‌های قبلی ===== */
+        /* ===== تمام استایل‌های قبلی ===== */
         * {
             margin: 0;
             padding: 0;
@@ -65,6 +65,28 @@
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
+        /* ===== لیست کشویی کاربران ===== */
+        .user-select {
+            width: 100%;
+            padding: 10px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 14px;
+            font-size: 15px;
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+            margin-top: 4px;
+            outline: none;
+            transition: 0.3s;
+            background: white;
+            color: #333;
+            cursor: pointer;
+        }
+        .user-select:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        .user-select option {
+            padding: 8px;
+        }
         .auth-page .btn-primary {
             width: 100%;
             padding: 12px;
@@ -109,6 +131,15 @@
         }
         .auth-page .error.show {
             display: block;
+        }
+        .auth-page .hint {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #888;
+            background: #f5f5f5;
+            padding: 8px;
+            border-radius: 12px;
         }
         .app {
             display: none;
@@ -596,15 +627,27 @@
         <h1>💬 پیام‌رسان</h1>
         <div class="sub" id="authSub">ورود به حساب کاربری</div>
         <div class="error" id="authError">خطا</div>
+
+        <!-- ===== لیست کشویی کاربران ===== -->
+        <label>👤 انتخاب کاربر</label>
+        <select class="user-select" id="userSelect" onchange="selectUser()">
+            <option value="">— کاربر را انتخاب کنید —</option>
+        </select>
+
         <label>📧 ایمیل</label>
         <input type="email" id="authEmail" placeholder="example@email.com">
+
         <label>🔑 رمز عبور</label>
         <input type="password" id="authPass" placeholder="حداقل ۴ کاراکتر">
+
         <button class="btn-primary" id="authBtn" onclick="handleAuth()">ورود</button>
+
         <div class="switch">
             <span id="switchText">حساب ندارید؟</span>
             <a id="switchLink" onclick="toggleAuthMode()">ثبت‌نام کنید</a>
         </div>
+
+        <div class="hint" id="hintText">💡 کاربر تست: test@test.com | رمز: 1234</div>
     </div>
 
     <div class="app" id="app">
@@ -684,6 +727,75 @@
         }
 
         // ============================================
+        // کاربر پیش‌فرض برای گیت‌هاب
+        // ============================================
+
+        function initDefaultUser() {
+            let users = getUsers();
+            if (users.length === 0) {
+                users.push({
+                    id: 'u1',
+                    email: 'test@test.com',
+                    pass: '1234',
+                    name: 'کاربر تست'
+                });
+                saveUsers(users);
+                console.log('✅ کاربر پیش‌فرض ساخته شد: test@test.com / 1234');
+            }
+            updateUserList();
+        }
+
+        // ============================================
+        // به‌روزرسانی لیست کاربران
+        // ============================================
+
+        function updateUserList() {
+            let users = getUsers();
+            let select = document.getElementById('userSelect');
+            let currentValue = select.value;
+
+            // حفظ انتخاب قبلی
+            select.innerHTML = '<option value="">— کاربر را انتخاب کنید —</option>';
+
+            users.forEach(u => {
+                let option = document.createElement('option');
+                option.value = u.email;
+                option.textContent = `${u.name} (${u.email})`;
+                select.appendChild(option);
+            });
+
+            // اگر کاربر قبلی انتخاب شده بود، دوباره انتخابش کن
+            if (currentValue) {
+                select.value = currentValue;
+            }
+        }
+
+        // ============================================
+        // انتخاب کاربر از لیست
+        // ============================================
+
+        function selectUser() {
+            let select = document.getElementById('userSelect');
+            let email = select.value;
+
+            if (email) {
+                document.getElementById('authEmail').value = email;
+                // پیدا کردن رمز کاربر
+                let users = getUsers();
+                let user = users.find(u => u.email === email);
+                if (user) {
+                    document.getElementById('authPass').value = user.pass || '';
+                }
+                document.getElementById('authError').classList.remove('show');
+                document.getElementById('hintText').textContent = `✅ کاربر ${email} انتخاب شد`;
+            } else {
+                document.getElementById('authEmail').value = '';
+                document.getElementById('authPass').value = '';
+                document.getElementById('hintText').textContent = '💡 کاربر تست: test@test.com | رمز: 1234';
+            }
+        }
+
+        // ============================================
         // مدیریت نشست (Session)
         // ============================================
 
@@ -715,6 +827,19 @@
             document.getElementById('switchText').textContent = isLogin ? 'حساب ندارید؟' : 'حساب دارید؟';
             document.getElementById('switchLink').textContent = isLogin ? 'ثبت‌نام کنید' : 'ورود کنید';
             document.getElementById('authError').classList.remove('show');
+
+            if (isLogin) {
+                document.getElementById('userSelect').style.display = 'block';
+                document.querySelector('label[for="userSelect"]').style.display = 'block';
+                document.getElementById('hintText').textContent = '💡 کاربر تست: test@test.com | رمز: 1234';
+                updateUserList();
+            } else {
+                document.getElementById('userSelect').style.display = 'none';
+                document.querySelector('label[for="userSelect"]').style.display = 'none';
+                document.getElementById('authEmail').value = '';
+                document.getElementById('authPass').value = '';
+                document.getElementById('hintText').textContent = '📝 با ایمیل و رمز جدید ثبت‌نام کنید';
+            }
         }
 
         function handleAuth() {
@@ -761,6 +886,7 @@
                 saveUsers(users);
                 currentUser = newUser;
                 saveSession(newUser);
+                updateUserList();
                 showApp();
             }
         }
@@ -784,6 +910,8 @@
             document.getElementById('authEmail').value = '';
             document.getElementById('authPass').value = '';
             document.getElementById('authError').classList.remove('show');
+            document.getElementById('userSelect').value = '';
+            document.getElementById('hintText').textContent = '💡 کاربر تست: test@test.com | رمز: 1234';
         }
 
         // ============================================
@@ -791,9 +919,10 @@
         // ============================================
 
         function checkAutoLogin() {
+            initDefaultUser();
+
             let savedUser = getSession();
             if (savedUser) {
-                // بررسی اینکه کاربر هنوز در سیستم وجود داره
                 let users = getUsers();
                 let user = users.find(u => u.id === savedUser.id);
                 if (user) {
@@ -804,6 +933,8 @@
                     clearSession();
                 }
             }
+            // نمایش لیست کاربران
+            updateUserList();
             return false;
         }
 
@@ -1263,14 +1394,16 @@
         // شروع برنامه با بررسی خودکار
         // ============================================
 
-        // ابتدا بررسی کن کاربر قبلاً وارد شده یا نه
         if (!checkAutoLogin()) {
-            // اگر وارد نشده، صفحه ورود رو نشون بده
             document.getElementById('authPage').style.display = 'block';
+            // در حالت ورود، لیست کاربران رو نمایش بده
+            document.getElementById('userSelect').style.display = 'block';
+            document.querySelector('label[for="userSelect"]').style.display = 'block';
+            updateUserList();
         }
 
-        console.log('🚀 پیام‌رسان کامل با ذخیره نشست!');
-        console.log('💾 کاربر بعد از خروج و ورود مجدد ذخیره میشه');
+        console.log('🚀 پیام‌رسان کامل با لیست کاربران!');
+        console.log('💡 کاربر تست: test@test.com / 1234');
     </script>
 
 </body>
