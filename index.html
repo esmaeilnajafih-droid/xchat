@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💬 پیام‌رسان کامل</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== استایل‌های قبلی ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            direction: rtl;
+        }
+        .auth-page {
+            background: white;
+            border-radius: 30px;
+            padding: 40px 35px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        .auth-page h1 {
+            text-align: center;
+            font-size: 26px;
+            margin-bottom: 5px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .auth-page .sub {
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+        .auth-page label {
+            display: block;
+            font-weight: 600;
+            margin-top: 12px;
+            font-size: 14px;
+        }
+        .auth-page input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 14px;
+            font-size: 15px;
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+            margin-top: 4px;
+            outline: none;
+            transition: 0.3s;
+        }
+        .auth-page input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        .auth-page .btn-primary {
+            width: 100%;
+            padding: 12px;
+            margin-top: 18px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-size: 17px;
+            font-weight: 700;
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .auth-page .btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+        }
+        .auth-page .switch {
+            text-align: center;
+            margin-top: 15px;
+            color: #666;
+            font-size: 14px;
+        }
+        .auth-page .switch a {
+            color: #667eea;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .auth-page .switch a:hover {
+            text-decoration: underline;
+        }
+        .auth-page .error {
+            background: #fee;
+            color: #e74c3c;
+            padding: 8px 14px;
+            border-radius: 12px;
+            font-size: 13px;
+            margin-top: 10px;
+            display: none;
+        }
+        .auth-page .error.show {
+            display: block;
+        }
+        .app {
+            display: none;
+            background: white;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 900px;
+            height: 95vh;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            flex-direction: row;
+        }
+        .app.show {
+            display: flex;
+        }
+        .sidebar {
+            width: 280px;
+            background: #f0f2f5;
+            border-left: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+        .sidebar .user-info {
+            padding: 16px 18px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+        }
+        .sidebar .user-info .name {
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .sidebar .user-info .email {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        .sidebar .user-info .logout {
+            margin-top: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+            transition: 0.3s;
+        }
+        .sidebar .user-info .logout:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .sidebar .search-box {
+            padding: 10px 14px;
+            border-bottom: 1px solid #ddd;
+        }
+        .sidebar .search-box input {
+            width: 100%;
+            padding: 8px 14px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 13px;
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+            outline: none;
+            transition: 0.3s;
+        }
+        .sidebar .search-box input:focus {
+            border-color: #667eea;
+        }
+        .sidebar .contact-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 8px;
+        }
+        .sidebar .contact-list::-webkit-scrollbar {
+            width: 4px;
+        }
+        .sidebar .contact-list::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
+        }
+        .contact-item {
+            padding: 10px 14px;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+        .contact-item:hover {
+            background: rgba(102, 126, 234, 0.08);
+        }
+        .contact-item.active {
+            background: rgba(102, 126, 234, 0.18);
+        }
+        .contact-item .info .name {
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .contact-item .info .email {
+            font-size: 11px;
+            color: #888;
+        }
+        .contact-item .badge {
+            background: #ff6b6b;
+            color: white;
+            border-radius: 50%;
+            padding: 0 6px;
+            font-size: 11px;
+            min-width: 20px;
+            text-align: center;
+            font-weight: 700;
+        }
+        .add-contact-btn {
+            padding: 10px;
+            margin: 4px 8px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+            transition: 0.3s;
+        }
+        .add-contact-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        .chat-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+        .chat-header {
+            padding: 14px 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .messages {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            background: #f8f9fa;
+        }
+        .messages::-webkit-scrollbar {
+            width: 5px;
+        }
+        .messages::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
+        }
+        .msg {
+            margin-bottom: 12px;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .msg-content {
+            background: white;
+            padding: 10px 16px;
+            border-radius: 18px;
+            max-width: 80%;
+            display: inline-block;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+        .msg-own {
+            text-align: right;
+        }
+        .msg-own .msg-content {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        .msg-time {
+            font-size: 11px;
+            color: #999;
+            margin-top: 4px;
+        }
+        .msg-own .msg-time {
+            color: rgba(255, 255, 255, 0.75);
+        }
+        .msg-file {
+            background: #f0f2f5;
+            padding: 8px 12px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 150px;
+        }
+        .msg-own .msg-file {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        .msg-file .icon {
+            font-size: 28px;
+        }
+        .msg-file .info .name {
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .msg-file .info .size {
+            font-size: 11px;
+            color: #888;
+        }
+        .msg-own .msg-file .info .size {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .msg-file .download {
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 4px 12px;
+            cursor: pointer;
+            font-size: 12px;
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+        }
+        .msg-own .msg-file .download {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .msg-voice {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 160px;
+        }
+        .msg-voice audio {
+            flex: 1;
+            height: 32px;
+            border-radius: 15px;
+        }
+        .msg-voice .duration {
+            font-size: 11px;
+            color: #888;
+            min-width: 35px;
+        }
+        .msg-own .msg-voice .duration {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .empty-chat {
+            text-align: center;
+            color: #aaa;
+            padding: 50px 20px;
+            font-size: 15px;
+        }
+        .empty-chat span {
+            font-size: 40px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .input-area {
+            display: flex;
+            gap: 6px;
+            padding: 10px 14px;
+            background: white;
+            border-top: 1px solid #eee;
+            flex-shrink: 0;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .input-area input[type="text"] {
+            flex: 1;
+            padding: 10px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 15px;
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+            outline: none;
+            transition: 0.3s;
+            min-width: 80px;
+        }
+        .input-area input[type="text"]:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        .input-area button {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+        .input-area button:hover {
+            transform: scale(1.04);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        .input-area .icon-btn {
+            background: transparent;
+            color: #667eea;
+            font-size: 22px;
+            padding: 6px 8px;
+            box-shadow: none;
+            min-width: 40px;
+        }
+        .input-area .icon-btn:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: scale(1.1);
+            box-shadow: none;
+        }
+        .input-area .icon-btn.recording {
+            color: #ff4444;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.15);
+            }
+        }
+        .input-area .file-input-hidden {
+            display: none;
+        }
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            backdrop-filter: blur(4px);
+        }
+        .modal.active {
+            display: flex;
+        }
+        .modal-box {
+            background: white;
+            padding: 28px;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 400px;
+            direction: rtl;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        .modal-box h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        .modal-box .sub {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .modal-box input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 2px solid #ddd;
+            border-radius: 14px;
+            font-size: 15px;
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+            margin: 5px 0;
+            outline: none;
+            transition: 0.3s;
+        }
+        .modal-box input:focus {
+            border-color: #667eea;
+        }
+        .modal-box .actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .modal-box .actions button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+        .modal-box .confirm {
+            background: #667eea;
+            color: white;
+        }
+        .modal-box .confirm:hover {
+            transform: scale(1.03);
+        }
+        .modal-box .cancel {
+            background: #ff6b6b;
+            color: white;
+        }
+        .modal-box .cancel:hover {
+            transform: scale(1.03);
+        }
+        .modal-box .error-msg {
+            color: #e74c3c;
+            font-size: 13px;
+            margin-top: 8px;
+            display: none;
+        }
+        .modal-box .error-msg.show {
+            display: block;
+        }
+        .notification {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #00b894;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 16px;
+            display: none;
+            animation: slideIn 0.4s ease;
+            z-index: 1000;
+            font-size: 14px;
+            font-weight: 500;
+            max-width: 300px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            direction: rtl;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @media (max-width: 700px) {
+            .app {
+                flex-direction: column;
+                height: 100vh;
+                border-radius: 0;
+            }
+            .sidebar {
+                width: 100%;
+                height: 40vh;
+                border-left: none;
+                border-bottom: 1px solid #ddd;
+            }
+            .chat-area {
+                height: 60vh;
+            }
+            .auth-page {
+                padding: 30px 20px;
+            }
+            .input-area .icon-btn {
+                font-size: 18px;
+                padding: 4px 6px;
+            }
+            .input-area button {
+                padding: 8px 14px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="auth-page" id="authPage">
+        <h1>💬 پیام‌رسان</h1>
+        <div class="sub" id="authSub">ورود به حساب کاربری</div>
+        <div class="error" id="authError">خطا</div>
+        <label>📧 ایمیل</label>
+        <input type="email" id="authEmail" placeholder="example@email.com">
+        <label>🔑 رمز عبور</label>
+        <input type="password" id="authPass" placeholder="حداقل ۴ کاراکتر">
+        <button class="btn-primary" id="authBtn" onclick="handleAuth()">ورود</button>
+        <div class="switch">
+            <span id="switchText">حساب ندارید؟</span>
+            <a id="switchLink" onclick="toggleAuthMode()">ثبت‌نام کنید</a>
+        </div>
+    </div>
+
+    <div class="app" id="app">
+        <div class="sidebar">
+            <div class="user-info">
+                <div class="name" id="userName">کاربر</div>
+                <div class="email" id="userEmail">email@example.com</div>
+                <button class="logout" onclick="logout()">🚪 خروج</button>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 جستجوی مخاطب..." oninput="filterContacts()">
+            </div>
+            <div class="contact-list" id="contactList"></div>
+            <button class="add-contact-btn" onclick="showAddContact()">➕ افزودن مخاطب</button>
+        </div>
+        <div class="chat-area">
+            <div class="chat-header" id="chatHeader">💬 انتخاب کنید</div>
+            <div class="messages" id="messages">
+                <div class="empty-chat"><span>💬</span>یک مخاطب را انتخاب کنید...</div>
+            </div>
+            <div class="input-area">
+                <input type="text" id="input" placeholder="متن پیام...">
+                <button class="icon-btn" id="voiceBtn" onclick="toggleRecording()" title="ضبط ویس">🎤</button>
+                <button class="icon-btn" onclick="document.getElementById('fileInput').click()" title="ارسال فایل">📎</button>
+                <button onclick="sendMessage()">📤 ارسال</button>
+                <input type="file" id="fileInput" class="file-input-hidden" multiple onchange="handleFileSelect(event)">
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="addModal">
+        <div class="modal-box">
+            <h3>➕ افزودن مخاطب</h3>
+            <div class="sub">ایمیل کاربر مورد نظر را وارد کنید</div>
+            <input type="email" id="contactEmail" placeholder="ایمیل کاربر...">
+            <div class="error-msg" id="addError">کاربر با این ایمیل پیدا نشد!</div>
+            <div class="actions">
+                <button class="confirm" onclick="addContact()">✅ افزودن</button>
+                <button class="cancel" onclick="closeAddModal()">❌ انصراف</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification" id="notification">📨 پیام جدید!</div>
+
+    <script>
+        // ============================================
+        // مدیریت کاربران و پیام‌ها
+        // ============================================
+
+        let currentUser = null;
+        let currentContact = null;
+        let isLogin = true;
+        let msgId = 0;
+
+        // ===== ویس =====
+        let mediaRecorder = null;
+        let audioChunks = [];
+        let isRecording = false;
+
+        function getUsers() {
+            let data = localStorage.getItem('users');
+            return data ? JSON.parse(data) : [];
+        }
+
+        function saveUsers(users) {
+            localStorage.setItem('users', JSON.stringify(users));
+        }
+
+        function getMessages() {
+            let data = localStorage.getItem('messages');
+            return data ? JSON.parse(data) : {};
+        }
+
+        function saveMessages(msgs) {
+            localStorage.setItem('messages', JSON.stringify(msgs));
+        }
+
+        // ============================================
+        // مدیریت نشست (Session)
+        // ============================================
+
+        function saveSession(user) {
+            if (user) {
+                localStorage.setItem('loggedInUser', JSON.stringify(user));
+            } else {
+                localStorage.removeItem('loggedInUser');
+            }
+        }
+
+        function getSession() {
+            let data = localStorage.getItem('loggedInUser');
+            return data ? JSON.parse(data) : null;
+        }
+
+        function clearSession() {
+            localStorage.removeItem('loggedInUser');
+        }
+
+        // ============================================
+        // احراز هویت
+        // ============================================
+
+        function toggleAuthMode() {
+            isLogin = !isLogin;
+            document.getElementById('authSub').textContent = isLogin ? 'ورود به حساب کاربری' : 'ایجاد حساب کاربری';
+            document.getElementById('authBtn').textContent = isLogin ? 'ورود' : 'ثبت‌نام';
+            document.getElementById('switchText').textContent = isLogin ? 'حساب ندارید؟' : 'حساب دارید؟';
+            document.getElementById('switchLink').textContent = isLogin ? 'ثبت‌نام کنید' : 'ورود کنید';
+            document.getElementById('authError').classList.remove('show');
+        }
+
+        function handleAuth() {
+            let email = document.getElementById('authEmail').value.trim();
+            let pass = document.getElementById('authPass').value.trim();
+            let error = document.getElementById('authError');
+
+            if (!email || !pass) {
+                error.textContent = 'لطفاً ایمیل و رمز عبور را وارد کنید!';
+                error.classList.add('show');
+                return;
+            }
+
+            let users = getUsers();
+
+            if (isLogin) {
+                let user = users.find(u => u.email === email && u.pass === pass);
+                if (!user) {
+                    error.textContent = 'ایمیل یا رمز عبور اشتباه است!';
+                    error.classList.add('show');
+                    return;
+                }
+                currentUser = user;
+                saveSession(user);
+                showApp();
+            } else {
+                if (users.find(u => u.email === email)) {
+                    error.textContent = 'این ایمیل قبلاً ثبت شده است!';
+                    error.classList.add('show');
+                    return;
+                }
+                if (pass.length < 4) {
+                    error.textContent = 'رمز عبور باید حداقل ۴ کاراکتر باشد!';
+                    error.classList.add('show');
+                    return;
+                }
+                let newUser = {
+                    id: 'u' + Date.now(),
+                    email: email,
+                    pass: pass,
+                    name: email.split('@')[0] || 'کاربر'
+                };
+                users.push(newUser);
+                saveUsers(users);
+                currentUser = newUser;
+                saveSession(newUser);
+                showApp();
+            }
+        }
+
+        function showApp() {
+            document.getElementById('authPage').style.display = 'none';
+            document.getElementById('app').classList.add('show');
+            document.getElementById('userName').textContent = currentUser.name || 'کاربر';
+            document.getElementById('userEmail').textContent = currentUser.email;
+            loadContacts();
+            startPolling();
+        }
+
+        function logout() {
+            currentUser = null;
+            currentContact = null;
+            clearSession();
+            stopPolling();
+            document.getElementById('authPage').style.display = 'block';
+            document.getElementById('app').classList.remove('show');
+            document.getElementById('authEmail').value = '';
+            document.getElementById('authPass').value = '';
+            document.getElementById('authError').classList.remove('show');
+        }
+
+        // ============================================
+        // بررسی خودکار هنگام بارگذاری صفحه
+        // ============================================
+
+        function checkAutoLogin() {
+            let savedUser = getSession();
+            if (savedUser) {
+                // بررسی اینکه کاربر هنوز در سیستم وجود داره
+                let users = getUsers();
+                let user = users.find(u => u.id === savedUser.id);
+                if (user) {
+                    currentUser = user;
+                    showApp();
+                    return true;
+                } else {
+                    clearSession();
+                }
+            }
+            return false;
+        }
+
+        // ============================================
+        // مخاطبین
+        // ============================================
+
+        function getContacts() {
+            let data = localStorage.getItem('contacts_' + currentUser.id);
+            return data ? JSON.parse(data) : [];
+        }
+
+        function saveContacts(contacts) {
+            localStorage.setItem('contacts_' + currentUser.id, JSON.stringify(contacts));
+        }
+
+        function loadContacts() {
+            let contacts = getContacts();
+            renderContacts(contacts);
+        }
+
+        function renderContacts(contacts) {
+            let list = document.getElementById('contactList');
+            if (contacts.length === 0) {
+                list.innerHTML =
+                    `<div style="text-align:center;color:#999;padding:20px;font-size:14px;"><span style="font-size:30px;display:block;">👤</span>هیچ مخاطبی ندارید<br>دکمه افزودن را بزنید</div>`;
+                return;
+            }
+            let html = '';
+            contacts.forEach(c => {
+                let active = currentContact && currentContact.id === c.id ? 'active' : '';
+                let unread = getUnreadCount(c.id);
+                html += `
+                            <div class="contact-item ${active}" onclick="selectContact('${c.id}')">
+                                <div class="info">
+                                    <div class="name">${c.name}</div>
+                                    <div class="email">${c.email}</div>
+                                </div>
+                                ${unread > 0 ? `<span class="badge">${unread}</span>` : ''}
+                            </div>
+                        `;
+            });
+            list.innerHTML = html;
+        }
+
+        function filterContacts() {
+            let search = document.getElementById('searchInput').value.trim().toLowerCase();
+            let contacts = getContacts();
+            if (!search) { renderContacts(contacts); return; }
+            let filtered = contacts.filter(c =>
+                c.name.toLowerCase().includes(search) ||
+                c.email.toLowerCase().includes(search)
+            );
+            renderContacts(filtered);
+        }
+
+        function getUnreadCount(contactId) {
+            let msgs = getMessages();
+            let key = getChatKey(contactId);
+            if (!msgs[key]) return 0;
+            return msgs[key].filter(m => !m.read && m.from !== currentUser.id).length;
+        }
+
+        function getChatKey(contactId) {
+            let ids = [currentUser.id, contactId].sort();
+            return ids.join('_');
+        }
+
+        // ============================================
+        // افزودن مخاطب
+        // ============================================
+
+        function showAddContact() {
+            document.getElementById('addModal').classList.add('active');
+            document.getElementById('contactEmail').value = '';
+            document.getElementById('addError').classList.remove('show');
+        }
+
+        function closeAddModal() {
+            document.getElementById('addModal').classList.remove('active');
+        }
+
+        function addContact() {
+            let email = document.getElementById('contactEmail').value.trim();
+            let error = document.getElementById('addError');
+
+            if (!email) {
+                error.textContent = 'لطفاً ایمیل را وارد کنید!';
+                error.classList.add('show');
+                return;
+            }
+
+            let users = getUsers();
+            let user = users.find(u => u.email === email);
+            if (!user) {
+                error.textContent = 'کاربر با این ایمیل پیدا نشد!';
+                error.classList.add('show');
+                return;
+            }
+
+            if (user.id === currentUser.id) {
+                error.textContent = 'نمی‌توانید خودتان را اضافه کنید!';
+                error.classList.add('show');
+                return;
+            }
+
+            let contacts = getContacts();
+            if (contacts.find(c => c.id === user.id)) {
+                error.textContent = 'این کاربر قبلاً در لیست شماست!';
+                error.classList.add('show');
+                return;
+            }
+
+            contacts.push({
+                id: user.id,
+                name: user.name || user.email.split('@')[0],
+                email: user.email
+            });
+            saveContacts(contacts);
+            loadContacts();
+            closeAddModal();
+            showNotification(`✅ ${user.name} به لیست مخاطبین اضافه شد!`);
+        }
+
+        // ============================================
+        // انتخاب مخاطب
+        // ============================================
+
+        function selectContact(contactId) {
+            let contacts = getContacts();
+            let contact = contacts.find(c => c.id === contactId);
+            if (!contact) return;
+
+            currentContact = contact;
+            document.getElementById('chatHeader').textContent = `💬 ${contact.name}`;
+
+            let msgs = getMessages();
+            let key = getChatKey(contactId);
+            if (msgs[key]) {
+                msgs[key].forEach(m => { if (m.from !== currentUser.id) m.read = true; });
+                saveMessages(msgs);
+            }
+
+            renderContacts(contacts);
+            renderMessages();
+        }
+
+        function renderMessages() {
+            let area = document.getElementById('messages');
+            if (!currentContact) {
+                area.innerHTML = `<div class="empty-chat"><span>💬</span>یک مخاطب را انتخاب کنید...</div>`;
+                return;
+            }
+
+            let msgs = getMessages();
+            let key = getChatKey(currentContact.id);
+            let chatMsgs = msgs[key] || [];
+
+            if (chatMsgs.length === 0) {
+                area.innerHTML = `<div class="empty-chat"><span>💬</span>اولین پیام را ارسال کنید!</div>`;
+                return;
+            }
+
+            let html = '';
+            chatMsgs.forEach(m => {
+                let own = m.from === currentUser.id ? 'msg-own' : '';
+                let user = m.from === currentUser.id ? 'شما' : currentContact.name;
+
+                let contentHtml = '';
+                if (m.type === 'voice' && m.audioData) {
+                    contentHtml = `
+                                <div class="msg-voice">
+                                    <audio controls>
+                                        <source src="${m.audioData}" type="audio/webm">
+                                    </audio>
+                                    <span class="duration">${m.duration || '00:00'}</span>
+                                </div>
+                            `;
+                } else if (m.type === 'file' && m.fileData) {
+                    let isImage = m.fileMime && m.fileMime.startsWith('image/');
+                    contentHtml = `
+                                <div class="msg-file">
+                                    <span class="icon">${isImage ? '🖼️' : '📎'}</span>
+                                    <div class="info">
+                                        <div class="name">${m.fileName || 'فایل'}</div>
+                                        <div class="size">${m.fileSize || 'نامشخص'}</div>
+                                    </div>
+                                    <button class="download" onclick="downloadFile('${m.id}')">📥</button>
+                                </div>
+                                ${isImage ? `<img src="${m.fileData}" style="max-width:180px;max-height:150px;border-radius:10px;margin-top:5px;">` : ''}
+                            `;
+                } else {
+                    contentHtml = m.text;
+                }
+
+                html += `
+                            <div class="msg ${own}">
+                                <div class="msg-content">
+                                    ${contentHtml}
+                                    <div class="msg-time">👤 ${user} 🕐 ${m.time}</div>
+                                </div>
+                            </div>
+                        `;
+            });
+            area.innerHTML = html;
+            area.scrollTop = area.scrollHeight;
+        }
+
+        function downloadFile(msgId) {
+            let msgs = getMessages();
+            let key = getChatKey(currentContact.id);
+            let chatMsgs = msgs[key] || [];
+            let msg = chatMsgs.find(m => m.id === msgId);
+            if (msg && msg.fileData) {
+                let link = document.createElement('a');
+                link.href = msg.fileData;
+                link.download = msg.fileName || 'download';
+                link.click();
+            }
+        }
+
+        // ============================================
+        // ارسال پیام متنی
+        // ============================================
+
+        function sendMessage() {
+            if (!currentContact) {
+                showNotification('⚠️ ابتدا یک مخاطب انتخاب کنید!');
+                return;
+            }
+
+            let input = document.getElementById('input');
+            let text = input.value.trim();
+            if (!text) return;
+
+            let msgs = getMessages();
+            let key = getChatKey(currentContact.id);
+            if (!msgs[key]) msgs[key] = [];
+
+            let now = new Date();
+            msgs[key].push({
+                id: msgId++,
+                text: text,
+                from: currentUser.id,
+                to: currentContact.id,
+                time: now.toLocaleTimeString('fa-IR'),
+                read: false,
+                type: 'text'
+            });
+
+            saveMessages(msgs);
+            renderMessages();
+            input.value = '';
+        }
+
+        // ============================================
+        // ضبط ویس
+        // ============================================
+
+        async function toggleRecording() {
+            if (!currentContact) {
+                showNotification('⚠️ ابتدا یک مخاطب انتخاب کنید!');
+                return;
+            }
+            if (isRecording) {
+                stopRecording();
+            } else {
+                await startRecording();
+            }
+        }
+
+        async function startRecording() {
+            try {
+                let stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaRecorder = new MediaRecorder(stream);
+                audioChunks = [];
+
+                mediaRecorder.ondataavailable = event => audioChunks.push(event.data);
+
+                mediaRecorder.onstop = () => {
+                    let audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                    let reader = new FileReader();
+                    reader.onload = function() {
+                        let audioData = reader.result;
+                        let duration = audioChunks.length > 0 ?
+                            '00:' + String(Math.min(Math.floor(audioChunks.length / 10), 59)).padStart(2, '0') :
+                            '00:00';
+
+                        let msgs = getMessages();
+                        let key = getChatKey(currentContact.id);
+                        if (!msgs[key]) msgs[key] = [];
+
+                        let now = new Date();
+                        msgs[key].push({
+                            id: msgId++,
+                            text: '🎤 پیام صوتی',
+                            from: currentUser.id,
+                            to: currentContact.id,
+                            time: now.toLocaleTimeString('fa-IR'),
+                            read: false,
+                            type: 'voice',
+                            audioData: audioData,
+                            duration: duration
+                        });
+
+                        saveMessages(msgs);
+                        renderMessages();
+                    };
+                    reader.readAsDataURL(audioBlob);
+                    stream.getTracks().forEach(track => track.stop());
+                };
+
+                mediaRecorder.start();
+                isRecording = true;
+
+                let btn = document.getElementById('voiceBtn');
+                btn.textContent = '⏹';
+                btn.classList.add('recording');
+                document.getElementById('input').placeholder = '🎤 در حال ضبط...';
+
+            } catch (err) {
+                alert('دسترسی به میکروفون لازم است!');
+            }
+        }
+
+        function stopRecording() {
+            if (mediaRecorder && isRecording) {
+                mediaRecorder.stop();
+                isRecording = false;
+
+                let btn = document.getElementById('voiceBtn');
+                btn.textContent = '🎤';
+                btn.classList.remove('recording');
+                document.getElementById('input').placeholder = 'متن پیام...';
+            }
+        }
+
+        // ============================================
+        // ارسال فایل
+        // ============================================
+
+        function handleFileSelect(event) {
+            if (!currentContact) {
+                showNotification('⚠️ ابتدا یک مخاطب انتخاب کنید!');
+                return;
+            }
+
+            let files = event.target.files;
+            let msgs = getMessages();
+            let key = getChatKey(currentContact.id);
+            if (!msgs[key]) msgs[key] = [];
+
+            for (let file of files) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    let fileData = e.target.result;
+                    let fileSize = (file.size / 1024).toFixed(1) + ' KB';
+                    let now = new Date();
+
+                    msgs[key].push({
+                        id: msgId++,
+                        text: '📎 ' + file.name,
+                        from: currentUser.id,
+                        to: currentContact.id,
+                        time: now.toLocaleTimeString('fa-IR'),
+                        read: false,
+                        type: 'file',
+                        fileName: file.name,
+                        fileSize: fileSize,
+                        fileData: fileData,
+                        fileMime: file.type
+                    });
+
+                    saveMessages(msgs);
+                    renderMessages();
+                };
+                reader.readAsDataURL(file);
+            }
+            event.target.value = '';
+        }
+
+        // ============================================
+        // چک کردن لحظه‌ای (بدون رفرش)
+        // ============================================
+
+        let pollingInterval = null;
+
+        function startPolling() {
+            if (pollingInterval) clearInterval(pollingInterval);
+
+            pollingInterval = setInterval(() => {
+                if (!currentContact) return;
+
+                let msgs = getMessages();
+                let key = getChatKey(currentContact.id);
+
+                if (key && msgs[key]) {
+                    let lastMsg = msgs[key][msgs[key].length - 1];
+
+                    if (lastMsg && lastMsg.from !== currentUser.id && !lastMsg.read) {
+                        lastMsg.read = true;
+                        saveMessages(msgs);
+                        renderMessages();
+                        loadContacts();
+
+                        let contacts = getContacts();
+                        let contact = contacts.find(c => c.id === lastMsg.from);
+                        if (contact) {
+                            let preview = lastMsg.type === 'voice' ? '🎤 پیام صوتی' :
+                                lastMsg.type === 'file' ? '📎 فایل' :
+                                lastMsg.text;
+                            showNotification(`📨 ${contact.name}: ${preview}`);
+                        }
+                    }
+                }
+            }, 1500);
+        }
+
+        function stopPolling() {
+            if (pollingInterval) {
+                clearInterval(pollingInterval);
+                pollingInterval = null;
+            }
+        }
+
+        // ============================================
+        // اعلان
+        // ============================================
+
+        function showNotification(text) {
+            let el = document.getElementById('notification');
+            el.textContent = text;
+            el.style.display = 'block';
+            setTimeout(() => el.style.display = 'none', 3000);
+        }
+
+        // ============================================
+        // رویدادها
+        // ============================================
+
+        document.getElementById('input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        document.getElementById('addModal').addEventListener('click', function(e) {
+            if (e.target === this) closeAddModal();
+        });
+
+        document.getElementById('authPass').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') handleAuth();
+        });
+        document.getElementById('authEmail').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') handleAuth();
+        });
+
+        // ============================================
+        // شروع برنامه با بررسی خودکار
+        // ============================================
+
+        // ابتدا بررسی کن کاربر قبلاً وارد شده یا نه
+        if (!checkAutoLogin()) {
+            // اگر وارد نشده، صفحه ورود رو نشون بده
+            document.getElementById('authPage').style.display = 'block';
+        }
+
+        console.log('🚀 پیام‌رسان کامل با ذخیره نشست!');
+        console.log('💾 کاربر بعد از خروج و ورود مجدد ذخیره میشه');
+    </script>
+
+</body>
+</html>
