@@ -65,7 +65,6 @@
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
-        /* ===== لیست کشویی کاربران ===== */
         .user-select {
             width: 100%;
             padding: 10px 14px;
@@ -628,7 +627,6 @@
         <div class="sub" id="authSub">ورود به حساب کاربری</div>
         <div class="error" id="authError">خطا</div>
 
-        <!-- ===== لیست کشویی کاربران ===== -->
         <label>👤 انتخاب کاربر</label>
         <select class="user-select" id="userSelect" onchange="selectUser()">
             <option value="">— کاربر را انتخاب کنید —</option>
@@ -727,22 +725,23 @@
         }
 
         // ============================================
-        // کاربر پیش‌فرض برای گیت‌هاب
+        // کاربر پیش‌فرض (حذف نشدنی)
         // ============================================
 
         function initDefaultUser() {
             let users = getUsers();
-            if (users.length === 0) {
+            // اگر کاربر تست وجود نداشت، ایجادش کن
+            let testExists = users.some(u => u.email === 'test@test.com');
+            if (!testExists) {
                 users.push({
-                    id: 'u1',
+                    id: 'u_' + Date.now(),
                     email: 'test@test.com',
                     pass: '1234',
                     name: 'کاربر تست'
                 });
                 saveUsers(users);
-                console.log('✅ کاربر پیش‌فرض ساخته شد: test@test.com / 1234');
+                console.log('✅ کاربر تست ساخته شد: test@test.com / 1234');
             }
-            updateUserList();
         }
 
         // ============================================
@@ -754,7 +753,6 @@
             let select = document.getElementById('userSelect');
             let currentValue = select.value;
 
-            // حفظ انتخاب قبلی
             select.innerHTML = '<option value="">— کاربر را انتخاب کنید —</option>';
 
             users.forEach(u => {
@@ -764,7 +762,6 @@
                 select.appendChild(option);
             });
 
-            // اگر کاربر قبلی انتخاب شده بود، دوباره انتخابش کن
             if (currentValue) {
                 select.value = currentValue;
             }
@@ -780,7 +777,6 @@
 
             if (email) {
                 document.getElementById('authEmail').value = email;
-                // پیدا کردن رمز کاربر
                 let users = getUsers();
                 let user = users.find(u => u.email === email);
                 if (user) {
@@ -912,6 +908,8 @@
             document.getElementById('authError').classList.remove('show');
             document.getElementById('userSelect').value = '';
             document.getElementById('hintText').textContent = '💡 کاربر تست: test@test.com | رمز: 1234';
+            // حتماً لیست کاربران آپدیت بشه
+            updateUserList();
         }
 
         // ============================================
@@ -919,6 +917,7 @@
         // ============================================
 
         function checkAutoLogin() {
+            // اول کاربر تست رو بساز (اگر نباشه)
             initDefaultUser();
 
             let savedUser = getSession();
@@ -1396,7 +1395,6 @@
 
         if (!checkAutoLogin()) {
             document.getElementById('authPage').style.display = 'block';
-            // در حالت ورود، لیست کاربران رو نمایش بده
             document.getElementById('userSelect').style.display = 'block';
             document.querySelector('label[for="userSelect"]').style.display = 'block';
             updateUserList();
@@ -1404,6 +1402,7 @@
 
         console.log('🚀 پیام‌رسان کامل با لیست کاربران!');
         console.log('💡 کاربر تست: test@test.com / 1234');
+        console.log('✅ دیگر خطای "کاربر یافت نشد" نمی‌آید!');
     </script>
 
 </body>
