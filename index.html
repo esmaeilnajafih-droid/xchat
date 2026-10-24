@@ -486,6 +486,21 @@ body::after{
 .chat-search-item:hover{background:#e7f5e7;}
 @media(max-width:480px){.emoji-grid{grid-template-columns:repeat(7,1fr)}.emoji-item{font-size:22px}.img-lightbox{padding:10px}.lightbox-close,.lightbox-download{width:38px;height:38px;font-size:17px;top:12px}.lightbox-close{left:12px}.lightbox-download{right:12px}[dir="ltr"] .lightbox-close{left:auto;right:12px}[dir="ltr"] .lightbox-download{right:auto;left:12px}}
 body:has(.chat-room.active) .bottom-nav { display: none !important; }
+
+/* NEXOM GLOBAL FEATURE PACK — supplemental UI */
+
+.call-modal:not(.video-mode) #nx-screen-share-btn{display:none!important}.nx-sticker-message{font-size:54px;line-height:1.2;padding:8px 10px;filter:drop-shadow(0 6px 14px rgba(0,0,0,.18));}.nx-sticker-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}.nx-sticker-choice{aspect-ratio:1;border-radius:14px;border:1px solid rgba(164,195,240,.14);background:rgba(255,255,255,.05);font-size:29px;cursor:pointer}.nx-sticker-choice:hover{background:rgba(85,229,234,.12);border-color:#56e1e1}.nx-saved-row{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid rgba(173,197,240,.13);border-radius:15px;background:rgba(255,255,255,.035);margin:8px 0}.nx-saved-main{min-width:0;flex:1}.nx-saved-main b{font-size:12px;color:#dff8ff}.nx-saved-main p{font-size:12px;line-height:1.7;color:#e9efff;overflow-wrap:anywhere;margin:4px 0}.nx-saved-main small{font-size:10px;color:#8fa5c7}.nx-forward-list{display:grid;gap:7px;max-height:50vh;overflow:auto}.nx-forward-target{width:100%;display:flex;align-items:center;gap:11px;text-align:right;padding:11px;border-radius:13px;border:1px solid rgba(155,185,230,.14);background:rgba(255,255,255,.045);color:#f0f6ff;font-family:inherit;cursor:pointer}.nx-forward-target:hover{border-color:rgba(80,224,222,.5)}.nx-forward-target>span:nth-child(2){flex:1;min-width:0}.nx-forward-target b{display:block;font-size:13px}.nx-forward-target small{display:block;color:#9db0ce;font-size:10px;margin-top:3px}.nx-forward-avatar{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,rgba(72,213,210,.19),rgba(122,91,221,.25));font-size:19px}.nx-forward-arrow{font-size:18px;color:#72e3e5}.nx-chat-options{border:1px solid rgba(130,160,210,.2)!important;border-radius:12px!important}
+
+.nx-feature-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(3,7,18,.72);backdrop-filter:blur(14px);z-index:10050;overflow:auto}
+.nx-feature-modal.show{display:flex}
+.nx-feature-panel{width:min(100%,560px);max-height:min(88dvh,820px);overflow:auto;border:1px solid rgba(116,237,255,.2);border-radius:24px;background:linear-gradient(150deg,rgba(17,25,48,.98),rgba(10,15,31,.98));color:#eff6ff;box-shadow:0 28px 90px rgba(0,0,0,.5),0 0 40px rgba(74,222,255,.08);padding:20px;direction:rtl}
+.nx-feature-head{display:flex;align-items:center;gap:12px;margin-bottom:18px}.nx-feature-icon{width:44px;height:44px;border-radius:15px;display:grid;place-items:center;font-size:22px;background:linear-gradient(135deg,rgba(70,230,220,.2),rgba(164,105,255,.25));border:1px solid rgba(120,220,255,.22)}.nx-feature-title{font-size:18px;font-weight:900;flex:1}.nx-feature-close{border:1px solid rgba(255,255,255,.14);color:#dbeafe;background:rgba(255,255,255,.06);width:36px;height:36px;border-radius:12px;font-size:18px;cursor:pointer}
+.nx-feature-note{font-size:12px;color:#aab8d2;line-height:1.8;padding:10px 12px;border-radius:13px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);margin:0 0 14px}
+.nx-feature-panel label{display:block;font-size:12px;color:#c7d2fe;font-weight:700;margin:12px 0 6px}.nx-feature-panel input,.nx-feature-panel textarea,.nx-feature-panel select{width:100%;border:1px solid rgba(168,190,230,.18);background:rgba(4,9,24,.82);border-radius:13px;padding:12px 13px;color:#f8fafc;font-family:inherit;font-size:14px;outline:none;margin:0}.nx-feature-panel input:focus,.nx-feature-panel textarea:focus,.nx-feature-panel select:focus{border-color:#55e5ea;box-shadow:0 0 0 3px rgba(85,229,234,.1)}.nx-feature-panel textarea{min-height:82px;resize:vertical}.nx-feature-actions{display:flex;gap:9px;margin-top:18px;flex-wrap:wrap}.nx-feature-actions button,.nx-feature-btn{flex:1;min-width:100px;border:1px solid rgba(118,220,255,.22);border-radius:13px;padding:11px 14px;background:linear-gradient(120deg,#1b8d9b,#684fd1);color:white;font-family:inherit;font-weight:800;cursor:pointer}.nx-feature-actions .nx-secondary,.nx-feature-btn.nx-secondary{background:rgba(255,255,255,.055);color:#d8e7ff;border-color:rgba(255,255,255,.12)}.nx-feature-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.nx-feature-tile{border:1px solid rgba(169,195,244,.13);background:rgba(255,255,255,.045);border-radius:16px;padding:13px;text-align:right;color:#f8fafc;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:10px}.nx-feature-tile span:first-child{font-size:22px}.nx-feature-tile small{display:block;color:#9caecc;font-size:11px;margin-top:3px;line-height:1.5}.nx-feature-tile:hover{border-color:rgba(85,229,234,.45);background:rgba(85,229,234,.07)}
+.nx-poll-card,.nx-event-card,.nx-contact-card{min-width:min(290px,72vw);max-width:440px;padding:14px;border:1px solid rgba(98,210,227,.24);border-radius:18px;background:linear-gradient(145deg,rgba(27,49,74,.94),rgba(24,24,55,.94));color:#f2f7ff;box-shadow:0 10px 24px rgba(0,0,0,.12);margin:4px 0}.nx-poll-label{font-size:10px;letter-spacing:.08em;color:#70f1e8;font-weight:900;margin-bottom:7px}.nx-poll-question{font-size:15px;font-weight:900;margin-bottom:12px;line-height:1.7}.nx-poll-option{display:block;width:100%;text-align:right;margin:7px 0;padding:10px 11px;border:1px solid rgba(174,194,230,.17);border-radius:12px;background:rgba(255,255,255,.05);color:#f1f5f9;font-family:inherit;cursor:pointer;position:relative;overflow:hidden}.nx-poll-option:hover,.nx-poll-option.voted{border-color:#53e5dc;background:rgba(83,229,220,.09)}.nx-poll-option .nx-poll-meter{position:absolute;inset:0 auto 0 0;width:0;background:rgba(80,213,225,.12);pointer-events:none;transition:width .25s}.nx-poll-option .nx-poll-row{position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px}.nx-poll-count{font-size:11px;color:#98f1ec}.nx-poll-foot{font-size:10px;color:#9fb1cc;margin-top:9px}.nx-event-title{font-size:16px;font-weight:900;line-height:1.6;margin-bottom:8px}.nx-event-detail{font-size:12px;line-height:1.8;color:#cfdbef}.nx-event-rsvp{display:flex;gap:6px;margin-top:12px}.nx-event-rsvp button{flex:1;padding:8px 5px;border-radius:10px;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.06);color:#eaf3ff;font-family:inherit;font-size:11px;cursor:pointer}.nx-event-rsvp button.active{border-color:#65eadb;background:rgba(101,234,219,.12)}.nx-contact-head{display:flex;align-items:center;gap:10px}.nx-contact-avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#2dd4bf,#8b5cf6);font-size:20px}.nx-contact-name{font-weight:900}.nx-contact-number{font-size:12px;color:#a9bdd7;direction:ltr;text-align:right;margin-top:4px}.nx-contact-actions{display:flex;gap:7px;margin-top:12px}.nx-contact-actions button{flex:1;border:1px solid rgba(255,255,255,.13);border-radius:10px;padding:8px;background:rgba(255,255,255,.06);color:#eaf3ff;font-family:inherit;cursor:pointer}
+.nx-rich-text{line-height:1.85;overflow-wrap:anywhere;white-space:normal}.nx-rich-text a{color:#67e8f9;text-decoration:underline;text-underline-offset:3px}.nx-rich-text code{font-family:ui-monospace,monospace;background:rgba(4,8,20,.35);padding:2px 5px;border-radius:5px;direction:ltr;display:inline-block}.nx-rich-text pre{white-space:pre-wrap;direction:ltr;text-align:left;background:rgba(4,8,20,.4);padding:10px;border-radius:10px;overflow:auto}.nx-format-toggle{flex:0 0 40px!important;width:40px!important;min-width:40px;height:40px!important;border-radius:13px!important;border:1px solid rgba(135,165,220,.18)!important;background:rgba(125,145,200,.09)!important;color:#d7e8ff!important;font-size:14px!important;font-weight:900!important;cursor:pointer}.nx-format-toolbar{display:none;align-items:center;justify-content:flex-start;gap:7px;padding:8px 10px;background:rgba(12,19,39,.96);border-top:1px solid rgba(160,190,255,.1)}.nx-format-toolbar.show{display:flex}.nx-format-toolbar button{width:34px;height:32px;border-radius:9px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.06);color:#e8f1ff;font-family:inherit;cursor:pointer}.nx-chat-filter-row{display:flex;gap:7px;overflow:auto;padding:9px 12px 5px;scrollbar-width:none}.nx-chat-filter-row button{white-space:nowrap;border:1px solid rgba(118,156,201,.18);border-radius:999px;background:rgba(115,147,195,.07);color:var(--text);padding:7px 12px;font-family:inherit;font-size:11px;font-weight:800;cursor:pointer}.nx-chat-filter-row button.active{background:linear-gradient(120deg,#1b9d9b,#6955cf);border-color:transparent;color:#fff}.nx-video-msg{display:block;width:min(70vw,360px);max-height:360px;border-radius:13px;background:#050816}.nx-chat-room-nx-theme .nx-msg-day{color:#c8d8f0}.chat-room[data-nx-theme="ocean"] .messages-area{background:radial-gradient(circle at 10% 10%,rgba(27,164,193,.2),transparent 40%),linear-gradient(145deg,#0b1728,#111934)!important}.chat-room[data-nx-theme="aurora"] .messages-area{background:radial-gradient(circle at 75% 10%,rgba(132,82,255,.24),transparent 42%),radial-gradient(circle at 10% 85%,rgba(39,224,197,.16),transparent 40%),#101326!important}.chat-room[data-nx-theme="sunset"] .messages-area{background:radial-gradient(circle at 80% 15%,rgba(255,121,97,.19),transparent 42%),linear-gradient(145deg,#25152d,#1c243d)!important}.chat-room[data-nx-theme="midnight"] .messages-area{background:linear-gradient(145deg,#060914,#0e1428)!important}.chat-room[data-nx-theme="ocean"] .msg.mine,.chat-room[data-nx-theme="aurora"] .msg.mine,.chat-room[data-nx-theme="sunset"] .msg.mine,.chat-room[data-nx-theme="midnight"] .msg.mine{background:linear-gradient(135deg,rgba(35,73,111,.96),rgba(48,43,99,.96))!important;color:#f4f7ff!important;border:1px solid rgba(132,205,255,.15)}.chat-room[data-nx-theme="ocean"] .msg.other,.chat-room[data-nx-theme="aurora"] .msg.other,.chat-room[data-nx-theme="sunset"] .msg.other,.chat-room[data-nx-theme="midnight"] .msg.other{background:rgba(34,44,68,.95)!important;color:#f4f7ff!important;border:1px solid rgba(255,255,255,.07)}
+@media(max-width:520px){.nx-feature-panel{padding:15px;border-radius:20px}.nx-feature-grid{grid-template-columns:1fr 1fr}.nx-poll-card,.nx-event-card,.nx-contact-card{max-width:82vw}.nx-chat-filter-row{padding-inline:8px}}
+
 </style>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -519,6 +534,522 @@ html,body{height:100%;width:100%;overflow:hidden;font-family:'Vazirmatn',Tahoma,
 .auth-screen{position:fixed;inset:0;z-index:99999;background:#05061a;display:flex;justify-content:center;align-items:center;padding:20px;overflow-y:auto}
 .auth-screen.hidden{display:none!important}
 #app-root.hidden{display:none!important}
+</style>
+
+<style id="nexom-cinema-theme">
+/* ===== NEXOM CINEMA CALL THEME — neon glass / cinematic video stage ===== */
+:root{
+  --nx-ink:#060814;
+  --nx-panel:rgba(15,20,39,.82);
+  --nx-line:rgba(150,170,255,.19);
+  --nx-cyan:#55f2ff;
+  --nx-violet:#9b70ff;
+  --nx-mint:#67ffc3;
+  --nx-red:#ff426b;
+}
+.call-modal{
+  background:#070a14;
+  color:#f7f8ff;
+  isolation:isolate;
+  overflow:hidden;
+  padding:clamp(12px,2vw,26px);
+}
+.call-modal::before{
+  content:"";position:absolute;inset:-22%;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 12% 12%,rgba(73,90,255,.26),transparent 36%),
+    radial-gradient(ellipse at 86% 22%,rgba(0,234,255,.16),transparent 32%),
+    radial-gradient(ellipse at 52% 100%,rgba(136,64,255,.22),transparent 40%),
+    linear-gradient(145deg,#080b18 0%,#101328 45%,#070a14 100%);
+  animation:nxAurora 13s ease-in-out infinite alternate;
+}
+@keyframes nxAurora{0%{transform:translate3d(-1%,0,0) scale(1)}100%{transform:translate3d(1%,-1.5%,0) scale(1.06)}}
+.call-header{position:relative;z-index:2;flex-shrink:0;margin:0 auto 12px;padding:12px 24px;min-width:min(100%,280px);max-width:calc(100% - 16px);border:1px solid rgba(177,196,255,.16);border-radius:22px;background:linear-gradient(135deg,rgba(23,30,57,.83),rgba(10,15,30,.72));box-shadow:0 12px 35px #0005,inset 0 1px 0 #ffffff12;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+.call-title{font-size:clamp(17px,2vw,24px);line-height:1.45;font-weight:850;letter-spacing:.1px;color:#f8f9ff;text-shadow:0 0 24px #55f2ff24}
+.call-sub{font-size:12px;color:#aeb9d8;display:flex;align-items:center;justify-content:center;gap:7px}
+.call-sub::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#67ffc3;box-shadow:0 0 12px #67ffc3;flex-shrink:0}
+.call-participants{position:relative;z-index:1;min-height:0;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));grid-auto-rows:minmax(280px,1fr);align-content:stretch;gap:clamp(10px,1.5vw,18px);padding:8px clamp(0px,1vw,10px);scrollbar-width:thin;scrollbar-color:#5662a8 transparent}
+.call-participants::-webkit-scrollbar{width:6px}
+.call-participants::-webkit-scrollbar-thumb{background:linear-gradient(var(--nx-cyan),var(--nx-violet));border-radius:20px}
+.participant{position:relative;isolation:isolate;min-width:0;min-height:245px;overflow:hidden;border:1px solid rgba(167,184,255,.21);border-radius:25px;padding:18px 12px;background:radial-gradient(circle at 50% 25%,#1b2450 0%,#11152b 47%,#090c19 100%);color:#f8f9ff;box-shadow:0 18px 50px #0006,inset 0 1px 0 #ffffff12;transition:border-color .25s,box-shadow .25s,transform .25s}
+.participant::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(85,242,255,.43),transparent 35%,rgba(155,112,255,.42) 75%,transparent);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;z-index:3}
+.participant.speaking{border-color:rgba(103,255,195,.96);box-shadow:0 0 0 2px #67ffc32c,0 0 34px #67ffc33b,0 20px 60px #0008}
+.participant.speaking::before{background:linear-gradient(135deg,#67ffc3,transparent 30%,#55f2ff 60%,#9b70ff)}
+.participant-avatar{width:clamp(76px,9vw,122px);height:clamp(76px,9vw,122px);border:2px solid #ffffff3b;background:linear-gradient(145deg,#55f2ff,#7265ff 56%,#bc70ff);color:#080b18;box-shadow:0 0 0 8px #7d8cff0c,0 0 42px #746aff40;font-size:clamp(30px,4vw,48px);font-weight:900}
+.participant-muted{bottom:-4px;right:-5px;width:30px;height:30px;border:3px solid #151a32;background:linear-gradient(135deg,#ff426b,#d7184c);box-shadow:0 4px 12px #0006}
+.participant-name{position:relative;z-index:4;font-size:14px;font-weight:800;max-width:calc(100% - 24px);padding:7px 13px;border:1px solid #ffffff20;border-radius:12px;background:rgba(9,12,28,.72);color:#f7f8ff;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 5px 22px #0003}
+.call-controls{position:relative;z-index:4;flex-shrink:0;align-self:center;gap:14px;margin:10px auto 2px;padding:12px 18px;border:1px solid rgba(174,190,255,.18);border-radius:28px;background:linear-gradient(135deg,rgba(22,28,53,.9),rgba(9,13,28,.88));box-shadow:0 16px 45px #0007,inset 0 1px 0 #ffffff12;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+.call-btn{position:relative;width:58px;height:58px;border:1px solid #ffffff20;border-radius:21px;background:#202944;color:#fff;font-size:23px;box-shadow:0 8px 20px #0004;transition:transform .2s,box-shadow .2s,filter .2s}
+.call-btn:hover{transform:translateY(-3px);filter:brightness(1.15);box-shadow:0 12px 27px #0006}
+.call-btn:active{transform:scale(.95)}
+.call-btn.mic{background:linear-gradient(145deg,#18cbb1,#4b8eff);color:#fff;box-shadow:0 0 0 4px #55f2ff12,0 8px 26px #288fff4a}
+.call-btn.mic.muted{background:linear-gradient(145deg,#ff637d,#dc174e);box-shadow:0 0 0 4px #ff426b20,0 8px 28px #ff426b40}
+.call-btn.end{width:70px;height:58px;border-radius:21px;background:linear-gradient(135deg,#ff5d76,#e9164d);font-size:26px;box-shadow:0 0 0 4px #ff426b18,0 8px 28px #fa245440;transform:none}
+.call-btn.end:hover{transform:translateY(-3px) scale(1.02)}
+.call-status{position:relative;z-index:2;flex-shrink:0;padding:5px 12px 0;color:#aab5d7;font-size:12px;letter-spacing:.1px}
+/* Camera streams become immersive edge-to-edge cards */
+.call-modal.video-mode{background:#050711;color:#f7f8ff;padding:clamp(10px,1.6vw,22px);}
+.call-modal.video-mode .call-header{margin-bottom:8px;}
+.call-modal.video-mode .call-title{color:#f8f9ff;}
+.call-modal.video-mode .call-participants{flex:1;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));grid-auto-rows:minmax(clamp(280px,38vh,520px),1fr);align-content:stretch;gap:clamp(10px,1.4vw,18px);overflow-y:auto;}
+.call-modal.video-mode .participant{display:block;min-height:clamp(280px,38vh,520px);height:100%;padding:0;border-radius:26px;background:#10162a;box-shadow:0 22px 65px #0008;}
+.call-modal.video-mode .participant.has-video{min-height:clamp(280px,38vh,520px);}
+.call-modal.video-mode .participant.has-video video{position:absolute;inset:0;z-index:0;display:block;width:100%;height:100%;min-height:0;max-height:none;aspect-ratio:auto;object-fit:cover;border-radius:inherit;background:#03050b;margin:0;}
+.call-modal.video-mode .participant.has-video::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(2,5,14,.18) 0%,transparent 30%,transparent 62%,rgba(2,5,14,.78) 100%),linear-gradient(90deg,rgba(4,8,20,.16),transparent 45%,rgba(4,8,20,.08));}
+.call-modal.video-mode .participant.has-video .participant-name{position:absolute;right:16px;bottom:15px;left:auto;z-index:4;max-width:calc(100% - 32px);margin:0;padding:9px 14px;border:1px solid #ffffff32;border-radius:14px;background:rgba(5,9,24,.72);color:#fff;font-size:14px;text-align:right;box-shadow:0 8px 25px #0004;}
+.call-modal.video-mode .participant:not(.has-video){display:flex;align-items:center;justify-content:center;gap:18px;}
+.call-modal.video-mode .participant:not(.has-video) .participant-avatar{display:flex;width:clamp(90px,11vw,140px);height:clamp(90px,11vw,140px);font-size:clamp(34px,4vw,54px);}
+.call-modal.video-mode .participant:not(.has-video) .participant-name{font-size:15px;margin:0;}
+.call-modal.video-mode .call-controls{padding:12px 18px;margin-top:8px;}
+.call-modal.video-mode .call-status{color:#aeb9d8;}
+/* Extra polished audio-only view too */
+.call-modal:not(.video-mode) .call-participants{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));align-content:center;}
+.call-modal:not(.video-mode) .participant{min-height:190px;}
+/* Choice dialog */
+.call-choice-overlay{background:rgba(3,5,17,.78);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);}
+.call-choice-card{position:relative;isolation:isolate;overflow:hidden;width:min(100%,420px);padding:30px 26px 22px;border:1px solid rgba(170,190,255,.2);border-radius:30px;background:linear-gradient(145deg,rgba(20,27,54,.97),rgba(7,11,27,.98));color:#f7f8ff;box-shadow:0 28px 100px #000a,0 0 55px #6d65ff1f;animation:nxCardIn .42s cubic-bezier(.2,.9,.25,1.2) both;}
+.call-choice-card::before{content:"";position:absolute;inset:-35% -20%;z-index:-1;pointer-events:none;background:radial-gradient(circle at 10% 20%,#55f2ff22,transparent 35%),radial-gradient(circle at 95% 85%,#9b70ff2a,transparent 38%);}
+@keyframes nxCardIn{from{opacity:0;transform:translateY(20px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+.call-choice-card h3{font-size:clamp(21px,5vw,26px);font-weight:900;letter-spacing:-.4px;margin-bottom:8px;color:#fff;}
+.call-choice-card p{color:#aeb9d8;font-size:13px;line-height:1.9;margin-bottom:22px;}
+.call-choice-option{position:relative;overflow:hidden;gap:15px;margin:12px 0;padding:16px;border-radius:20px;border:1px solid rgba(162,180,255,.18);background:rgba(255,255,255,.035);color:#fff;transition:transform .22s,border-color .22s,background .22s,box-shadow .22s;}
+.call-choice-option::after{content:"›";font-family:Arial,sans-serif;font-size:30px;line-height:1;color:#8a9bca;margin-right:auto;transition:transform .2s,color .2s;}
+.call-choice-option:hover{transform:translateY(-2px);border-color:#55f2ff80;background:linear-gradient(110deg,#55f2ff0d,#9b70ff16);box-shadow:0 12px 30px #0004,0 0 24px #55f2ff0c;}
+.call-choice-option:hover::after{color:var(--nx-cyan);transform:translateX(-3px);}
+.call-choice-option .choice-icon{width:56px;height:56px;border-radius:18px;background:linear-gradient(145deg,#55f2ff,#7184ff 56%,#a66eff);color:#08101d;font-size:27px;box-shadow:0 6px 22px #55f2ff24;}
+.call-choice-option:nth-of-type(2) .choice-icon{background:linear-gradient(145deg,#a66eff,#f05fc8);box-shadow:0 6px 22px #a66eff30;}
+.call-choice-option strong{font-size:15px;font-weight:850;}
+.call-choice-option small{color:#aeb9d8;font-size:11.5px;line-height:1.8;}
+.call-choice-cancel{margin-top:4px;padding:11px 22px;border-radius:14px;color:#aeb9d8;transition:background .2s,color .2s;}
+.call-choice-cancel:hover{background:#ffffff0c;color:#fff;}
+@media(min-width:1000px){.call-modal.video-mode .call-participants{grid-template-columns:repeat(auto-fit,minmax(min(100%,560px),1fr));}}
+@media(max-width:600px){
+  .call-modal{padding:9px;}
+  .call-modal.video-mode{padding:8px;}
+  .call-modal.video-mode .call-header{padding:9px 16px;border-radius:18px;margin-bottom:6px;}
+  .call-modal.video-mode .call-participants{grid-template-columns:minmax(0,1fr);grid-auto-rows:minmax(clamp(250px,35vh,380px),1fr);gap:10px;padding:6px 0;}
+  .call-modal.video-mode .participant,.call-modal.video-mode .participant.has-video{min-height:clamp(250px,35vh,380px);border-radius:22px;}
+  .call-modal.video-mode .call-controls{gap:12px;padding:10px 14px;margin:6px auto 2px;border-radius:23px;}
+  .call-modal.video-mode .call-btn{width:52px;height:52px;border-radius:18px;}
+  .call-modal.video-mode .call-btn.end{width:64px;height:52px;}
+  .call-modal.video-mode .participant.has-video .participant-name{right:11px;bottom:11px;padding:7px 11px;font-size:12px;}
+  .call-choice-card{padding:25px 18px 18px;border-radius:26px;}
+  .call-choice-option{padding:13px;border-radius:17px;}
+}
+@media(prefers-reduced-motion:reduce){.call-modal::before,.call-choice-card{animation:none!important}.call-btn,.call-choice-option{transition:none!important}}
+
+</style>
+
+<style id="nexom-total-redesign">
+/* =========================================================
+   NEXOM / TOTAL VISUAL REDESIGN
+   Unified midnight, glass, cyan + violet design system
+   CSS-only layer: keeps existing IDs, handlers and services.
+   ========================================================= */
+:root{
+  --p:#63f5d4!important;
+  --p2:#8b7cff!important;
+  --p3:rgba(99,245,212,.12)!important;
+  --bg:#080b17!important;
+  --bg2:#0c1122!important;
+  --bubble-recv:rgba(22,29,51,.96)!important;
+  --bubble-sent:linear-gradient(135deg,rgba(30,177,176,.26),rgba(119,91,255,.26))!important;
+  --white:#101629!important;
+  --text:#edf3ff!important;
+  --mut:#99a7c2!important;
+  --border:rgba(151,174,228,.15)!important;
+  --err:#ff557a!important;
+  --nx-bg:#080b17;
+  --nx-panel:rgba(16,22,42,.78);
+  --nx-panel-solid:#11182d;
+  --nx-line:rgba(155,180,240,.16);
+  --nx-cyan:#63f5d4;
+  --nx-blue:#5cc8ff;
+  --nx-violet:#8b7cff;
+  --nx-pink:#ff6fba;
+  --nx-text:#f2f6ff;
+  --nx-muted:#9aa9c5;
+  --nx-shadow:0 20px 60px rgba(0,0,0,.28);
+}
+html,body{
+  background:#080b17!important;color:var(--nx-text)!important;
+  font-family:'Vazirmatn',Tahoma,sans-serif!important;
+  scrollbar-color:rgba(99,245,212,.35) rgba(255,255,255,.03);
+}
+body::before{
+  background:
+    radial-gradient(ellipse at 8% 12%,rgba(31,198,208,.15),transparent 34%),
+    radial-gradient(ellipse at 92% 18%,rgba(127,93,255,.18),transparent 31%),
+    radial-gradient(ellipse at 50% 100%,rgba(255,91,177,.08),transparent 42%),
+    linear-gradient(135deg,#080b17 0%,#0b1020 48%,#080b17 100%)!important;
+  z-index:0;
+}
+body::after{
+  background-image:linear-gradient(rgba(165,190,245,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(165,190,245,.025) 1px,transparent 1px)!important;
+  background-size:44px 44px!important;opacity:.48!important;z-index:0;
+}
+*{scrollbar-width:thin;scrollbar-color:rgba(99,245,212,.28) transparent}
+*::-webkit-scrollbar{width:6px;height:6px}
+*::-webkit-scrollbar-thumb{background:rgba(99,245,212,.26);border-radius:99px}
+*::-webkit-scrollbar-track{background:transparent}
+button,input,textarea,select{font-family:'Vazirmatn',Tahoma,sans-serif!important}
+button{transition:transform .18s ease,background .2s ease,border-color .2s ease,box-shadow .2s ease,color .2s ease}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid rgba(99,245,212,.78)!important;outline-offset:2px}
+.hidden{display:none!important}
+#app-root{isolation:isolate}
+
+/* Main pages and app frame */
+.page{
+  left:50%!important;right:auto!important;width:min(100%,1040px)!important;
+  max-width:1040px!important;transform:translateX(-50%)!important;
+  padding:22px 24px 118px!important;overflow-y:auto!important;
+  background:transparent!important;
+}
+.page.active{display:flex!important;animation:nxPageIn .24s ease both}
+@keyframes nxPageIn{from{opacity:.65}to{opacity:1}}
+.page::-webkit-scrollbar-thumb{background:rgba(99,245,212,.28)!important}
+.top-bar{
+  margin:-22px -24px 22px!important;padding:18px 22px!important;
+  background:rgba(10,15,31,.82)!important;
+  border:1px solid rgba(150,181,240,.1)!important;border-top:0!important;
+  border-radius:0 0 24px 24px!important;box-shadow:0 14px 38px rgba(0,0,0,.2)!important;
+  backdrop-filter:blur(22px)!important;-webkit-backdrop-filter:blur(22px)!important;
+}
+.app-title{text-align:center!important}
+.app-title h1{color:#f4f7ff!important;font-size:clamp(17px,2vw,21px)!important;font-weight:900!important;letter-spacing:-.5px}
+.app-title h1 span:last-child{filter:drop-shadow(0 0 10px rgba(99,245,212,.65))}
+.app-title p{color:#92a2c1!important;font-size:11px!important;letter-spacing:.3px}
+.icon-btn,.back-btn{
+  background:rgba(255,255,255,.045)!important;color:#dce8ff!important;
+  border:1px solid rgba(157,183,236,.13)!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.04)!important;
+}
+.icon-btn:hover,.back-btn:hover{background:rgba(99,245,212,.12)!important;color:var(--nx-cyan)!important;border-color:rgba(99,245,212,.3)!important;transform:translateY(-1px)}
+.icon-btn:active,.back-btn:active{transform:scale(.96)}
+.icon-btn svg{fill:currentColor!important}
+.lang-btn{
+  color:#06131b!important;background:linear-gradient(135deg,var(--nx-cyan),var(--nx-blue))!important;
+  border:0!important;border-radius:13px!important;padding:9px 14px!important;font-weight:900!important;
+  box-shadow:0 7px 22px rgba(57,218,220,.2)!important;
+}
+.lang-btn:hover{box-shadow:0 8px 28px rgba(57,218,220,.35)!important;transform:translateY(-1px)}
+
+/* Auth: premium landing card */
+.auth-screen{
+  background:#070a16!important;color:#f2f6ff!important;
+  background-image:radial-gradient(ellipse at 15% 12%,rgba(54,208,227,.14),transparent 36%),radial-gradient(ellipse at 88% 80%,rgba(140,94,255,.2),transparent 40%),linear-gradient(135deg,#070a16,#0c1022 55%,#080b18)!important;
+}
+.auth-screen::before{opacity:.19!important;background-size:180% 180%!important}
+.auth-screen::after{background:radial-gradient(circle at 18% 18%,rgba(99,245,212,.08),transparent 42%),radial-gradient(circle at 84% 75%,rgba(139,124,255,.12),transparent 42%)!important}
+.auth-card{
+  background:linear-gradient(155deg,rgba(20,29,55,.91),rgba(11,15,32,.92))!important;
+  border:1px solid rgba(123,212,240,.23)!important;border-radius:30px!important;
+  box-shadow:0 30px 100px rgba(0,0,0,.48),0 0 0 1px rgba(255,255,255,.025),0 0 70px rgba(72,111,245,.09)!important;
+  padding:42px 36px 34px!important;overflow:hidden;
+}
+.auth-card::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,transparent,var(--nx-cyan),var(--nx-violet),var(--nx-pink),transparent);opacity:.95}
+.auth-icon{background:linear-gradient(135deg,#42f2d2 0%,#47bff6 42%,#9671ff 76%,#ff71bd 100%)!important;box-shadow:0 12px 45px rgba(75,195,255,.24),inset 0 1px rgba(255,255,255,.4)!important;border-radius:27px!important}
+.auth-card h1{background:linear-gradient(90deg,#f1fbff,#78f5e3 38%,#9f9aff 72%,#ff92ce)!important;-webkit-background-clip:text!important;background-clip:text!important}
+.auth-subtitle{color:#9caaca!important}
+.auth-tabs{background:rgba(4,7,18,.58)!important;border:1px solid rgba(157,184,238,.13)!important;border-radius:16px!important}
+.auth-tab{color:#97a6c4!important}
+.auth-tab.active{background:linear-gradient(110deg,#3dd9d1,#4caeff 55%,#8d70ff)!important;color:#06131b!important;box-shadow:0 8px 22px rgba(65,183,234,.19)!important}
+.auth-card input{background:rgba(4,9,24,.65)!important;color:#f4f7ff!important;border:1px solid rgba(148,177,235,.2)!important;border-radius:15px!important}
+.auth-card input:focus{background:rgba(18,32,58,.82)!important;border-color:rgba(99,245,212,.66)!important;box-shadow:0 0 0 4px rgba(99,245,212,.09)!important}
+.auth-card input::placeholder{color:#687b9f!important}
+.auth-card button.submit-btn{background:linear-gradient(100deg,#58e7d1,#49bdf9 52%,#8a70ff)!important;color:#05121b!important;border-radius:15px!important;font-weight:900!important;box-shadow:0 12px 28px rgba(59,187,226,.2)!important}
+.auth-card button.submit-btn:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(59,187,226,.28)!important}
+.auth-note,.auth-card small{color:#8a9cbe!important}
+
+/* Home dashboard */
+.welcome-card{
+  position:relative;overflow:hidden;isolation:isolate;
+  background:linear-gradient(116deg,rgba(22,52,67,.93),rgba(26,31,63,.95) 54%,rgba(45,29,78,.91))!important;
+  border:1px solid rgba(103,221,226,.19)!important;border-radius:26px!important;padding:23px!important;
+  box-shadow:0 18px 45px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.055)!important;
+}
+.welcome-card::after{content:"";position:absolute;z-index:-1;left:-30px;top:-55px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(99,245,212,.16),transparent 70%);pointer-events:none}
+.welcome-avatar{width:66px!important;height:66px!important;border-radius:22px!important;background:linear-gradient(135deg,#5ef5d1,#54bafb 55%,#9873ff)!important;box-shadow:0 9px 28px rgba(65,200,226,.22),inset 0 1px rgba(255,255,255,.35)!important;border:1px solid rgba(255,255,255,.17)!important}
+.welcome-text h2{color:#f5f7ff!important;font-size:17px!important;font-weight:900!important}
+.welcome-text p{color:#a9b8d5!important;font-size:12px!important}
+.quick-actions{gap:12px!important;margin-bottom:16px!important}
+.quick-btn{
+  color:#eaf1ff!important;background:linear-gradient(150deg,rgba(20,28,51,.92),rgba(13,19,38,.9))!important;
+  border:1px solid rgba(143,169,223,.13)!important;border-radius:22px!important;padding:17px 8px!important;
+  box-shadow:0 12px 28px rgba(0,0,0,.13),inset 0 1px rgba(255,255,255,.035)!important;
+}
+.quick-btn:hover{transform:translateY(-4px)!important;border-color:rgba(99,245,212,.32)!important;box-shadow:0 18px 34px rgba(0,0,0,.22),0 0 24px rgba(99,245,212,.055)!important}
+.quick-icon{width:48px!important;height:48px!important;border-radius:17px!important;box-shadow:inset 0 1px rgba(255,255,255,.27),0 8px 20px rgba(0,0,0,.18)!important}
+.quick-icon.g{background:linear-gradient(135deg,#42d7ca,#208cba)!important}
+.quick-icon.ch{background:linear-gradient(135deg,#8c73ff,#614de0)!important}
+.quick-icon.ct{background:linear-gradient(135deg,#4daeff,#4160df)!important}
+.quick-icon.cv{background:linear-gradient(135deg,#e16cbc,#9a61f6)!important}
+.quick-icon.lb{background:linear-gradient(135deg,#56dfb1,#269d96)!important}
+.quick-icon.bot{background:linear-gradient(135deg,#ffae73,#ed6e8e)!important}
+.quick-icon.pay{background:linear-gradient(135deg,#f7ca69,#f18a56)!important}
+.quick-icon.edu{background:linear-gradient(135deg,#76a6ff,#7067f5)!important}
+.quick-label{color:#dfe8fb!important;font-size:12px!important;font-weight:700!important}
+.features-grid{gap:12px!important;margin:8px 0 18px!important}
+.feature-card{background:rgba(16,22,42,.81)!important;border:1px solid rgba(149,174,228,.12)!important;border-radius:20px!important;padding:15px!important;box-shadow:0 10px 28px rgba(0,0,0,.12)!important}
+.feature-icon{border-radius:14px!important;box-shadow:inset 0 1px rgba(255,255,255,.18)!important}
+.feature-text h4{color:#eaf0ff!important;font-size:12px!important}
+.feature-text p{color:#94a4c2!important;font-size:11px!important}
+
+/* Navigation dock */
+.bottom-nav{
+  left:50%!important;right:auto!important;transform:translateX(-50%)!important;
+  width:min(calc(100% - 28px),760px)!important;bottom:max(14px,env(safe-area-inset-bottom))!important;
+  background:rgba(11,16,32,.86)!important;border:1px solid rgba(158,184,242,.17)!important;
+  border-radius:24px!important;padding:9px 10px max(9px,env(safe-area-inset-bottom))!important;
+  box-shadow:0 18px 50px rgba(0,0,0,.4),inset 0 1px rgba(255,255,255,.055)!important;
+  backdrop-filter:blur(24px)!important;-webkit-backdrop-filter:blur(24px)!important;
+}
+.nav-item{color:#8392b1!important;border-radius:15px!important;gap:5px!important;padding:8px 5px!important}
+.nav-item.active,.nav-item:hover{color:var(--nx-cyan)!important;background:rgba(99,245,212,.075)!important}
+.nav-item svg{width:22px!important;height:22px!important;filter:drop-shadow(0 3px 8px rgba(0,0,0,.16))}
+.nav-item span{font-size:10px!important;font-weight:700!important}
+.center-circle{width:51px!important;height:51px!important;border:2px solid #151b32!important;margin-top:-24px!important;background:linear-gradient(135deg,#62f5d3,#4daeff 58%,#9274ff)!important;color:#06101a!important;box-shadow:0 6px 26px rgba(75,198,226,.32)!important;font-weight:900}
+
+/* Chat list, stories, tab strip */
+.stories-bar{background:rgba(14,20,39,.78)!important;border:1px solid rgba(150,177,234,.12)!important;border-radius:22px!important;padding:13px!important;gap:14px!important;box-shadow:0 12px 30px rgba(0,0,0,.12)!important}
+.story-avatar{border-color:rgba(99,245,212,.5)!important;background:linear-gradient(135deg,#60f1d3,#8273ff)!important}
+.story-name{color:#dce6fa!important}
+.action-buttons{gap:10px!important}
+.action-btn{background:rgba(19,27,49,.91)!important;color:#e0eaff!important;border:1px solid rgba(149,176,230,.14)!important;border-radius:16px!important;box-shadow:0 9px 22px rgba(0,0,0,.1)!important}
+.action-btn svg{fill:currentColor!important}
+.action-btn:hover{background:rgba(99,245,212,.1)!important;color:var(--nx-cyan)!important;border-color:rgba(99,245,212,.28)!important;transform:translateY(-2px)}
+.tabs{background:rgba(12,18,36,.78)!important;border:1px solid rgba(146,171,230,.12)!important;border-radius:17px!important;padding:5px!important;gap:6px!important;box-shadow:none!important}
+.tab{color:#99a9c6!important;border-radius:12px!important;font-weight:800!important}
+.tab.active{background:linear-gradient(110deg,rgba(99,245,212,.19),rgba(126,115,255,.19))!important;color:#dffff8!important;box-shadow:inset 0 0 0 1px rgba(99,245,212,.2)!important}
+.list-container{background:transparent!important;box-shadow:none!important;padding:0 0 18px!important;overflow-y:auto!important}
+.list-item{
+  background:linear-gradient(135deg,rgba(17,24,46,.91),rgba(13,19,37,.88))!important;
+  border:1px solid rgba(149,174,230,.105)!important;border-radius:18px!important;margin-bottom:8px!important;
+  padding:13px 15px!important;box-shadow:0 7px 18px rgba(0,0,0,.08)!important;
+}
+.list-item:hover{background:linear-gradient(135deg,rgba(23,40,60,.96),rgba(20,25,49,.95))!important;border-color:rgba(99,245,212,.22)!important;transform:translateX(-2px)}
+.list-item:active{background:rgba(36,54,78,.96)!important}
+.list-item.unread{background:linear-gradient(135deg,rgba(18,51,61,.92),rgba(26,27,58,.9))!important;border-color:rgba(99,245,212,.24)!important}
+.list-avatar{background:linear-gradient(135deg,#58e8d0,#4d9ef4 58%,#8b6fff)!important;box-shadow:0 5px 18px rgba(69,181,221,.15)!important;border:1px solid rgba(255,255,255,.13)!important}
+.list-name{color:#f0f5ff!important;font-size:13.5px!important}
+.list-last,.list-time,.list-preview,.list-info p{color:#93a4c3!important}
+.list-badge,.unread-badge,.list-count{background:linear-gradient(135deg,#5df0d1,#46b7f5)!important;color:#07131a!important;font-weight:900!important;box-shadow:0 4px 12px rgba(79,202,217,.16)!important}
+
+/* Global cards and secondary pages */
+#page-library,#page-bots,#page-payments,#page-education,#page-class-panel,#page-profile,#page-settings{color:#ecf2ff!important}
+#page-library #lib-list,#page-bots #bots-list,#page-education #edu-list,#cp-videos-list,#cp-members-list{background:transparent!important}
+#page-library #lib-list>*,#page-bots #bots-list>*,#page-education #edu-list>*,#cp-videos-list>*,#cp-members-list>*{
+  background:linear-gradient(145deg,rgba(19,27,49,.95),rgba(12,18,35,.95))!important;color:#eaf1ff!important;
+  border:1px solid rgba(149,174,230,.13)!important;border-radius:19px!important;box-shadow:0 12px 28px rgba(0,0,0,.14)!important;
+}
+#page-payments .welcome-card{margin-bottom:18px!important}
+#page-payments h3{color:var(--nx-cyan)!important}
+.pay-card,.operator-card,.settings-item,.profile-info-item,.settings-section .settings-item{
+  background:linear-gradient(145deg,rgba(18,26,48,.95),rgba(12,18,35,.95))!important;
+  color:#eaf1ff!important;border:1px solid rgba(149,174,230,.13)!important;border-radius:18px!important;
+  box-shadow:0 10px 24px rgba(0,0,0,.12)!important;
+}
+.operator-card:hover,.settings-item:hover{border-color:rgba(99,245,212,.28)!important;background:rgba(24,39,61,.96)!important;transform:translateY(-1px)}
+.operator-name,.pay-title,.settings-title,.profile-info-value{color:#edf3ff!important}
+.operator-desc,.settings-desc,.profile-info-label{color:#92a4c4!important}
+.settings-section h3{color:var(--nx-cyan)!important;font-weight:900!important;letter-spacing:.2px}
+.settings-icon{border-radius:14px!important;box-shadow:inset 0 1px rgba(255,255,255,.2)!important}
+.settings-arrow{color:#8394b6!important}
+.settings-select{background:rgba(4,9,23,.55)!important;border:1px solid rgba(151,180,236,.17)!important;color:#eaf1ff!important;border-radius:12px!important}
+.profile-avatar,#vp-avatar,#eg-avatar{border:2px solid rgba(99,245,212,.35)!important;box-shadow:0 10px 30px rgba(0,0,0,.22)!important}
+.profile-info-item{margin-bottom:8px!important}
+.feature-card,.settings-item,.operator-card,.pay-card{transition:transform .18s ease,border-color .18s ease,background .18s ease!important}
+
+/* Chat room */
+.chat-room{
+  background:#080b17!important;background-image:
+    radial-gradient(ellipse at 0% 0%,rgba(44,166,191,.1),transparent 38%),
+    radial-gradient(ellipse at 100% 100%,rgba(121,86,255,.1),transparent 37%)!important;
+  color:#edf4ff!important;
+}
+.chat-header{
+  background:rgba(11,17,34,.91)!important;color:#eef4ff!important;
+  border-bottom:1px solid rgba(152,180,239,.14)!important;box-shadow:0 9px 28px rgba(0,0,0,.16)!important;
+  backdrop-filter:blur(20px)!important;-webkit-backdrop-filter:blur(20px)!important;
+  padding:12px 16px!important;
+}
+.room-avatar{background:linear-gradient(135deg,#5cebd1,#4b9cf2 60%,#9272ff)!important;box-shadow:0 6px 18px rgba(70,190,220,.2)!important;border:1px solid rgba(255,255,255,.14)!important}
+.room-name{color:#f1f5ff!important;font-weight:900!important}
+.room-sub,#chat-status{color:#94a5c4!important}
+#pinned-bar{background:rgba(17,25,46,.96)!important;border-bottom:1px solid rgba(153,178,234,.13)!important;color:#dce7ff!important}
+#pinned-text{color:#b2c1dc!important}
+.messages-area{
+  background-image:radial-gradient(circle at 18% 20%,rgba(99,245,212,.035),transparent 25%),radial-gradient(circle at 86% 72%,rgba(139,124,255,.04),transparent 27%)!important;
+  padding:18px clamp(10px,2vw,28px) 22px!important;gap:9px!important;
+}
+.msg{border-radius:18px!important;padding:10px 14px!important;font-size:13.5px!important;line-height:1.75!important;box-shadow:0 7px 18px rgba(0,0,0,.12)!important;border:1px solid rgba(156,181,235,.09)!important}
+.msg.other{background:linear-gradient(145deg,rgba(25,33,57,.97),rgba(17,24,44,.97))!important;color:#edf3ff!important;border-bottom-right-radius:5px!important}
+.msg.mine{background:linear-gradient(130deg,rgba(26,159,157,.28),rgba(111,81,220,.3))!important;color:#f5ffff!important;border:1px solid rgba(99,245,212,.19)!important;border-bottom-left-radius:5px!important}
+.msg-sender{color:var(--nx-cyan)!important}
+.msg-time,.msg-meta,.msg-status{color:#9baac4!important}
+.reaction-badge{background:rgba(18,27,48,.96)!important;color:#e5eeff!important;border-color:rgba(145,174,232,.2)!important}
+.reaction-badge.mine{background:rgba(99,245,212,.12)!important;border-color:rgba(99,245,212,.36)!important}
+.reply-bar{background:rgba(15,22,42,.97)!important;color:#eaf1ff!important;border-top:1px solid rgba(151,179,237,.13)!important}
+.reply-bar-name{color:var(--nx-cyan)!important}
+.input-area{
+  background:rgba(10,16,32,.93)!important;border-top:1px solid rgba(152,178,236,.13)!important;
+  padding:10px 12px max(12px,env(safe-area-inset-bottom))!important;gap:8px!important;
+  backdrop-filter:blur(20px)!important;-webkit-backdrop-filter:blur(20px)!important;
+}
+.attach{background:rgba(255,255,255,.055)!important;color:#b8c7e2!important;border:1px solid rgba(149,177,235,.13)!important;border-radius:14px!important}
+.attach:hover{background:rgba(99,245,212,.12)!important;color:var(--nx-cyan)!important}
+.msg-input{background:rgba(19,27,49,.94)!important;color:#f0f5ff!important;border:1px solid rgba(150,179,238,.16)!important;border-radius:18px!important;padding:13px 16px!important}
+.msg-input:focus{background:rgba(23,34,60,.98)!important;border-color:rgba(99,245,212,.42)!important;box-shadow:0 0 0 3px rgba(99,245,212,.07)!important}
+.msg-input::placeholder{color:#8192b3!important}
+.send-btn{background:linear-gradient(135deg,#61f2d2,#51b9f4 56%,#8a72ff)!important;color:#07131b!important;box-shadow:0 7px 20px rgba(71,197,221,.2)!important}
+.send-btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(71,197,221,.28)!important}
+.rec-bar{background:rgba(14,20,39,.98)!important;border-top:1px solid var(--nx-line)!important;color:#edf3ff!important}
+.attach-menu,.emoji-picker,.msg-menu{background:rgba(15,22,42,.97)!important;color:#eaf1ff!important;border:1px solid rgba(151,178,234,.18)!important;box-shadow:0 18px 55px rgba(0,0,0,.4)!important;backdrop-filter:blur(22px)!important}
+.menu-item{color:#eaf1ff!important}
+.menu-item:hover{background:rgba(99,245,212,.09)!important}
+.emoji-tabs{background:rgba(8,13,28,.98)!important;border-color:var(--nx-line)!important}
+.emoji-tab:hover,.emoji-tab.active{background:linear-gradient(135deg,rgba(99,245,212,.25),rgba(139,124,255,.25))!important}
+.emoji-search{background:rgba(7,12,25,.9)!important;color:#fff!important}
+.emoji-item:hover{background:rgba(99,245,212,.12)!important}
+#channel-lock-msg{background:rgba(13,20,39,.96)!important;color:#98a9c7!important;border-color:var(--nx-line)!important}
+
+/* Forms, modal sheets, dropdowns */
+.modal-overlay,.search-modal{background:rgba(3,6,17,.77)!important;backdrop-filter:blur(14px)!important;-webkit-backdrop-filter:blur(14px)!important}
+.modal,.search-modal>div,.search-modal .search-modal-content{
+  background:linear-gradient(145deg,rgba(20,28,52,.98),rgba(10,15,31,.99))!important;
+  color:#edf3ff!important;border:1px solid rgba(150,180,239,.19)!important;border-radius:25px!important;
+  box-shadow:0 28px 90px rgba(0,0,0,.5),inset 0 1px rgba(255,255,255,.04)!important;
+}
+.modal h3,.modal h2{color:#f4f7ff!important;font-weight:900!important}
+.modal p,.modal small{color:#9aaaca!important}
+.modal label{color:#c7d4ec!important}
+.modal input,.modal textarea,.modal select,.search-modal input,.modal .input{
+  background:rgba(5,10,24,.78)!important;color:#f1f5ff!important;
+  border:1px solid rgba(149,178,237,.18)!important;border-radius:14px!important;
+}
+.modal input:focus,.modal textarea:focus,.modal select:focus,.search-modal input:focus{border-color:rgba(99,245,212,.55)!important;box-shadow:0 0 0 3px rgba(99,245,212,.08)!important}
+.modal input::placeholder,.modal textarea::placeholder{color:#7183a6!important}
+.btn-primary,.modal .btn-primary{
+  background:linear-gradient(100deg,#61f2d2,#4db9f5 56%,#8972ff)!important;color:#07131b!important;
+  border:0!important;border-radius:14px!important;font-weight:900!important;
+  box-shadow:0 8px 23px rgba(68,190,222,.16)!important;
+}
+.btn-primary:hover{transform:translateY(-2px)!important;box-shadow:0 12px 28px rgba(68,190,222,.24)!important}
+.btn-cancel{background:rgba(255,255,255,.055)!important;color:#b6c5df!important;border:1px solid rgba(149,176,232,.14)!important;border-radius:14px!important}
+.btn-cancel:hover{background:rgba(255,255,255,.09)!important}
+.tab.active,.search-tab.active{color:#eafffc!important}
+.privacy-option{background:rgba(5,10,24,.7)!important;color:#ecf3ff!important;border-color:rgba(149,176,232,.12)!important}
+.privacy-option:hover{background:rgba(99,245,212,.07)!important}
+.privacy-option.selected{background:rgba(99,245,212,.1)!important;border-color:rgba(99,245,212,.42)!important}
+.privacy-desc{color:#9aaaca!important}
+.search-result-item,.chat-search-item{background:rgba(12,19,37,.92)!important;color:#eaf1ff!important;border:1px solid rgba(149,176,232,.13)!important;border-radius:14px!important}
+.search-result-item:hover,.chat-search-item:hover{background:rgba(29,42,65,.96)!important}
+.search-result-btn.join{background:linear-gradient(100deg,#61f2d2,#4db9f5)!important;color:#06131b!important}
+.search-result-btn.joined{background:rgba(99,245,212,.12)!important;color:var(--nx-cyan)!important}
+.search-empty,.messages-empty{color:#9eafcc!important}
+.search-empty h3,.messages-empty p{color:#e5eeff!important}
+
+/* Call chooser and video calling */
+.call-choice-overlay{background:rgba(3,6,17,.8)!important;backdrop-filter:blur(16px)!important}
+.call-choice-card{
+  background:linear-gradient(145deg,rgba(21,30,55,.98),rgba(9,14,30,.99))!important;color:#f3f6ff!important;
+  border:1px solid rgba(99,245,212,.2)!important;border-radius:28px!important;
+  box-shadow:0 30px 100px rgba(0,0,0,.55),0 0 70px rgba(109,102,255,.09)!important;
+  padding:25px!important;position:relative;overflow:hidden;
+}
+.call-choice-card::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--nx-cyan),var(--nx-blue),var(--nx-violet),var(--nx-pink))}
+.call-choice-card h3{color:#f5f8ff!important;font-size:20px!important;font-weight:900!important}
+.call-choice-card p{color:#9baaca!important}
+.call-choice-option{background:rgba(255,255,255,.035)!important;border:1px solid rgba(148,177,235,.15)!important;border-radius:18px!important;color:#f2f6ff!important}
+.call-choice-option:hover{background:rgba(99,245,212,.08)!important;border-color:rgba(99,245,212,.36)!important;transform:translateY(-2px)!important}
+.call-choice-option .choice-icon{background:linear-gradient(135deg,rgba(99,245,212,.2),rgba(139,124,255,.2))!important;color:#77f8e0!important;border:1px solid rgba(99,245,212,.18)!important;border-radius:15px!important}
+.call-choice-option strong{color:#eff8ff!important}
+.call-choice-option small{color:#9bacca!important}
+.call-choice-cancel{color:#9bacca!important}
+.call-modal{background:#070a15!important;color:#f4f7ff!important}
+.call-modal.video-mode{background:#060914!important;color:#f4f7ff!important}
+.call-header{background:transparent!important}
+.call-title{color:#f4f8ff!important;font-size:clamp(18px,3vw,26px)!important;font-weight:900!important}
+.call-sub{color:#9aacca!important}
+.call-status{color:#9beedf!important}
+.call-participants{gap:14px!important;padding:12px 0!important;align-content:center!important}
+.participant{background:linear-gradient(145deg,rgba(20,28,51,.98),rgba(11,16,32,.98))!important;color:#f1f6ff!important;border:1px solid rgba(150,178,236,.15)!important;border-radius:22px!important;box-shadow:0 17px 45px rgba(0,0,0,.26)!important;overflow:hidden!important}
+.participant.speaking{border:2px solid #63f5d4!important;box-shadow:0 0 0 3px rgba(99,245,212,.08),0 0 30px rgba(99,245,212,.14)!important}
+.participant-avatar{background:linear-gradient(135deg,#5cebd1,#4d9ff4 58%,#9171ff)!important;color:#06131b!important;box-shadow:0 8px 24px rgba(65,192,224,.18)!important}
+.participant-muted{background:#ff4c7a!important;border:2px solid #11182e!important}
+.participant-name{color:#ecf4ff!important;font-size:13px!important;font-weight:800!important}
+.call-controls{padding:18px 0 max(18px,env(safe-area-inset-bottom))!important;gap:14px!important}
+.call-btn{background:rgba(255,255,255,.09)!important;color:#ecf5ff!important;border:1px solid rgba(151,179,236,.16)!important;box-shadow:0 8px 25px rgba(0,0,0,.2)!important}
+.call-btn:hover{transform:translateY(-3px)!important;background:rgba(99,245,212,.13)!important}
+.call-btn.mic{background:rgba(255,255,255,.09)!important}
+.call-btn.end{background:linear-gradient(135deg,#ff5078,#e52d62)!important;color:#fff!important;border:0!important;box-shadow:0 9px 25px rgba(245,52,99,.3)!important}
+.call-btn.end:hover{background:linear-gradient(135deg,#ff6b8a,#e52d62)!important}
+.call-modal.video-mode .participant{padding:0!important;min-height:clamp(260px,35vh,430px)!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:center!important}
+.call-modal.video-mode .participant video{width:100%!important;height:100%!important;min-height:clamp(240px,34vh,380px)!important;max-height:none!important;aspect-ratio:16/9!important;object-fit:cover!important;border-radius:0!important;background:#02040a!important;margin:0!important;flex:1!important}
+.call-modal.video-mode .participant-name{padding:11px 12px!important;text-align:center!important;background:rgba(10,15,30,.96)!important}
+.call-modal.video-mode .participant:not(.has-video) .participant-avatar{width:clamp(76px,9vw,112px)!important;height:clamp(76px,9vw,112px)!important;margin:20px auto!important}
+.call-modal.video-mode .participant:not(.has-video){min-height:clamp(260px,35vh,430px)!important}
+
+/* Stories, status, profile and miscellaneous overlays */
+.story-viewer{background:rgba(2,4,12,.98)!important}
+.story-head,.story-header{background:linear-gradient(180deg,rgba(5,7,17,.72),transparent)!important}
+.story-head-name,.story-head-time{color:#f3f6ff!important}
+.story-nav,.lightbox-close,.lightbox-download{background:rgba(18,26,48,.78)!important;color:#edf5ff!important;border-color:rgba(153,183,240,.2)!important;backdrop-filter:blur(16px)!important}
+.lightbox-download:hover{background:rgba(99,245,212,.2)!important;border-color:rgba(99,245,212,.36)!important}
+#virtual-class{background:#080b17!important;color:#edf3ff!important}
+#virtual-class .vc-header,#virtual-class .vc-panel,#virtual-class .vc-board-tools{background:rgba(14,20,39,.94)!important;color:#edf3ff!important;border-color:var(--nx-line)!important}
+#virtual-class .vc-tab,#virtual-class .vc-tool-btn,#virtual-class .vc-ctrl{background:rgba(255,255,255,.06)!important;color:#dce8ff!important;border-color:var(--nx-line)!important}
+#virtual-class .vc-tab.active{background:rgba(99,245,212,.13)!important;color:var(--nx-cyan)!important}
+#vc-live-status{color:var(--nx-cyan)!important}
+#vc-chat,#vc-students{color:#edf3ff!important}
+#vc-messages{color:#eaf1ff!important}
+#vc-write-note{background:rgba(5,10,24,.65)!important;color:#f1f5ff!important}
+#vc-board-wrap{background:#f8fbff!important;border-radius:14px!important}
+#vc-mic-btn,#vc-unlock-audio{background:linear-gradient(120deg,#61f2d2,#4db9f5)!important;color:#07131b!important}
+
+/* Fine details */
+::selection{background:rgba(99,245,212,.3);color:#fff}
+hr{border-color:rgba(149,176,232,.14)!important}
+.badge,.pill,.status-badge{border-radius:999px!important}
+@media(min-width:700px){
+  .page{padding:26px 30px 120px!important}
+  .top-bar{margin:-26px -30px 26px!important;padding:20px 28px!important}
+  .welcome-card{padding:27px!important}
+  .quick-actions{gap:14px!important}
+  .quick-btn{padding:21px 12px!important}
+  .features-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .call-participants{grid-template-columns:repeat(auto-fit,minmax(min(42%,360px),1fr))!important;align-content:center!important}
+}
+@media(max-width:699px){
+  .page{padding:14px 13px 110px!important}
+  .top-bar{margin:-14px -13px 15px!important;padding:13px 13px!important;border-radius:0 0 21px 21px!important}
+  .welcome-card{padding:17px!important;border-radius:21px!important}
+  .quick-actions{gap:8px!important}
+  .quick-btn{border-radius:17px!important;padding:12px 3px!important}
+  .quick-icon{width:41px!important;height:41px!important;border-radius:14px!important;font-size:18px!important}
+  .quick-label{font-size:10.5px!important}
+  .feature-card{padding:12px!important;border-radius:16px!important}
+  .bottom-nav{width:calc(100% - 20px)!important;bottom:max(7px,env(safe-area-inset-bottom))!important;border-radius:21px!important}
+  .nav-item span{font-size:9px!important}
+  .center-circle{width:46px!important;height:46px!important;margin-top:-19px!important;font-size:22px!important}
+  .auth-card{padding:35px 22px 27px!important;border-radius:26px!important}
+  .auth-icon{width:76px!important;height:76px!important;border-radius:23px!important;font-size:34px!important}
+  .action-btn{padding:10px 4px!important;font-size:11px!important}
+  .action-btn svg{width:19px!important;height:19px!important}
+  .list-item{padding:11px!important;border-radius:16px!important}
+  .list-avatar{width:48px!important;height:48px!important}
+  .msg{max-width:88%!important;font-size:13px!important}
+  .chat-header{padding:9px 10px!important;gap:7px!important}
+  .room-avatar{width:39px!important;height:39px!important}
+  .call-modal{padding:10px!important}
+  .call-modal.video-mode .call-participants{grid-template-columns:1fr!important;align-content:start!important;gap:11px!important}
+  .call-modal.video-mode .participant{min-height:clamp(220px,34vh,340px)!important}
+  .call-modal.video-mode .participant video{min-height:clamp(220px,34vh,340px)!important}
+  .call-modal.video-mode .call-controls{padding:9px 0 max(12px,env(safe-area-inset-bottom))!important}
+  .call-modal.video-mode .call-btn{width:54px!important;height:54px!important}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
 </style>
 </head>
 <body>
@@ -1208,7 +1739,7 @@ html,body{height:100%;width:100%;overflow:hidden;font-family:'Vazirmatn',Tahoma,
 <div class="call-header"><div class="call-title" id="call-title">📞 تماس</div><div class="call-sub" id="call-sub">در حال اتصال...</div></div>
 <div class="call-participants" id="call-participants"></div>
 <div class="call-status" id="call-status"></div>
-<div class="call-controls"><button class="call-btn mic" id="call-mic-btn">🎤</button><button class="call-btn end" id="call-end-btn">📞</button></div>
+<div class="call-controls"><button class="call-btn mic" id="call-mic-btn">🎤</button><button class="call-btn" id="nx-screen-share-btn" title="اشتراک صفحه" style="background:rgba(255,255,255,.12);color:#fff">🖥️</button><button class="call-btn end" id="call-end-btn">📞</button></div>
 </div>
 
 <div class="bottom-nav">
@@ -1345,6 +1876,7 @@ window.testNotification = async () => {
 
 function notifyNewMessage(msg) {
   if (msg.sender_email === myEmail) return;
+  if (typeof nxIsMutedMessage === 'function' && nxIsMutedMessage(msg)) return;
   if (document.hasFocus() && !document.hidden) {
     if (curChat) {
       if (curChat.type === 'private' && msg.sender_email === curChat.email) return;
@@ -1697,15 +2229,17 @@ window.closeRoom=()=>{
   if(inputArea) inputArea.style.display='flex';
   if(document.getElementById('page-chats')?.classList.contains('active'))renderList()
 };
-async function loadMsgs(){if(!curChat)return;let q;if(curChat.type==='private'){q=sb.from('messages').select('*').is('chat_id',null).or(`and(sender_email.eq.${myEmail},receiver_email.eq.${curChat.email}),and(sender_email.eq.${curChat.email},receiver_email.eq.${myEmail})`).order('created_at',{ascending:true})}else{q=sb.from('messages').select('*').eq('chat_id',curChat.id).order('created_at',{ascending:true})}const{data}=await q;const{data:myDeleted}=await sb.from('deleted_messages').select('message_id').eq('user_email',myEmail);const deletedIds=new Set((myDeleted||[]).map(d=>d.message_id));msgArea.innerHTML='';const visible=(data||[]).filter(m=>!deletedIds.has(m.id));if(!visible.length){const emptyDiv=document.createElement('div');emptyDiv.className='messages-empty';emptyDiv.innerHTML='<svg viewBox="0 0 200 200" fill="none"><circle cx="100" cy="100" r="90" stroke="rgba(91,174,110,.25)" stroke-width="2" fill="none"/><circle cx="100" cy="100" r="70" stroke="rgba(91,174,110,.15)" stroke-width="1.5" fill="none" stroke-dasharray="4 4"/><rect x="60" y="75" width="80" height="60" rx="12" fill="rgba(91,174,110,.15)" stroke="rgba(91,174,110,.5)" stroke-width="2"/><path d="M70 90h60M70 100h45M70 110h30" stroke="rgba(91,174,110,.6)" stroke-width="3" stroke-linecap="round"/><circle cx="150" cy="60" r="8" fill="#5bae6e" opacity=".6"/><circle cx="55" cy="140" r="6" fill="#7b3ff2" opacity=".5"/><circle cx="145" cy="150" r="5" fill="#ec4899" opacity=".5"/></svg><p>'+(lang==='fa'?'برای شروع یکی از گفتگوها را انتخاب کنید':'Pick a conversation to start')+'</p>';msgArea.appendChild(emptyDiv)}else{visible.forEach(m=>{addMsg(m)})}await markMessagesRead();await updateGroupChecks()}
+async function loadMsgs(){if(!curChat)return;let q;if(curChat.type==='private'){q=sb.from('messages').select('*').is('chat_id',null).or(`and(sender_email.eq.${myEmail},receiver_email.eq.${curChat.email}),and(sender_email.eq.${curChat.email},receiver_email.eq.${myEmail})`).order('created_at',{ascending:true})}else{q=sb.from('messages').select('*').eq('chat_id',curChat.id).order('created_at',{ascending:true})}const{data}=await q;const{data:myDeleted}=await sb.from('deleted_messages').select('message_id').eq('user_email',myEmail);const deletedIds=new Set((myDeleted||[]).map(d=>d.message_id));msgArea.innerHTML='';const visible=(data||[]).filter(m=>!deletedIds.has(m.id)&&!nxIsExpiredForCurrentChat(m));if(!visible.length){const emptyDiv=document.createElement('div');emptyDiv.className='messages-empty';emptyDiv.innerHTML='<svg viewBox="0 0 200 200" fill="none"><circle cx="100" cy="100" r="90" stroke="rgba(91,174,110,.25)" stroke-width="2" fill="none"/><circle cx="100" cy="100" r="70" stroke="rgba(91,174,110,.15)" stroke-width="1.5" fill="none" stroke-dasharray="4 4"/><rect x="60" y="75" width="80" height="60" rx="12" fill="rgba(91,174,110,.15)" stroke="rgba(91,174,110,.5)" stroke-width="2"/><path d="M70 90h60M70 100h45M70 110h30" stroke="rgba(91,174,110,.6)" stroke-width="3" stroke-linecap="round"/><circle cx="150" cy="60" r="8" fill="#5bae6e" opacity=".6"/><circle cx="55" cy="140" r="6" fill="#7b3ff2" opacity=".5"/><circle cx="145" cy="150" r="5" fill="#ec4899" opacity=".5"/></svg><p>'+(lang==='fa'?'برای شروع یکی از گفتگوها را انتخاب کنید':'Pick a conversation to start')+'</p>';msgArea.appendChild(emptyDiv)}else{visible.forEach(m=>{addMsg(m)})}await markMessagesRead();await updateGroupChecks()}
 function addMsg(m){
+  if(typeof nxIsExpiredForCurrentChat==='function'&&nxIsExpiredForCurrentChat(m))return;
   if(m.deleted_for_all){const d=document.createElement('div');d.className='msg deleted '+(m.sender_email===myEmail?'mine':'other');d.dataset.id=m.id;d.dataset.type='deleted';let h='';if(curChat.type!=='private'&&m.sender_email!==myEmail){const dispName=namesCache[m.sender_email]||m.sender_email.split('@')[0];h+=`<div class="msg-sender">${esc(dispName)}</div>`}h+=`<div class="msg-deleted-txt">🚫 ${t('deletedMsg')}</div>`;h+=`<div class="msg-actions" data-id="${m.id}">⋯</div>`;d.innerHTML=h;msgArea.appendChild(d);msgArea.scrollTop=msgArea.scrollHeight;setTimeout(()=>loadReactions(m.id),50);return}
   const d=document.createElement('div');d.className='msg '+(m.sender_email===myEmail?'mine':'other');d.dataset.id=m.id;d.dataset.type=m.message_type;let h='';if(curChat.type!=='private'&&m.sender_email!==myEmail){const dispName=namesCache[m.sender_email]||m.sender_email.split('@')[0];h+=`<div class="msg-sender" onclick="openProfile('${esc(m.sender_email)}')" style="cursor:pointer">${esc(dispName)}</div>`}
   if(m.reply_to_id){const rt=m.reply_to_type||'text';let rtx=m.reply_to_content;if(!rtx||!rtx.trim()){if(rt==='voice')rtx=t('voiceMsg');else if(rt==='image')rtx=t('imageMsg');else if(rt==='file')rtx=t('fileMsg');else rtx='...'}h+=`<div class="reply-preview" data-rid="${esc(m.reply_to_id)}"><div class="reply-name">${esc((m.reply_to_sender||'').split('@')[0])}</div><div class="reply-text">${esc(rtx)}</div></div>`}
   if(m.message_type==='voice'&&m.audio_url){const du=m.audio_duration||0;h+=`<div class="voice-wrap"><button class="voice-play" data-url="${esc(m.audio_url)}">▶</button><div class="voice-wave">${Array.from({length:18},()=>`<span style="height:${Math.random()*18+6}px"></span>`).join('')}</div><div class="voice-dur">${fmtT(du)}</div></div>`}
   else if(m.message_type==='image'&&m.file_url){h+=`<div class="img-msg"><img src="${esc(m.file_url)}" data-full="${esc(m.file_url)}"></div>`}
-  else if(m.message_type==='file'&&m.file_url){h+=`<div class="file-msg"><div class="file-icon">📄</div><div class="file-info"><div class="file-name">${esc(m.file_name||'file')}</div><div class="file-size">${fmtSz(m.file_size)}</div></div><a class="file-dl" href="${esc(m.file_url)}" download="${esc(m.file_name||'')}" target="_blank">⬇</a></div>`}
-  else{h+=`<div>${esc(m.content||'')}</div>`}
+  else if(m.message_type==='video'&&m.file_url){h+=`<div class="nx-video-wrap"><video class="nx-video-msg" src="${esc(m.file_url)}" controls playsinline preload="metadata"></video><div class="file-name">${esc(m.file_name||'ویدیو')}</div></div>`}
+  else if(m.message_type==='file'&&m.file_url){h+=`<div class="file-msg"><div class="file-icon">📄</div><div class="file-info"><div class="file-name">${esc(m.file_name||'file')}</div><div class="file-size">${fmtSz(m.file_size)}</div></div><a class="file-dl" href="${esc(m.file_url)}" download="${esc(m.file_name||'')}" target="_blank" rel="noopener">⬇</a></div>`}
+  else{h+=nxRenderMessageContent(m)}
   if(m.edited_at)h+=`<div class="msg-edited">${t('edited')}</div>`;
   if(m.sender_email===myEmail){if(curChat.type==='private'){const isRead=m.read_at?true:false;h+=`<div class="msg-meta">${isRead?'<span class="msg-check read">✓✓</span>':'<span class="msg-check sent">✓</span>'}</div>`}else{h+=`<div class="msg-meta" data-check="${m.id}"><span class="msg-check sent">✓</span></div>`}}
   h+=`<div class="msg-actions" data-id="${m.id}">⋯</div>`;d.innerHTML=h;msgArea.appendChild(d);msgArea.scrollTop=msgArea.scrollHeight;
@@ -1738,6 +2272,17 @@ async function loadReactions(msgId) {
   const msgEl = msgArea.querySelector(`[data-id="${msgId}"]`);
   if (!msgEl) return;
   const { data } = await sb.from('message_reactions').select('emoji,user_email').eq('message_id', msgId);
+  const pollCard = msgEl.querySelector('.nx-poll-card');
+  if (pollCard) {
+    const rows = data || []; const current = rows.find(r=>r.user_email===myEmail)?.emoji || '';
+    const counts = {}; rows.forEach(r=>{counts[r.emoji]=(counts[r.emoji]||0)+1});
+    const total = rows.filter(r=>NX_POLL_EMOJIS.includes(r.emoji)).length;
+    pollCard.querySelectorAll('.nx-poll-option').forEach(btn=>{const em=nxPollEmoji(Number(btn.dataset.nxPoll));const count=counts[em]||0;const pct=total?Math.round(count/total*100):0;btn.classList.toggle('voted',current===em);const c=btn.querySelector('.nx-poll-count');if(c)c.textContent=`${count} رأی · ${pct}%`;const m=btn.querySelector('.nx-poll-meter');if(m)m.style.width=pct+'%';});
+    const foot=pollCard.querySelector('.nx-poll-foot');if(foot)foot.textContent=`${total} رأی ثبت شده · برای تغییر رأی، گزینه دیگری بزن`;
+    return;
+  }
+  const eventCard = msgEl.querySelector('.nx-event-card');
+  if(eventCard){const rows=data||[];const current=rows.find(r=>r.user_email===myEmail)?.emoji||'';const counts={};rows.forEach(r=>counts[r.emoji]=(counts[r.emoji]||0)+1);eventCard.querySelectorAll('[data-nx-rsvp]').forEach(btn=>{const em=btn.dataset.nxRsvp;btn.classList.toggle('active',current===em);const base=btn.dataset.base||btn.textContent.replace(/\s*\(\d+\)$/,'');btn.dataset.base=base;btn.textContent=`${base} (${counts[em]||0})`;});return;}
   let wrapper = msgEl.querySelector('.reactions-wrap');
   if (!data || !data.length) { if (wrapper) wrapper.remove(); return; }
   if (!wrapper) { wrapper = document.createElement('div'); wrapper.className = 'reactions-wrap'; msgEl.appendChild(wrapper); }
@@ -1867,8 +2412,8 @@ function stopRec(c){if(!mr)return;if(mr.state!=='inactive')mr.stop();if(recTmr){
 document.getElementById('rec-cancel').onclick=()=>stopRec(true);
 document.getElementById('rec-send').onclick=async()=>{const du=Math.floor((Date.now()-recStart)/1000);stopRec(false);setTimeout(async()=>{if(!ac.length)return;if(!canISendToChat())return;const bl=new Blob(ac,{type:'audio/webm'});ac=[];mr=null;const fn=`voice-${myEmail.replace(/[^a-z0-9]/gi,'_')}-${Date.now()}.webm`;const{error:ue}=await sb.storage.from('voice-messages').upload(fn,bl,{contentType:'audio/webm'});if(ue){alert(t('error')+': '+ue.message);return}const{data:ud}=sb.storage.from('voice-messages').getPublicUrl(fn);let pl=curChat.type==='private'?{content:'',sender_email:myEmail,receiver_email:curChat.email,message_type:'voice',audio_url:ud.publicUrl,audio_duration:du}:{content:'',sender_email:myEmail,receiver_email:'',chat_id:curChat.id,message_type:'voice',audio_url:ud.publicUrl,audio_duration:du};if(replyTo){pl.reply_to_id=replyTo.id;pl.reply_to_content=replyTo.content;pl.reply_to_sender=replyTo.sender;pl.reply_to_type=replyTo.type}await sb.from('messages').insert(pl);cancelReply()},200)};
 const msgMenu=document.getElementById('msg-menu');
-msgArea.addEventListener('click',e=>{const ab=e.target.closest('.msg-actions');if(ab){e.stopPropagation();const id=ab.dataset.id;const d=ab.closest('.msg');const ty=d.dataset.type;const snd=d.classList.contains('mine')?myEmail:(curChat.type==='private'?curChat.email:'');const isMine=d.classList.contains('mine');const ct=d.querySelector('div:not(.msg-sender):not(.reply-preview):not(.msg-actions):not(.voice-wrap):not(.img-msg):not(.file-msg):not(.msg-meta):not(.msg-deleted-txt):not(.reactions-wrap)')?.textContent||'';menuTgt={id,ty,ct,snd,isMine};let h=`<button class="msg-menu-item reply" data-a="reply">↩ ${t('replyLabel')}</button>`;if(ty==='text'&&isMine)h+=`<button class="msg-menu-item" data-a="edit">${t('editLabel')}</button>`;if(curChat.type!=='private')h+=`<button class="msg-menu-item" data-a="pin">📌 سنجاق به بالا</button>`;h+=`<button class="msg-menu-item delete" data-a="delete">🗑️ ${t('delete')}</button>`;msgMenu.innerHTML=h;let items=3;if(ty==='text'&&isMine)items++;if(curChat.type!=='private')items++;const w=180,h2=items*45+16;let x=ab.getBoundingClientRect().left,y=ab.getBoundingClientRect().bottom+5;if(document.dir==='rtl')x=ab.getBoundingClientRect().right-w;x=Math.max(10,Math.min(x,innerWidth-w-10));y=Math.min(y,innerHeight-h2-10);msgMenu.style.top=y+'px';msgMenu.style.left=x+'px';msgMenu.classList.add('show');return}const vb=e.target.closest('.voice-play');if(vb){const u=vb.dataset.url;if(curAud){curAud.pause();curAud=null;document.querySelectorAll('.voice-play').forEach(b=>b.textContent='▶')}if(vb.textContent==='▶'){curAud=new Audio(u);curAud.play();vb.textContent='⏸';curAud.onended=()=>{vb.textContent='▶';curAud=null}}else{vb.textContent='▶'}}const im=e.target.closest('.img-msg img');if(im){openLightbox(im.dataset.full||im.src)}const rp=e.target.closest('.reply-preview');if(rp){const tid=rp.dataset.rid;const tm=msgArea.querySelector(`[data-id="${tid}"]`);if(tm){tm.scrollIntoView({behavior:'smooth',block:'center'});tm.style.background='rgba(91,174,110,.3)';setTimeout(()=>tm.style.background='',1500)}}});
-msgMenu.addEventListener('click',async e=>{const it=e.target.closest('.msg-menu-item');if(!it||!menuTgt)return;const a=it.dataset.a;const{id,ty,ct,snd,isMine}=menuTgt;msgMenu.classList.remove('show');if(a==='edit'){const{data}=await sb.from('messages').select('content').eq('id',id).single();if(data){editId=id;document.getElementById('edit-inp').value=data.content;document.getElementById('edit-modal').classList.add('show')}}else if(a==='reply'){let rc=ct;if(ty==='voice'){const{data}=await sb.from('messages').select('audio_duration').eq('id',id).single();rc=t('voiceMsg')+' ('+fmtT(data?.audio_duration||0)+')'}else if(ty==='image')rc=t('imageMsg');else if(ty==='file'){const{data}=await sb.from('messages').select('file_name').eq('id',id).single();rc=t('fileMsg')+' '+(data?.file_name||'')}else if(ty==='deleted')rc=t('deletedMsg');replyTo={id,sender:snd,content:rc,type:ty};document.getElementById('reply-bar-name').textContent=snd.split('@')[0];document.getElementById('reply-bar-text').textContent=rc;document.getElementById('reply-bar').classList.add('show');msgIn.focus()}else if(a==='pin'){if(curChat.type==='private')return;const txt=ct||(ty==='voice'?'پیام صوتی':ty==='image'?'عکس':ty==='file'?'فایل':'');await sb.from('chats').update({pinned_message_id:id,pinned_message_text:txt}).eq('id',curChat.id);curChat.data.pinned_message_id=id;curChat.data.pinned_message_text=txt;showPinnedBar(txt,id);alert('📌 پیام سنجاق شد!')}else if(a==='delete'){if(isMine){const choice=confirm(t('deleteConfirmAll'));if(choice){const{error}=await sb.from('messages').update({deleted_for_all:true,content:null,file_url:null,audio_url:null,file_name:null}).eq('id',id);if(error){alert(t('error')+': '+error.message);return}}else{await sb.from('deleted_messages').insert({message_id:id,user_email:myEmail});const el=msgArea.querySelector(`[data-id="${id}"]`);if(el)el.remove()}}else{if(!confirm(t('deleteConfirmMe')))return;await sb.from('deleted_messages').insert({message_id:id,user_email:myEmail});const el=msgArea.querySelector(`[data-id="${id}"]`);if(el)el.remove()}}});
+msgArea.addEventListener('click',e=>{const ab=e.target.closest('.msg-actions');if(ab){e.stopPropagation();const id=ab.dataset.id;const d=ab.closest('.msg');const ty=d.dataset.type;const snd=d.classList.contains('mine')?myEmail:(curChat.type==='private'?curChat.email:'');const isMine=d.classList.contains('mine');const ct=d.querySelector('div:not(.msg-sender):not(.reply-preview):not(.msg-actions):not(.voice-wrap):not(.img-msg):not(.file-msg):not(.msg-meta):not(.msg-deleted-txt):not(.reactions-wrap)')?.textContent||'';menuTgt={id,ty,ct,snd,isMine};let h=`<button class="msg-menu-item reply" data-a="reply">↩ ${t('replyLabel')}</button><button class="msg-menu-item" data-a="save">⭐ ذخیره پیام</button><button class="msg-menu-item" data-a="forward">↪️ بازفرستادن</button><button class="msg-menu-item" data-a="copy">📋 کپی متن</button><button class="msg-menu-item" data-a="translate">🌐 ترجمه متن</button>`;if(ty==='text'&&isMine)h+=`<button class="msg-menu-item" data-a="edit">${t('editLabel')}</button>`;if(curChat.type!=='private')h+=`<button class="msg-menu-item" data-a="pin">📌 سنجاق به بالا</button>`;h+=`<button class="msg-menu-item delete" data-a="delete">🗑️ ${t('delete')}</button>`;msgMenu.innerHTML=h;let items=7;if(ty==='text'&&isMine)items++;if(curChat.type!=='private')items++;const w=180,h2=items*45+16;let x=ab.getBoundingClientRect().left,y=ab.getBoundingClientRect().bottom+5;if(document.dir==='rtl')x=ab.getBoundingClientRect().right-w;x=Math.max(10,Math.min(x,innerWidth-w-10));y=Math.min(y,innerHeight-h2-10);msgMenu.style.top=y+'px';msgMenu.style.left=x+'px';msgMenu.classList.add('show');return}const vb=e.target.closest('.voice-play');if(vb){const u=vb.dataset.url;if(curAud){curAud.pause();curAud=null;document.querySelectorAll('.voice-play').forEach(b=>b.textContent='▶')}if(vb.textContent==='▶'){curAud=new Audio(u);curAud.play();vb.textContent='⏸';curAud.onended=()=>{vb.textContent='▶';curAud=null}}else{vb.textContent='▶'}}const im=e.target.closest('.img-msg img');if(im){openLightbox(im.dataset.full||im.src)}const rp=e.target.closest('.reply-preview');if(rp){const tid=rp.dataset.rid;const tm=msgArea.querySelector(`[data-id="${tid}"]`);if(tm){tm.scrollIntoView({behavior:'smooth',block:'center'});tm.style.background='rgba(91,174,110,.3)';setTimeout(()=>tm.style.background='',1500)}}});
+msgMenu.addEventListener('click',async e=>{const it=e.target.closest('.msg-menu-item');if(!it||!menuTgt)return;const a=it.dataset.a;const{id,ty,ct,snd,isMine}=menuTgt;msgMenu.classList.remove('show');if(a==='edit'){const{data}=await sb.from('messages').select('content').eq('id',id).single();if(data){editId=id;document.getElementById('edit-inp').value=data.content;document.getElementById('edit-modal').classList.add('show')}}else if(a==='reply'){let rc=ct;if(ty==='voice'){const{data}=await sb.from('messages').select('audio_duration').eq('id',id).single();rc=t('voiceMsg')+' ('+fmtT(data?.audio_duration||0)+')'}else if(ty==='image')rc=t('imageMsg');else if(ty==='file'){const{data}=await sb.from('messages').select('file_name').eq('id',id).single();rc=t('fileMsg')+' '+(data?.file_name||'')}else if(ty==='deleted')rc=t('deletedMsg');replyTo={id,sender:snd,content:rc,type:ty};document.getElementById('reply-bar-name').textContent=snd.split('@')[0];document.getElementById('reply-bar-text').textContent=rc;document.getElementById('reply-bar').classList.add('show');msgIn.focus()}else if(a==='pin'){if(curChat.type==='private')return;const txt=ct||(ty==='voice'?'پیام صوتی':ty==='image'?'عکس':ty==='file'?'فایل':'');await sb.from('chats').update({pinned_message_id:id,pinned_message_text:txt}).eq('id',curChat.id);curChat.data.pinned_message_id=id;curChat.data.pinned_message_text=txt;showPinnedBar(txt,id);alert('📌 پیام سنجاق شد!')}else if(a==='save'){await nxSaveMessage(id); }else if(a==='forward'){nxOpenForwardModal(id);}else if(a==='copy'){const tx=await nxGetMessageCopyText(id);if(tx){try{await navigator.clipboard.writeText(tx);nxToast('متن پیام کپی شد')}catch(e){prompt('متن پیام را کپی کن',tx)}}}else if(a==='translate'){const tx=menuTgt?.ct||await nxGetMessageCopyText(id);if(tx)window.open('https://translate.google.com/?sl=auto&tl=fa&text='+encodeURIComponent(tx)+'&op=translate','_blank','noopener')}else if(a==='delete'){if(isMine){const choice=confirm(t('deleteConfirmAll'));if(choice){const{error}=await sb.from('messages').update({deleted_for_all:true,content:null,file_url:null,audio_url:null,file_name:null}).eq('id',id);if(error){alert(t('error')+': '+error.message);return}}else{await sb.from('deleted_messages').insert({message_id:id,user_email:myEmail});const el=msgArea.querySelector(`[data-id="${id}"]`);if(el)el.remove()}}else{if(!confirm(t('deleteConfirmMe')))return;await sb.from('deleted_messages').insert({message_id:id,user_email:myEmail});const el=msgArea.querySelector(`[data-id="${id}"]`);if(el)el.remove()}}});
 document.addEventListener('click',e=>{if(!msgMenu.classList.contains('show'))return;if(e.target.closest('#msg-menu')||e.target.closest('.msg-actions'))return;msgMenu.classList.remove('show')});
 function cancelReply(){replyTo=null;document.getElementById('reply-bar')?.classList.remove('show')}
 document.getElementById('reply-close').onclick=cancelReply;
@@ -1992,8 +2537,9 @@ window.startCall=async(roomName,displayName,callType,mode='audio')=>{if(!roomNam
 window.startCallFromChat=()=>{const btn=document.getElementById('call-start-btn');if(!btn.dataset.room){alert(t('error'));return}document.getElementById('call-choice-overlay').classList.add('show')};
 function renderParticipants(){if(!lkRoom)return;const cont=document.getElementById('call-participants');cont.innerHTML='';const all=[lkRoom.localParticipant,...Array.from(lkRoom.remoteParticipants.values())];all.forEach(p=>{const isLocal=p===lkRoom.localParticipant;const isSpeaking=p.isSpeaking;const isMuted=!p.isMicrophoneEnabled;const rawName=p.identity.split('_')[0];const name=isLocal?t('you'):(namesCache[rawName]||rawName);const initial=(name||'?').charAt(0).toUpperCase();const d=document.createElement('div');d.className='participant'+(isSpeaking?' speaking':'');d.innerHTML=`<div class="participant-avatar">${initial}${isMuted?'<div class="participant-muted">🔇</div>':''}</div><div class="participant-name">${esc(name)}</div>`;for(const pub of p.trackPublications.values()){if(pub.kind==='video'&&pub.track){const video=pub.track.attach();video.autoplay=true;video.playsInline=true;video.muted=isLocal;d.classList.add('has-video');d.appendChild(video);video.play().catch(()=>{})}}cont.appendChild(d)})}
 window.toggleMic=async()=>{if(!lkRoom)return;const enabled=lkRoom.localParticipant.isMicrophoneEnabled;await lkRoom.localParticipant.setMicrophoneEnabled(!enabled);updateMicBtn();renderParticipants()};
+window.nxToggleScreenShare=async()=>{if(!lkRoom){nxToast('ابتدا تماس را شروع کن');return}try{if(!lkRoom.localParticipant.setScreenShareEnabled){nxToast('این نسخه از سرویس تماس اشتراک صفحه را پشتیبانی نمی‌کند');return}nxScreenShareOn=!nxScreenShareOn;await lkRoom.localParticipant.setScreenShareEnabled(nxScreenShareOn);const b=document.getElementById('nx-screen-share-btn');if(b){b.textContent=nxScreenShareOn?'🛑':'🖥️';b.style.background=nxScreenShareOn?'linear-gradient(135deg,#0f9f8f,#4e59d9)':'rgba(255,255,255,.12)'}renderParticipants();nxToast(nxScreenShareOn?'اشتراک صفحه فعال شد':'اشتراک صفحه متوقف شد')}catch(e){nxScreenShareOn=false;nxToast('اشتراک صفحه ناموفق بود؛ دسترسی مرورگر را بررسی کن');console.warn(e)}};document.getElementById('nx-screen-share-btn')?.addEventListener('click',()=>window.nxToggleScreenShare());
 function updateMicBtn(){const btn=document.getElementById('call-mic-btn');if(!lkRoom)return;if(lkRoom.localParticipant.isMicrophoneEnabled){btn.classList.remove('muted');btn.textContent='🎤'}else{btn.classList.add('muted');btn.textContent='🔇'}}
-window.endCall=async()=>{const room=lkRoom;lkRoom=null;try{if(room)await room.disconnect()}catch(e){}document.querySelectorAll('audio').forEach(a=>{if(a.srcObject)a.remove()});document.getElementById('call-modal').classList.remove('show','video-mode')};
+window.endCall=async()=>{const room=lkRoom;lkRoom=null;try{if(room)await room.disconnect()}catch(e){}document.querySelectorAll('audio').forEach(a=>{if(a.srcObject)a.remove()});document.getElementById('call-modal').classList.remove('show','video-mode');nxScreenShareOn=false;const sb=document.getElementById('nx-screen-share-btn');if(sb){sb.textContent='🖥️';sb.style.background='rgba(255,255,255,.12)'}};
 document.getElementById('call-mic-btn').onclick=toggleMic;
 document.getElementById('call-end-btn').onclick=endCall;
 
@@ -2260,6 +2806,89 @@ const globalMsgChannel = sb.channel('global-msg-notif')
     }
   })
   .subscribe();
+
+// ============================================================
+// NEXOM FEATURE EXPANSION — polls, forwarding, saved items, events,
+// scheduled messages, local chat themes, formatting, video & location
+// ============================================================
+const NX_POLL_PREFIX='[[NEXOM_POLL_V1]]';
+const NX_EVENT_PREFIX='[[NEXOM_EVENT_V1]]';
+const NX_CONTACT_PREFIX='[[NEXOM_CONTACT_V1]]';
+const NX_STICKER_PREFIX='[[NEXOM_STICKER_V1]]';
+const NX_POLL_EMOJIS=['1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣'];
+const NX_EVENT_EMOJIS=['✅','🤔','❌'];
+let nxUnreadOnly=false, nxPendingForwardId=null, nxScheduledBusy=new Set(), nxScreenShareOn=false;
+const nxStorage={get(k,fallback){try{const v=localStorage.getItem(k);return v?JSON.parse(v):fallback}catch(e){return fallback}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){console.warn('Nexom local storage:',e)} }};
+const nxUserKey=()=>String(myEmail||'guest').replace(/[^a-z0-9@._-]/gi,'_');
+const nxPrefsKey=()=>`nx_chat_preferences_${nxUserKey()}`;
+const nxSavedKey=()=>`nx_saved_messages_${nxUserKey()}`;
+const nxScheduledKey=()=>`nx_scheduled_messages_${nxUserKey()}`;
+const nxChatKey=()=>!curChat?'none':curChat.type==='private'?`private:${curChat.email}`:`chat:${curChat.id}`;
+const nxPrefsAll=()=>nxStorage.get(nxPrefsKey(),{});
+const nxCurrentPrefs=()=>nxPrefsAll()[nxChatKey()]||{theme:'default',muted:false,ttl:0,ttlSince:0};
+function nxPatchPrefs(patch){const all=nxPrefsAll();all[nxChatKey()]={...{theme:'default',muted:false,ttl:0,ttlSince:0},...(all[nxChatKey()]||{}),...patch};nxStorage.set(nxPrefsKey(),all);nxApplyChatPrefs();}
+function nxIsMutedMessage(msg){const key=msg.chat_id?`chat:${msg.chat_id}`:`private:${msg.sender_email}`;return !!(nxPrefsAll()[key]||{}).muted}
+function nxIsExpiredForCurrentChat(m){if(!curChat||!m)return false;const p=nxCurrentPrefs();if(!p.ttl||!p.ttlSince)return false;const when=new Date(m.created_at||0).getTime();const setAt=Number(p.ttlSince)||0;return when>=setAt && Date.now()-when>Number(p.ttl)*1000}
+function nxApplyChatPrefs(){if(!curChat)return;const p=nxCurrentPrefs();const el=document.getElementById('chat-room');if(el){if(p.theme&&p.theme!=='default')el.dataset.nxTheme=p.theme;else delete el.dataset.nxTheme;}const bar=document.getElementById('nx-chat-prefs-indicator');if(bar){bar.textContent=[p.muted?'🔕 بی‌صدا':'',p.ttl?`⏳ محوشدن محلی ${p.ttl/3600>=24?(p.ttl/86400)+' روز':(p.ttl/3600)+' ساعت'}`:''].filter(Boolean).join(' · ');bar.style.display=bar.textContent?'block':'none';}}
+function nxToast(msg){let t=document.getElementById('nx-toast');if(!t){t=document.createElement('div');t.id='nx-toast';t.style.cssText='position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:11000;background:rgba(12,20,40,.96);color:#e9faff;border:1px solid rgba(95,220,230,.35);border-radius:14px;padding:11px 16px;font:700 12px Vazirmatn,Tahoma,sans-serif;box-shadow:0 12px 35px #0005;max-width:90vw;text-align:center;';document.body.appendChild(t)}t.textContent=msg;t.style.opacity='1';clearTimeout(t._nxTimer);t._nxTimer=setTimeout(()=>{t.style.opacity='0'},2600)}
+function nxRichText(text){let x=esc(String(text||''));x=x.replace(/```([\s\S]*?)```/g,'<pre>$1</pre>').replace(/`([^`\n]+)`/g,'<code>$1</code>').replace(/\*\*([^*\n]+)\*\*/g,'<strong>$1</strong>').replace(/~~([^~\n]+)~~/g,'<del>$1</del>').replace(/(^|[\s>])_([^_\n]+)_/g,'$1<em>$2</em>');x=x.replace(/(https?:\/\/[^\s<]+)/g,(url)=>{let raw=url, tail='';while(/[.,!?،؛؟)\]]$/.test(raw)){tail=raw.slice(-1)+tail;raw=raw.slice(0,-1)}return `<a href="${raw}" target="_blank" rel="noopener noreferrer">${raw}</a>${tail}`});return `<div class="nx-rich-text">${x.replace(/\n/g,'<br>')}</div>`}
+function nxParsePayload(content,prefix){if(!content||!content.startsWith(prefix))return null;try{return JSON.parse(content.slice(prefix.length))}catch(e){return null}}
+function nxRenderMessageContent(m){const c=String(m?.content||'');const poll=nxParsePayload(c,NX_POLL_PREFIX);if(poll&&Array.isArray(poll.options)){return `<div class="nx-poll-card" data-nx-poll-card="1"><div class="nx-poll-label">NEXOM POLL · نظرسنجی</div><div class="nx-poll-question">${esc(poll.question||'نظرسنجی')}</div><div class="nx-poll-options">${poll.options.map((o,i)=>`<button class="nx-poll-option" data-nx-poll="${i}"><span class="nx-poll-meter"></span><span class="nx-poll-row"><span>${esc(o)}</span><b class="nx-poll-count">۰ رأی</b></span></button>`).join('')}</div><div class="nx-poll-foot">در حال بارگذاری رأی‌ها…</div></div>`}const ev=nxParsePayload(c,NX_EVENT_PREFIX);if(ev){const date=ev.date?new Date(ev.date):null;const dateText=date&&!isNaN(date)?date.toLocaleString('fa-IR',{dateStyle:'medium',timeStyle:'short'}):'زمان تعیین نشده';return `<div class="nx-event-card" data-nx-event-card="1"><div class="nx-poll-label">NEXOM EVENT · رویداد</div><div class="nx-event-title">📅 ${esc(ev.title||'رویداد')}</div><div class="nx-event-detail">🕒 ${esc(dateText)}${ev.place?`<br>📍 ${esc(ev.place)}`:''}${ev.details?`<br>${esc(ev.details)}`:''}</div><div class="nx-event-rsvp"><button data-nx-rsvp="✅" data-base="✅ می‌آیم">✅ می‌آیم (۰)</button><button data-nx-rsvp="🤔" data-base="🤔 شاید">🤔 شاید (۰)</button><button data-nx-rsvp="❌" data-base="❌ نمی‌آیم">❌ نمی‌آیم (۰)</button></div><div class="nx-feature-actions" style="margin-top:10px"><button class="nx-secondary" data-nx-calendar="1">📥 افزودن به تقویم</button></div></div>`}const ct=nxParsePayload(c,NX_CONTACT_PREFIX);if(ct){return `<div class="nx-contact-card"><div class="nx-contact-head"><div class="nx-contact-avatar">👤</div><div><div class="nx-contact-name">${esc(ct.name||'مخاطب')}</div><div class="nx-contact-number">${esc(ct.phone||'')}</div></div></div><div class="nx-contact-actions"><button data-nx-copy-phone="${esc(ct.phone||'')}">📋 کپی شماره</button><button data-nx-use-contact="${esc(ct.phone||'')}">💬 شروع گفتگو</button></div></div>`}const st=nxParsePayload(c,NX_STICKER_PREFIX);if(st){return `<div class="nx-sticker-message" title="استیکر نکسوم">${esc(st.emoji||'✨')}</div>`}return nxRichText(c)}
+function nxPollEmoji(i){return NX_POLL_EMOJIS[Math.max(0,Math.min(NX_POLL_EMOJIS.length-1,Number(i)||0))]}
+async function nxInsertMessage(content,extra={}){if(!curChat)return false;if(!canISendToChat())return false;const pl=curChat.type==='private'?{content,sender_email:myEmail,receiver_email:curChat.email,message_type:'text',...extra}:{content,sender_email:myEmail,receiver_email:'',chat_id:curChat.id,message_type:'text',...extra};if(replyTo){pl.reply_to_id=replyTo.id;pl.reply_to_content=replyTo.content;pl.reply_to_sender=replyTo.sender;pl.reply_to_type=replyTo.type}const{error}=await sb.from('messages').insert(pl);if(error){alert((typeof t==='function'?t('error'):'خطا')+': '+error.message);return false}cancelReply();return true}
+const nxModal=document.createElement('div');nxModal.id='nx-feature-modal';nxModal.className='nx-feature-modal';nxModal.setAttribute('role','dialog');nxModal.setAttribute('aria-modal','true');nxModal.innerHTML='<div class="nx-feature-panel"><div class="nx-feature-head"><div class="nx-feature-icon">⚡</div><div class="nx-feature-title">ابزارهای نکسوم</div><button class="nx-feature-close" type="button" data-nx-close>×</button></div><div class="nx-feature-body"></div></div>';document.body.appendChild(nxModal);
+function nxCloseModal(){nxModal.classList.remove('show');nxModal.querySelector('.nx-feature-body').innerHTML='';}
+function nxOpenModal(title,icon,body){nxModal.querySelector('.nx-feature-title').textContent=title;nxModal.querySelector('.nx-feature-icon').textContent=icon;nxModal.querySelector('.nx-feature-body').innerHTML=body;nxModal.classList.add('show');const first=nxModal.querySelector('input,textarea,select');if(first)setTimeout(()=>first.focus(),80)}
+nxModal.addEventListener('click',async e=>{if(e.target===nxModal||e.target.closest('[data-nx-close]')){nxCloseModal();return}const pollOpt=e.target.closest('.nx-poll-option');if(pollOpt){const msg=pollOpt.closest('.msg');if(msg){targetReactionMsgId=msg.dataset.id;await sendReaction(nxPollEmoji(pollOpt.dataset.nxPoll))}return}const rsvp=e.target.closest('[data-nx-rsvp]');if(rsvp){const msg=rsvp.closest('.msg');if(msg){targetReactionMsgId=msg.dataset.id;await sendReaction(rsvp.dataset.nxRsvp)}return}const cal=e.target.closest('[data-nx-calendar]');if(cal){const msg=cal.closest('.msg');const data=msg?await sb.from('messages').select('content').eq('id',msg.dataset.id).maybeSingle():{data:null};const ev=nxParsePayload(data?.data?.content,NX_EVENT_PREFIX);if(ev)nxDownloadCalendar(ev);return}const sticker=e.target.closest('[data-nx-sticker]');if(sticker){const emoji=sticker.dataset.nxSticker;if(await nxInsertMessage(NX_STICKER_PREFIX+JSON.stringify({emoji,createdAt:new Date().toISOString()}))){nxCloseModal();nxToast('استیکر ارسال شد')}return}const noteSelf=e.target.closest('[data-nx-self-chat]');if(noteSelf){nxCloseModal();openRoom('private',myEmail);return}const cp=e.target.closest('[data-nx-copy-phone]');if(cp){try{await navigator.clipboard.writeText(cp.dataset.nxCopyPhone);nxToast('شماره کپی شد')}catch(err){prompt('شماره مخاطب',cp.dataset.nxCopyPhone)}return}const use=e.target.closest('[data-nx-use-contact]');if(use){const phone=use.dataset.nxUseContact;nxCloseModal();const normalized=phone.replace(/\D/g,'');if(normalized){const target=normalized.startsWith('09')?normalized+'@nexom.local':normalized+'@nexom.local';openRoom('private',target)}return}const savedDel=e.target.closest('[data-nx-remove-saved]');if(savedDel){nxRemoveSaved(savedDel.dataset.nxRemoveSaved);nxShowSaved();return}const schedDel=e.target.closest('[data-nx-remove-sched]');if(schedDel){nxRemoveScheduled(schedDel.dataset.nxRemoveSched);nxShowScheduled();return}const target=e.target.closest('[data-nx-forward-target]');if(target){await nxForwardTo(target.dataset.nxForwardTarget);return}const theme=e.target.closest('[data-nx-theme]');if(theme){nxPatchPrefs({theme:theme.dataset.nxTheme});nxOpenChatSettings();return}const ttl=e.target.closest('[data-nx-ttl]');if(ttl){const seconds=Number(ttl.dataset.nxTtl)||0;nxPatchPrefs({ttl:seconds,ttlSince:seconds?Date.now():0});nxOpenChatSettings();return}const mute=e.target.closest('[data-nx-mute]');if(mute){nxPatchPrefs({muted:!nxCurrentPrefs().muted});nxOpenChatSettings();return}const fmt=e.target.closest('[data-nx-format]');if(fmt){nxApplyFormat(fmt.dataset.nxFormat);return}const action=e.target.closest('[data-nx-action]');if(action){const a=action.dataset.nxAction;if(a==='poll'){nxOpenPoll()}else if(a==='event'){nxOpenEvent()}else if(a==='contact'){nxOpenContactCard()}else if(a==='location'){nxShareLocation()}else if(a==='schedule'){nxOpenSchedule()}else if(a==='saved'){nxShowSaved()}else if(a==='scheduled'){nxShowScheduled()}else if(a==='settings'){nxOpenChatSettings()}else if(a==='video'){nxChooseVideo()}else if(a==='sticker'){nxOpenStickers()}else if(a==='features'){nxOpenFeatureHub()}else if(a==='unread'){nxUnreadOnly=!nxUnreadOnly;document.querySelectorAll('.nx-filter-unread').forEach(b=>b.classList.toggle('active',nxUnreadOnly));nxApplyUnreadFilter()}return}const submit=e.target.closest('[data-nx-submit]');if(submit){e.preventDefault();const a=submit.dataset.nxSubmit;if(a==='poll'){const q=nxModal.querySelector('#nx-poll-question')?.value.trim()||'';const options=[...nxModal.querySelectorAll('.nx-poll-option-input')].map(i=>i.value.trim()).filter(Boolean).slice(0,6);if(!q||options.length<2){alert('سؤال و حداقل دو گزینه وارد کن.');return}if(await nxInsertMessage(NX_POLL_PREFIX+JSON.stringify({question:q,options,createdAt:new Date().toISOString()}))){nxCloseModal();nxToast('نظرسنجی ارسال شد')}return}if(a==='event'){const title=nxModal.querySelector('#nx-event-title')?.value.trim()||'';const date=nxModal.querySelector('#nx-event-date')?.value||'';const place=nxModal.querySelector('#nx-event-place')?.value.trim()||'';const details=nxModal.querySelector('#nx-event-details')?.value.trim()||'';if(!title){alert('عنوان رویداد را بنویس.');return}if(await nxInsertMessage(NX_EVENT_PREFIX+JSON.stringify({title,date:date?new Date(date).toISOString():'',place,details,createdAt:new Date().toISOString()}))){nxCloseModal();nxToast('رویداد ارسال شد')}return}if(a==='contact'){const name=nxModal.querySelector('#nx-contact-name')?.value.trim()||'';const phone=nxModal.querySelector('#nx-contact-phone')?.value.trim()||'';if(!name||!phone){alert('نام و شماره را وارد کن.');return}if(await nxInsertMessage(NX_CONTACT_PREFIX+JSON.stringify({name,phone}))){nxCloseModal();nxToast('کارت مخاطب ارسال شد')}return}if(a==='schedule'){const content=nxModal.querySelector('#nx-schedule-content')?.value.trim()||'';const whenValue=nxModal.querySelector('#nx-schedule-time')?.value||'';const when=new Date(whenValue).getTime();if(!content||!whenValue||!Number.isFinite(when)||when<Date.now()+10000){alert('متن و زمان آینده را وارد کن.');return}const list=nxStorage.get(nxScheduledKey(),[]);list.push({id:'nxsch_'+Date.now()+'_'+Math.random().toString(36).slice(2),content,when,createdAt:Date.now(),target:{type:curChat.type,id:curChat.id||null,email:curChat.email||null,name:curChat.name||document.getElementById('room-name')?.textContent||''}});nxStorage.set(nxScheduledKey(),list);nxCloseModal();nxToast('پیام زمان‌بندی شد؛ برای ارسال خودکار باید نکسوم باز باشد.');return}}});
+function nxOpenFeatureHub(){if(!curChat){alert('اول یک گفتگو را باز کن.');return}nxOpenModal('قابلیت‌های بیشتر','✦',`<p class="nx-feature-note">قابلیت‌های اضافه‌شده بر پایه الگوهای پیام‌رسان‌های مطرح: همکاری، برنامه‌ریزی، اشتراک محتوا و کنترل‌های شخصی.</p><div class="nx-feature-grid"><button class="nx-feature-tile" data-nx-action="poll"><span>📊</span><span>نظرسنجی<small>رأی‌گیری در گفتگو</small></span></button><button class="nx-feature-tile" data-nx-action="event"><span>📅</span><span>رویداد<small>دعوت و ثبت حضور</small></span></button><button class="nx-feature-tile" data-nx-action="schedule"><span>🕒</span><span>پیام زمان‌بندی‌شده<small>ارسال در زمان مشخص</small></span></button><button class="nx-feature-tile" data-nx-action="saved"><span>⭐</span><span>پیام‌های ذخیره‌شده<small>موارد نشان‌شده</small></span></button><button class="nx-feature-tile" data-nx-action="location"><span>📍</span><span>ارسال موقعیت<small>اشتراک مکان فعلی</small></span></button><button class="nx-feature-tile" data-nx-action="contact"><span>👤</span><span>کارت مخاطب<small>ارسال نام و شماره</small></span></button><button class="nx-feature-tile" data-nx-action="video"><span>🎬</span><span>ارسال ویدیو<small>ویدیوی داخل گفتگو</small></span></button><button class="nx-feature-tile" data-nx-action="sticker"><span>🧩</span><span>استیکرها<small>واکنش تصویری سریع</small></span></button><button class="nx-feature-tile" data-nx-self-chat="1"><span>🗒️</span><span>یادداشت شخصی<small>گفتگو با خودت</small></span></button><button class="nx-feature-tile" data-nx-action="settings"><span>🎨</span><span>تنظیمات چت<small>تم، بی‌صدا و تایمر محلی</small></span></button></div>`)}
+function nxOpenPoll(){if(!curChat){alert('اول یک گفتگو را باز کن.');return}if(!canISendToChat())return;nxOpenModal('ساخت نظرسنجی','📊',`<p class="nx-feature-note">رأی‌ها با واکنش‌های پیام ذخیره می‌شوند؛ هر نفر در این نسخه یک گزینه انتخاب می‌کند.</p><label>سؤال نظرسنجی</label><input id="nx-poll-question" maxlength="240" placeholder="مثلاً برای جلسه چه روزی مناسب است؟"><label>گزینه‌ها</label><input class="nx-poll-option-input" maxlength="100" placeholder="گزینه اول"><input class="nx-poll-option-input" maxlength="100" placeholder="گزینه دوم"><input class="nx-poll-option-input" maxlength="100" placeholder="گزینه سوم (اختیاری)"><input class="nx-poll-option-input" maxlength="100" placeholder="گزینه چهارم (اختیاری)"><div class="nx-feature-actions"><button class="nx-secondary" data-nx-close>انصراف</button><button data-nx-submit="poll">ارسال نظرسنجی</button></div>`)}
+function nxOpenEvent(){if(!curChat){alert('اول یک گفتگو را باز کن.');return}if(!canISendToChat())return;const now=new Date(Date.now()+3600000);now.setMinutes(Math.ceil(now.getMinutes()/15)*15,0,0);const local=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,16);nxOpenModal('ساخت رویداد','📅',`<p class="nx-feature-note">رویداد در پیام‌رسان ارسال می‌شود؛ پاسخ حضور شرکت‌کنندگان در همان پیام ثبت می‌شود.</p><label>عنوان رویداد</label><input id="nx-event-title" maxlength="140" placeholder="مثلاً جلسه هفتگی تیم"><label>تاریخ و زمان</label><input id="nx-event-date" type="datetime-local" value="${local}"><label>مکان یا لینک جلسه (اختیاری)</label><input id="nx-event-place" maxlength="240" placeholder="آدرس یا لینک جلسه"><label>توضیحات</label><textarea id="nx-event-details" maxlength="500" placeholder="توضیحات کوتاه"></textarea><div class="nx-feature-actions"><button class="nx-secondary" data-nx-close>انصراف</button><button data-nx-submit="event">ارسال رویداد</button></div>`)}
+function nxOpenContactCard(){if(!curChat){alert('اول یک گفتگو را باز کن.');return}if(!canISendToChat())return;nxOpenModal('ارسال کارت مخاطب','👤',`<p class="nx-feature-note">شماره‌ای را بفرست که اجازه اشتراک آن را داری.</p><label>نام مخاطب</label><input id="nx-contact-name" maxlength="100" placeholder="نام و نام خانوادگی"><label>شماره تلفن</label><input id="nx-contact-phone" type="tel" maxlength="30" placeholder="مثلاً 0912…"><div class="nx-feature-actions"><button class="nx-secondary" data-nx-close>انصراف</button><button data-nx-submit="contact">ارسال کارت</button></div>`)}
+async function nxShareLocation(){if(!curChat){alert('اول یک گفتگو را باز کن.');return}if(!canISendToChat())return;if(!navigator.geolocation){alert('مرورگر از موقعیت مکانی پشتیبانی نمی‌کند.');return}nxToast('در حال دریافت موقعیت…');navigator.geolocation.getCurrentPosition(async pos=>{const lat=pos.coords.latitude.toFixed(6),lon=pos.coords.longitude.toFixed(6);const content=`📍 موقعیت مکانی\nhttps://maps.google.com/?q=${lat},${lon}`;if(await nxInsertMessage(content))nxToast('موقعیت ارسال شد')},err=>{alert('دریافت موقعیت ناموفق بود. اجازه دسترسی مکان را در مرورگر بررسی کن.');console.warn(err)},{enableHighAccuracy:true,timeout:12000,maximumAge:30000})}
+function nxOpenStickers(){if(!curChat){alert('اول یک گفتگو را باز کن.');return}if(!canISendToChat())return;const emojis=['😀','😂','🥹','😍','😎','🤩','🥳','😴','🤔','😭','🔥','✨','💜','❤️','👍','👏','🙏','🤝','🎉','🚀','💯','☕','🌹','🐱','🐼','🦊','💎','⚡','🫶','✅'];nxOpenModal('استیکرهای نکسوم','🧩',`<p class="nx-feature-note">استیکرها به‌صورت پیام ایموجی ذخیره می‌شوند و به سرویس بیرونی نیاز ندارند.</p><div class="nx-sticker-grid">${emojis.map(e=>`<button class="nx-sticker-choice" data-nx-sticker="${e}">${e}</button>`).join('')}</div><div class="nx-feature-actions"><button class="nx-secondary" data-nx-close>بستن</button><button class="nx-secondary" data-nx-self-chat="1">🗒 یادداشت شخصی</button></div>`)}
+function nxOpenSchedule(){if(!curChat){alert('اول یک گفتگو را باز کن.');return}if(!canISendToChat())return;const now=new Date(Date.now()+600000);const local=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,16);nxOpenModal('زمان‌بندی پیام','🕒',`<p class="nx-feature-note">این صف روی همین مرورگر ذخیره می‌شود. برای ارسال در زمان مقرر باید نکسوم باز و به اینترنت متصل باشد؛ این قابلیت جایگزین زمان‌بندی سمت سرور نیست.</p><label>متن پیام</label><textarea id="nx-schedule-content" maxlength="6000" placeholder="پیام خود را بنویس…"></textarea><label>زمان ارسال</label><input id="nx-schedule-time" type="datetime-local" min="${local}" value="${local}"><div class="nx-feature-actions"><button class="nx-secondary" data-nx-action="scheduled">مدیریت صف</button><button class="nx-secondary" data-nx-close>انصراف</button><button data-nx-submit="schedule">ثبت زمان‌بندی</button></div>`)}
+function nxGetSaved(){return nxStorage.get(nxSavedKey(),[])}
+async function nxSaveMessage(id){const{data,error}=await sb.from('messages').select('*').eq('id',id).maybeSingle();if(error||!data){nxToast('پیام در دسترس نیست');return}const list=nxGetSaved();if(list.some(x=>String(x.id)===String(id))){nxToast('این پیام از قبل ذخیره شده');return}list.unshift({id:data.id,content:data.content||'',message_type:data.message_type||'text',file_url:data.file_url||'',file_name:data.file_name||'',audio_url:data.audio_url||'',audio_duration:data.audio_duration||0,created_at:data.created_at||new Date().toISOString(),saved_at:new Date().toISOString(),chat:curChat?.type==='private'?{type:'private',email:curChat.email,name:document.getElementById('room-name')?.textContent||curChat.email}:{type:curChat?.type||'group',id:curChat?.id||null,name:curChat?.name||document.getElementById('room-name')?.textContent||'گفتگو'}});nxStorage.set(nxSavedKey(),list);nxToast('پیام در ذخیره‌های این دستگاه قرار گرفت')}
+function nxRemoveSaved(id){nxStorage.set(nxSavedKey(),nxGetSaved().filter(x=>String(x.id)!==String(id)))}
+function nxSavedSummary(x){if(x.content?.startsWith(NX_POLL_PREFIX)){const p=nxParsePayload(x.content,NX_POLL_PREFIX);return '📊 نظرسنجی: '+(p?.question||'')}if(x.content?.startsWith(NX_EVENT_PREFIX)){const p=nxParsePayload(x.content,NX_EVENT_PREFIX);return '📅 رویداد: '+(p?.title||'')}if(x.message_type==='image')return '🖼️ عکس';if(x.message_type==='video')return '🎬 '+(x.file_name||'ویدیو');if(x.message_type==='file')return '📄 '+(x.file_name||'فایل');if(x.message_type==='voice')return '🎤 پیام صوتی';return String(x.content||'پیام').replace(/^\[\[NEXOM_[A-Z_]+\]\].*$/s,'پیام ساختاری').slice(0,240)}
+function nxShowSaved(){const list=nxGetSaved();const rows=list.map(x=>`<div class="nx-saved-row"><div class="nx-saved-main"><b>${esc(x.chat?.name||'گفتگو')}</b><p>${esc(nxSavedSummary(x))}</p><small>${esc(new Date(x.saved_at||Date.now()).toLocaleString('fa-IR'))}</small></div><button class="nx-feature-btn nx-secondary" data-nx-remove-saved="${esc(String(x.id))}">حذف</button></div>`).join('');nxOpenModal('پیام‌های ذخیره‌شده','⭐',`${list.length?rows:'<p class="nx-feature-note">هنوز پیامی ذخیره نکرده‌ای. روی منوی سه‌نقطه هر پیام بزن و «ذخیره پیام» را انتخاب کن.</p>'}<p class="nx-feature-note">ذخیره‌ها فقط در همین مرورگر و همین دستگاه نگهداری می‌شوند؛ برای همگام‌سازی بین دستگاه‌ها به جدول و مجوزهای سمت سرور نیاز است.</p><div class="nx-feature-actions"><button class="nx-secondary" data-nx-close>بستن</button></div>`)}
+function nxGetScheduled(){return nxStorage.get(nxScheduledKey(),[])}
+function nxRemoveScheduled(id){nxStorage.set(nxScheduledKey(),nxGetScheduled().filter(x=>x.id!==id))}
+function nxShowScheduled(){const list=nxGetScheduled().sort((a,b)=>a.when-b.when);const rows=list.map(x=>`<div class="nx-saved-row"><div class="nx-saved-main"><b>${esc(x.target?.name||x.target?.email||'گفتگو')}</b><p>${esc(x.content)}</p><small>${esc(new Date(x.when).toLocaleString('fa-IR'))}</small></div><button class="nx-feature-btn nx-secondary" data-nx-remove-sched="${esc(x.id)}">لغو</button></div>`).join('');nxOpenModal('صف پیام‌های زمان‌بندی‌شده','🕒',`${list.length?rows:'<p class="nx-feature-note">صف زمان‌بندی خالی است.</p>'}<p class="nx-feature-note">تا وقتی این صفحه باز و آنلاین باشد، برنامه تلاش می‌کند پیام‌های سررسیدشده را ارسال کند.</p><div class="nx-feature-actions"><button class="nx-secondary" data-nx-close>بستن</button><button data-nx-action="schedule">زمان‌بندی جدید</button></div>`)}
+async function nxProcessScheduled(){if(!myEmail||!navigator.onLine)return;const list=nxGetScheduled();if(!list.length)return;for(const item of [...list]){if(item.when>Date.now()||nxScheduledBusy.has(item.id))continue;nxScheduledBusy.add(item.id);try{const t=item.target||{};const pl=t.type==='private'?{content:item.content,sender_email:myEmail,receiver_email:t.email,message_type:'text'}:{content:item.content,sender_email:myEmail,receiver_email:'',chat_id:t.id,message_type:'text'};const{error}=await sb.from('messages').insert(pl);if(!error){nxRemoveScheduled(item.id);nxToast('پیام زمان‌بندی‌شده ارسال شد')}else console.warn('Scheduled message will retry:',error.message)}catch(e){console.warn(e)}finally{nxScheduledBusy.delete(item.id)}}}
+function nxOpenChatSettings(){if(!curChat){alert('اول یک گفتگو را باز کن.');return}const p=nxCurrentPrefs();const themeLabel={default:'پیش‌فرض',ocean:'اقیانوس',aurora:'شفق قطبی',sunset:'غروب',midnight:'نیمه‌شب'};nxOpenModal('تنظیمات همین گفتگو','🎨',`<p class="nx-feature-note">تم و بی‌صدا روی همین دستگاه ذخیره می‌شوند. تایمر پایین فقط پیام‌های این گفتگو را در این مرورگر پنهان می‌کند و از پایگاه داده پاک نمی‌کند.</p><label>تم گفتگو</label><div class="nx-feature-grid">${[['default','🌘','پیش‌فرض'],['ocean','🌊','اقیانوس'],['aurora','🌌','شفق قطبی'],['sunset','🌇','غروب'],['midnight','🌑','نیمه‌شب']].map(([k,ico,n])=>`<button class="nx-feature-tile" data-nx-theme="${k}" style="${p.theme===k?'border-color:#58e5df;background:rgba(88,229,223,.11)':''}"><span>${ico}</span><span>${n}<small>${p.theme===k?'انتخاب‌شده':''}</small></span></button>`).join('')}</div><label>اعلان گفتگو</label><button class="nx-feature-tile" style="width:100%" data-nx-mute="1"><span>${p.muted?'🔔':'🔕'}</span><span>${p.muted?'فعال‌کردن اعلان‌ها':'بی‌صداکردن اعلان‌ها'}<small>تنظیم محلی همین دستگاه</small></span></button><label>تایمر پنهان‌سازی محلی پیام‌های جدید</label><div class="nx-feature-grid">${[[0,'خاموش'],[86400,'۲۴ ساعت'],[604800,'۷ روز'],[7776000,'۹۰ روز']].map(([sec,n])=>`<button class="nx-feature-tile" data-nx-ttl="${sec}" style="${Number(p.ttl)===sec?'border-color:#58e5df;background:rgba(88,229,223,.11)':''}"><span>⏳</span><span>${n}<small>${Number(p.ttl)===sec?'انتخاب‌شده':''}</small></span></button>`).join('')}</div><div class="nx-feature-actions"><button class="nx-secondary" data-nx-close>بستن</button></div>`)}
+function nxDownloadCalendar(ev){const start=ev.date?new Date(ev.date):null;if(!start||isNaN(start)){nxToast('برای این رویداد زمان ثبت نشده');return}const end=new Date(start.getTime()+3600000);const fmt=d=>d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');const escIcs=v=>String(v||'').replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/,/g,'\\,').replace(/;/g,'\\;');const ics=`BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Nexom//Calendar//FA\r\nBEGIN:VEVENT\r\nUID:${Date.now()}@nexom\r\nDTSTAMP:${fmt(new Date())}\r\nDTSTART:${fmt(start)}\r\nDTEND:${fmt(end)}\r\nSUMMARY:${escIcs(ev.title)}\r\nLOCATION:${escIcs(ev.place)}\r\nDESCRIPTION:${escIcs(ev.details)}\r\nEND:VEVENT\r\nEND:VCALENDAR`;const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([ics],{type:'text/calendar;charset=utf-8'}));a.download='nexom-event.ics';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+async function nxGetMessageCopyText(id){const{data}=await sb.from('messages').select('*').eq('id',id).maybeSingle();if(!data)return '';if(data.content?.startsWith(NX_POLL_PREFIX)){const p=nxParsePayload(data.content,NX_POLL_PREFIX);return `نظرسنجی: ${p?.question||''}\n${(p?.options||[]).map((o,i)=>`${i+1}. ${o}`).join('\n')}`}if(data.content?.startsWith(NX_EVENT_PREFIX)){const e=nxParsePayload(data.content,NX_EVENT_PREFIX);return `رویداد: ${e?.title||''}\n${e?.date||''}\n${e?.place||''}\n${e?.details||''}`}return data.content||data.file_name||data.file_url||data.audio_url||'پیام'}
+async function nxGetForwardTargets(){const out=[];const {data:msgs}=await sb.from('messages').select('sender_email,receiver_email').is('chat_id',null).or(`sender_email.eq.${myEmail},receiver_email.eq.${myEmail}`).limit(500);const emails=new Set();(msgs||[]).forEach(m=>{if(m.sender_email&&m.sender_email!==myEmail)emails.add(m.sender_email);if(m.receiver_email&&m.receiver_email!==myEmail)emails.add(m.receiver_email)});await loadAllNames([...emails]);[...emails].forEach(email=>out.push({key:'p:'+email,type:'private',email,name:namesCache[email]||email.split('@')[0]}));const{data:mem}=await sb.from('chat_members').select('chat_id').eq('member_email',myEmail);const ids=[...new Set((mem||[]).map(x=>x.chat_id).filter(Boolean))];if(ids.length){const{data:chs}=await sb.from('chats').select('id,name,type,description,owner_email,avatar_url').in('id',ids);(chs||[]).forEach(c=>{if(c.id!==curChat?.id)out.push({key:'c:'+c.id,type:c.type,id:c.id,name:c.name,data:c})})}return out.filter(x=>!(x.type==='private'&&curChat?.type==='private'&&x.email===curChat.email))}
+async function nxOpenForwardModal(id){nxPendingForwardId=id;nxOpenModal('بازفرستادن پیام','↪️','<p class="nx-feature-note">پیام را به یکی از گفتگوهای موجود منتقل کن.</p><div id="nx-forward-target-list" class="nx-forward-list">در حال بارگذاری گفتگوها…</div><div class="nx-feature-actions"><button class="nx-secondary" data-nx-close>انصراف</button></div>');const targets=await nxGetForwardTargets();const list=nxModal.querySelector('#nx-forward-target-list');if(!list)return;if(!targets.length){list.innerHTML='<p class="nx-feature-note">گفتگوی دیگری پیدا نشد. ابتدا با یک مخاطب چت کن یا عضو گروه شو.</p>';return}list.innerHTML=targets.map(x=>`<button class="nx-forward-target" data-nx-forward-target="${esc(x.key)}"><span class="nx-forward-avatar">${x.type==='private'?'👤':x.type==='channel'?'📢':'👥'}</span><span><b>${esc(x.name)}</b><small>${x.type==='private'?'گفتگوی خصوصی':x.type==='channel'?'کانال':'گروه'}</small></span><span class="nx-forward-arrow">←</span></button>`).join('');nxModal._nxForwardTargets=targets}
+async function nxForwardTo(key){const id=nxPendingForwardId;if(!id)return;const dest=(nxModal._nxForwardTargets||[]).find(x=>x.key===key);if(!dest)return;const{data:src,error:se}=await sb.from('messages').select('*').eq('id',id).maybeSingle();if(se||!src){alert('پیام پیدا نشد.');return}const content=src.content||'';const preserved=content.startsWith(NX_POLL_PREFIX)||content.startsWith(NX_EVENT_PREFIX)||content.startsWith(NX_CONTACT_PREFIX);const pl={sender_email:myEmail,message_type:src.message_type||'text',content:content&&!preserved&&src.message_type==='text'?'↪️ بازفرستاده‌شده\n'+content:content};if(dest.type==='private')pl.receiver_email=dest.email;else{pl.receiver_email='';pl.chat_id=dest.id}['file_url','file_name','file_size','audio_url','audio_duration'].forEach(k=>{if(src[k]!==undefined&&src[k]!==null)pl[k]=src[k]});const{error}=await sb.from('messages').insert(pl);if(error){alert('ارسال ناموفق بود: '+error.message);return}nxCloseModal();nxToast('پیام بازفرستاده شد')}
+function nxApplyUnreadFilter(){const list=document.getElementById('list-container');if(!list)return;list.querySelectorAll('.list-item').forEach(el=>{el.style.display=nxUnreadOnly&&!el.classList.contains('unread')?'none':''})}
+function nxInsertFormat(mark){const input=document.getElementById('msg-input');if(!input)return;const start=input.selectionStart??input.value.length,end=input.selectionEnd??input.value.length;const selected=input.value.slice(start,end);const text=selected||'متن';const value=input.value.slice(0,start)+mark+text+mark+input.value.slice(end);input.value=value;input.focus();const selStart=start+mark.length,selEnd=selStart+text.length;input.setSelectionRange(selStart,selEnd)}
+function nxApplyFormat(mark){nxInsertFormat(mark);nxCloseModal()}
+function nxChooseVideo(){if(!curChat){alert('اول یک گفتگو را باز کن.');return}if(!canISendToChat())return;nxCloseModal();document.getElementById('nx-video-file').click()}
+const nxVideoInput=document.createElement('input');nxVideoInput.id='nx-video-file';nxVideoInput.type='file';nxVideoInput.accept='video/*';nxVideoInput.style.display='none';document.body.appendChild(nxVideoInput);
+nxVideoInput.addEventListener('change',async e=>{const f=e.target.files?.[0];e.target.value='';if(!f||!curChat)return;if(f.size>50*1024*1024){alert('حداکثر حجم ویدیو ۵۰ مگابایت است.');return}if(!canISendToChat())return;const fn=`video-${Date.now()}-${Math.random().toString(36).slice(2)}.${(f.name.split('.').pop()||'mp4').replace(/[^a-z0-9]/gi,'')}`;nxToast('در حال بارگذاری ویدیو…');const{error:ue}=await sb.storage.from('chat-files').upload(fn,f,{contentType:f.type||'video/mp4'});if(ue){alert('بارگذاری ویدیو ناموفق بود: '+ue.message);return}const{data:ud}=sb.storage.from('chat-files').getPublicUrl(fn);const pl=curChat.type==='private'?{content:'',sender_email:myEmail,receiver_email:curChat.email,message_type:'video',file_url:ud.publicUrl,file_name:f.name,file_size:f.size}:{content:'',sender_email:myEmail,receiver_email:'',chat_id:curChat.id,message_type:'video',file_url:ud.publicUrl,file_name:f.name,file_size:f.size};if(replyTo){pl.reply_to_id=replyTo.id;pl.reply_to_content=replyTo.content;pl.reply_to_sender=replyTo.sender;pl.reply_to_type=replyTo.type}const{error}=await sb.from('messages').insert(pl);if(error)alert('ثبت پیام ناموفق بود: '+error.message);else{cancelReply();nxToast('ویدیو ارسال شد')}});
+// Add a compact power-tools menu to the existing attachment menu.
+const nxAttachMenu=document.getElementById('attach-menu');
+if(nxAttachMenu){const toolBtns=[['poll','📊','نظرسنجی'],['event','📅','رویداد'],['location','📍','موقعیت مکانی'],['contact','👤','کارت مخاطب'],['schedule','🕒','زمان‌بندی پیام'],['video','🎬','ارسال ویدیو'],['sticker','🧩','استیکرها']];toolBtns.forEach(([act,ico,label])=>{const b=document.createElement('button');b.className='menu-item nx-added-attachment';b.innerHTML=`<span class="menu-icon fl">${ico}</span><span>${label}</span>`;b.addEventListener('click',()=>{nxAttachMenu.classList.remove('show');if(act==='poll')nxOpenPoll();else if(act==='event')nxOpenEvent();else if(act==='location')nxShareLocation();else if(act==='contact')nxOpenContactCard();else if(act==='schedule')nxOpenSchedule();else if(act==='video')nxChooseVideo();else if(act==='sticker')nxOpenStickers()});nxAttachMenu.appendChild(b)})}
+// Format shortcut toolbar above the message composer.
+const nxInputArea=document.getElementById('input-area');
+if(nxInputArea){const toolbar=document.createElement('div');toolbar.className='nx-format-toolbar';toolbar.id='nx-format-toolbar';toolbar.innerHTML='<button type="button" data-nx-format="**" title="Bold"><b>B</b></button><button type="button" data-nx-format="_" title="Italic"><i>I</i></button><button type="button" data-nx-format="~~" title="Strike">S̶</button><button type="button" data-nx-format="`" title="Code">&lt;/&gt;</button>';nxInputArea.parentNode.insertBefore(toolbar,nxInputArea);const toggle=document.createElement('button');toggle.className='attach nx-format-toggle';toggle.type='button';toggle.title='قالب‌بندی متن';toggle.textContent='Aa';toggle.addEventListener('click',()=>toolbar.classList.toggle('show'));const emoji=document.getElementById('emoji-btn');if(emoji)emoji.insertAdjacentElement('afterend',toggle);else nxInputArea.insertBefore(toggle,document.getElementById('msg-input'));toolbar.addEventListener('click',e=>{const b=e.target.closest('[data-nx-format]');if(b)nxInsertFormat(b.dataset.nxFormat)})}
+// Add a per-chat option button (works for private chats as well as groups/channels).
+const nxRoomHeader=document.querySelector('#chat-room .chat-header');
+if(nxRoomHeader&&!document.getElementById('nx-chat-options-btn')){const b=document.createElement('button');b.id='nx-chat-options-btn';b.className='back-btn';b.type='button';b.title='تنظیمات گفتگو';b.textContent='⚙';b.addEventListener('click',nxOpenChatSettings);const callBtn=document.getElementById('call-start-btn');if(callBtn)nxRoomHeader.insertBefore(b,callBtn);else nxRoomHeader.appendChild(b)}
+// Per-chat indicator for local mute/expiry settings.
+const nxRoom=document.getElementById('chat-room');if(nxRoom&&!document.getElementById('nx-chat-prefs-indicator')){const bar=document.createElement('div');bar.id='nx-chat-prefs-indicator';bar.style.cssText='display:none;flex:0 0 auto;padding:6px 12px;background:rgba(9,16,34,.95);color:#9fe9ed;border-bottom:1px solid rgba(120,180,240,.15);font:700 10px Vazirmatn,Tahoma,sans-serif;';nxRoom.insertBefore(bar,document.getElementById('messages-area'))}
+// Extra controls in chats list: unread filter, saved messages and scheduled queue.
+const nxChatsPage=document.getElementById('page-chats');
+if(nxChatsPage){const tabs=nxChatsPage.querySelector('.tabs');if(tabs&&!document.getElementById('nx-chat-filter-row')){const row=document.createElement('div');row.id='nx-chat-filter-row';row.className='nx-chat-filter-row';row.innerHTML='<button type="button" class="nx-filter-unread" data-nx-action="unread">فقط نخوانده</button><button type="button" data-nx-action="saved">⭐ ذخیره‌ها</button><button type="button" data-nx-action="scheduled">🕒 زمان‌بندی‌ها</button><button type="button" data-nx-action="features">✦ ابزارهای بیشتر</button>';tabs.insertAdjacentElement('afterend',row)}const top=nxChatsPage.querySelector('.top-bar');if(top&&!document.getElementById('nx-top-saved')){const saved=document.createElement('button');saved.id='nx-top-saved';saved.className='icon-btn';saved.title='پیام‌های ذخیره‌شده';saved.textContent='⭐';saved.addEventListener('click',nxShowSaved);const sch=document.createElement('button');sch.id='nx-top-scheduled';sch.className='icon-btn';sch.title='پیام‌های زمان‌بندی‌شده';sch.textContent='🕒';sch.addEventListener('click',nxShowScheduled);top.insertBefore(sch,top.lastElementChild);top.insertBefore(saved,sch)}}
+const nxList=document.getElementById('list-container');if(nxList&&window.MutationObserver){new MutationObserver(()=>nxApplyUnreadFilter()).observe(nxList,{childList:true,subtree:false})}
+// Keep original openRoom behavior, then apply the selected per-chat theme and privacy UI.
+if(typeof window.openRoom==='function'){const nxOriginalOpenRoom=window.openRoom;window.openRoom=async(...args)=>{const ret=await nxOriginalOpenRoom(...args);nxApplyChatPrefs();return ret}}
+// Poll/event interactions occur in the existing message area, which has its own reaction logic.
+if(msgArea){msgArea.addEventListener('click',async e=>{const opt=e.target.closest('.nx-poll-option');if(opt){const msg=opt.closest('.msg');if(msg){targetReactionMsgId=msg.dataset.id;await sendReaction(nxPollEmoji(opt.dataset.nxPoll))}return}const rsvp=e.target.closest('[data-nx-rsvp]');if(rsvp){const msg=rsvp.closest('.msg');if(msg){targetReactionMsgId=msg.dataset.id;await sendReaction(rsvp.dataset.nxRsvp)}return}const cal=e.target.closest('[data-nx-calendar]');if(cal){const msg=cal.closest('.msg');if(!msg)return;const{data}=await sb.from('messages').select('content').eq('id',msg.dataset.id).maybeSingle();const ev=nxParsePayload(data?.content,NX_EVENT_PREFIX);if(ev)nxDownloadCalendar(ev);return}const cp=e.target.closest('[data-nx-copy-phone]');if(cp){try{await navigator.clipboard.writeText(cp.dataset.nxCopyPhone);nxToast('شماره کپی شد')}catch(err){prompt('شماره مخاطب',cp.dataset.nxCopyPhone)}return}const use=e.target.closest('[data-nx-use-contact]');if(use){const phone=use.dataset.nxUseContact;let normalized=phone.replace(/\D/g,'');if(normalized.startsWith('98'))normalized='0'+normalized.slice(2);if(normalized){openRoom('private',normalized+'@nexom.local')}return}})}
+// The first module script handles app functions; the secondary script still handles sign-in.
+nxApplyChatPrefs();nxProcessScheduled();setInterval(nxProcessScheduled,10000);window.addEventListener('online',nxProcessScheduled);
 
 // ============================================================
 // راه‌اندازی اولیه
