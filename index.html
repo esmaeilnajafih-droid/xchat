@@ -3,14 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>نکسوم | Nexom</title>
+
+<!-- ========================================== -->
+<!-- کدهای سئو و نمایش در گوگل -->
+<!-- ========================================== -->
+<title>نکسوم | پیام‌رسان سریع و امن</title>
+<meta name="description" content="پیام‌رسان فارسی نکسوم؛ سریع و امن، تماس صوتی و تصویری، گروه و استوری. رایگان برای همه.">
+<meta name="keywords" content="نکسوم, پیام رسان, پیام رسان فارسی, چت, تماس تصویری, nexom, messenger">
+<meta property="og:title" content="نکسوم | پیام‌رسان سریع و امن">
+<meta property="og:description" content="پیام‌رسان فارسی نکسوم؛ سریع و امن، تماس صوتی و تصویری، گروه و استوری. رایگان برای همه.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nexusmessenger.ir">
+<meta property="og:image" content="https://nexusmessenger.ir/icon.svg">
+
+<!-- آیکون‌های سایت -->
+<link rel="icon" type="image/svg+xml" href="./icon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<link rel="apple-touch-icon" href="./icon.svg">
+
+<!-- ========================================== -->
+<!-- تنظیمات PWA -->
+<!-- ========================================== -->
 <link rel="manifest" href="./manifest.json">
 <meta name="theme-color" content="#2ecc9b">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="نکسوم">
-<link rel="icon" type="image/svg+xml" href="./icon.svg">
-<link rel="apple-touch-icon" href="./icon.svg">
+
+<!-- فونت و اسکریپت‌ها -->
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/livekit-client/dist/livekit-client.umd.min.js"></script>
 <style>
@@ -327,7 +348,6 @@ body::after{
 .call-status{text-align:center;font-size:12px;color:var(--mut);padding:8px;min-height:20px}
 .call-start-btn{background:#5bae6e!important;color:#fff!important;border:none!important;margin-right:auto}
 .call-choice-overlay{position:fixed;inset:0;background:rgba(8,20,15,.58);z-index:8000;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(5px)}.call-choice-overlay.show{display:flex}.call-choice-card{width:min(100%,360px);background:var(--card,#fff);color:var(--text,#1a2b1a);border-radius:24px;padding:24px;box-shadow:0 20px 70px #0003;text-align:center}.call-choice-card h3{margin:0 0 8px;font-size:20px}.call-choice-card p{margin:0 0 20px;color:var(--mut,#718071);font-size:13px}.call-choice-option{width:100%;display:flex;align-items:center;gap:14px;text-align:right;padding:15px;border:1px solid var(--border,#e5e7eb);border-radius:16px;background:transparent;color:inherit;margin:10px 0;cursor:pointer;font:inherit}.call-choice-option .choice-icon{width:48px;height:48px;border-radius:15px;background:#e5f7e9;display:grid;place-items:center;font-size:25px;flex-shrink:0}.call-choice-option strong{display:block;font-size:15px}.call-choice-option small{display:block;margin-top:4px;color:var(--mut,#718071);font-size:12px}.call-choice-cancel{border:0;background:transparent;color:var(--mut,#718071);padding:10px 18px;font:inherit;cursor:pointer}.participant video{width:100%;max-height:220px;object-fit:cover;border-radius:14px;background:#111;margin-top:8px}
-/* فضای بزرگ‌تر ویدیو برای حالت تماس تصویری */
 .call-modal.video-mode{background:#07110c;color:#f4fff6;padding:clamp(8px,1.8vw,22px)}
 .call-modal.video-mode .call-header{margin-bottom:8px;flex-shrink:0}
 .call-modal.video-mode .call-title{font-size:clamp(17px,2vw,23px);color:#f4fff6}
@@ -488,7 +508,6 @@ body::after{
 body:has(.chat-room.active) .bottom-nav { display: none !important; }
 
 /* NEXOM GLOBAL FEATURE PACK — supplemental UI */
-
 .call-modal:not(.video-mode) #nx-screen-share-btn{display:none!important}.nx-sticker-message{font-size:54px;line-height:1.2;padding:8px 10px;filter:drop-shadow(0 6px 14px rgba(0,0,0,.18));}.nx-sticker-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}.nx-sticker-choice{aspect-ratio:1;border-radius:14px;border:1px solid rgba(164,195,240,.14);background:rgba(255,255,255,.05);font-size:29px;cursor:pointer}.nx-sticker-choice:hover{background:rgba(85,229,234,.12);border-color:#56e1e1}.nx-saved-row{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid rgba(173,197,240,.13);border-radius:15px;background:rgba(255,255,255,.035);margin:8px 0}.nx-saved-main{min-width:0;flex:1}.nx-saved-main b{font-size:12px;color:#dff8ff}.nx-saved-main p{font-size:12px;line-height:1.7;color:#e9efff;overflow-wrap:anywhere;margin:4px 0}.nx-saved-main small{font-size:10px;color:#8fa5c7}.nx-forward-list{display:grid;gap:7px;max-height:50vh;overflow:auto}.nx-forward-target{width:100%;display:flex;align-items:center;gap:11px;text-align:right;padding:11px;border-radius:13px;border:1px solid rgba(155,185,230,.14);background:rgba(255,255,255,.045);color:#f0f6ff;font-family:inherit;cursor:pointer}.nx-forward-target:hover{border-color:rgba(80,224,222,.5)}.nx-forward-target>span:nth-child(2){flex:1;min-width:0}.nx-forward-target b{display:block;font-size:13px}.nx-forward-target small{display:block;color:#9db0ce;font-size:10px;margin-top:3px}.nx-forward-avatar{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,rgba(72,213,210,.19),rgba(122,91,221,.25));font-size:19px}.nx-forward-arrow{font-size:18px;color:#72e3e5}.nx-chat-options{border:1px solid rgba(130,160,210,.2)!important;border-radius:12px!important}
 
 .nx-feature-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(3,7,18,.72);backdrop-filter:blur(14px);z-index:10050;overflow:auto}
@@ -2881,8 +2900,7 @@ if(nxRoomHeader&&!document.getElementById('nx-chat-options-btn')){const b=docume
 const nxRoom=document.getElementById('chat-room');if(nxRoom&&!document.getElementById('nx-chat-prefs-indicator')){const bar=document.createElement('div');bar.id='nx-chat-prefs-indicator';bar.style.cssText='display:none;flex:0 0 auto;padding:6px 12px;background:rgba(9,16,34,.95);color:#9fe9ed;border-bottom:1px solid rgba(120,180,240,.15);font:700 10px Vazirmatn,Tahoma,sans-serif;';nxRoom.insertBefore(bar,document.getElementById('messages-area'))}
 // Extra controls in chats list: unread filter, saved messages and scheduled queue.
 const nxChatsPage=document.getElementById('page-chats');
-if(nxChatsPage){const tabs=nxChatsPage.querySelector('.tabs');if(tabs&&!document.getElementById('nx-chat-filter-row')){const row=document.createElement('div');row.id='nx-chat-filter-row';row.className='nx-chat-filter-row';row.innerHTML='<button type="button" class="nx-filter-unread" data-nx-action="unread">فقط نخوانده</button><button type="button" data-nx-action="saved">⭐ ذخیره‌ها</button><button type="button" data-nx-action="scheduled">🕒 زمان‌بندی‌ها</button><button type="button" data-nx-action="features">✦ ابزارهای بیشتر</button>';tabs.insertAdjacentElement('afterend',row)}const top=nxChatsPage.querySelector('.top-bar');if(top&&!document.getElementById('nx-top-saved')){const saved=document.createElement('button');saved.id='nx-top-saved';saved.className='icon-btn';saved.title='پیام‌های ذخیره‌شده';saved.textContent='⭐';saved.addEventListener('click',nxShowSaved);const sch=document.createElement('button');sch.id='nx-top-scheduled';sch.className='icon-btn';sch.title='پیام‌های زمان‌بندی‌شده';sch.textContent='🕒';sch.addEventListener('click',nxShowScheduled);top.insertBefore(sch,top.lastElementChild);top.insertBefore(saved,sch)}}
-const nxList=document.getElementById('list-container');if(nxList&&window.MutationObserver){new MutationObserver(()=>nxApplyUnreadFilter()).observe(nxList,{childList:true,subtree:false})}
+if(nxChatsPage){const tabs=nxChatsPage.querySelector('.tabs');if(tabs&&!document.getElementById('nx-chat-filter-row')){const row=document.createElement('div');row.id='nx-chat-filter-row';row.className='nx-chat-filter-row';row.innerHTML='<button type="button" class="nx-filter-unread" data-nx-action="unread">فقط نخوانده</button><button type="button" data-nx-action="saved">⭐ ذخیره‌ها</button><button type="button" data-nx-action="scheduled">🕒 زمان‌بندی‌ها</button><button type="button" data-nx-action="features">✦ ابزارهای بیشتر</button>';tabs.insertAdjacentElement('afterend',row)}const top=nxChatsPage.querySelector('.top-bar');if(top&&!document.getElementById('nx-top-saved')){const saved=document.createElement('button');saved.id='nx-top-saved';saved.className='icon-btn';saved.title='پیام‌های ذخیره‌شده';saved.textContent='⭐';saved.addEventListener('click',nxShowSaved);const sch=document.createElement('button');sch.id='nx-top-scheduled';sch.className='icon-btn';sch.title='پیام‌های زمان‌بندی‌شده';sch.textContent='🕒';sch.addEventListener('click',nxShowScheduled);top.insertBefore(sch,top.lastElementChild);top.insertBefore(saved,sch)}}const nxList=document.getElementById('list-container');if(nxList&&window.MutationObserver){new MutationObserver(()=>nxApplyUnreadFilter()).observe(nxList,{childList:true,subtree:false})}
 // Keep original openRoom behavior, then apply the selected per-chat theme and privacy UI.
 if(typeof window.openRoom==='function'){const nxOriginalOpenRoom=window.openRoom;window.openRoom=async(...args)=>{const ret=await nxOriginalOpenRoom(...args);nxApplyChatPrefs();return ret}}
 // Poll/event interactions occur in the existing message area, which has its own reaction logic.
