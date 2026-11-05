@@ -550,6 +550,24 @@ html,body{height:100%;width:100%;overflow:hidden;font-family:'Vazirmatn',Tahoma,
 .auth-footer{margin-top:26px;padding-top:20px;border-top:1px dashed rgba(0,212,255,.2);font-size:12.5px;color:#8b9dc3;display:flex;align-items:center;justify-content:center;gap:6px}
 .auth-footer::before{content:'🔒'}
 
+.auth-choice-note{margin:0 0 14px;padding:12px 14px;border:1px solid rgba(0,212,255,.25);border-radius:12px;background:rgba(0,212,255,.08);color:#c8d8f5;font-size:12px;line-height:1.9;text-align:right}
+.auth-method-choice{display:none;flex-direction:column;gap:10px;margin:12px 0 4px}
+.auth-method-choice button{width:100%;min-height:52px;padding:12px 14px;border:1px solid rgba(99,245,212,.35);border-radius:14px;background:linear-gradient(110deg,rgba(39,191,205,.16),rgba(119,96,255,.16));color:#eefcff;font:inherit;font-size:14px;font-weight:800;cursor:pointer;transition:transform .15s,background .15s}
+.auth-method-choice button:hover{transform:translateY(-1px);background:linear-gradient(110deg,rgba(39,191,205,.25),rgba(119,96,255,.25))}
+.auth-method-choice button:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.auth-back-btn{width:100%;margin-top:10px;padding:11px;border:1px solid rgba(0,212,255,.25);border-radius:12px;background:rgba(255,255,255,.05);color:#b9c8e8;font:inherit;font-size:12px;font-weight:700;cursor:pointer}
+.auth-back-btn:hover{background:rgba(0,212,255,.1)}
+.nx-login-code-overlay{position:fixed;inset:0;z-index:1000000;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(3,7,22,.72);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
+.nx-login-code-card{width:min(100%,390px);padding:24px;border-radius:22px;background:linear-gradient(145deg,#111b3d,#10132b);border:1px solid rgba(0,212,255,.38);box-shadow:0 24px 80px #0009;color:#f4f7ff;text-align:center;font-family:inherit}
+.nx-login-code-avatar{width:62px;height:62px;margin:0 auto 12px;border-radius:20px;display:grid;place-items:center;background:linear-gradient(135deg,#00d4ff,#7b3ff2);font-size:28px;box-shadow:0 8px 28px #00d4ff44}
+.nx-login-code-name{font-size:17px;font-weight:900;color:#fff;margin-bottom:6px}
+.nx-login-code-desc{font-size:12px;line-height:1.8;color:#aab9dc;margin-bottom:16px}
+.nx-login-code-value{direction:ltr;letter-spacing:9px;font-family:ui-monospace,Consolas,monospace;font-size:32px;font-weight:900;color:#67ffc3;background:#071125;border:1px dashed #55f2ff77;border-radius:14px;padding:15px 10px;margin:0 0 14px 0}
+.nx-login-code-actions{display:flex;gap:8px}
+.nx-login-code-actions button{flex:1;border:0;border-radius:11px;padding:11px 8px;font:inherit;font-size:12px;font-weight:800;cursor:pointer}
+.nx-login-copy{background:linear-gradient(135deg,#00d4ff,#437bff);color:#071126}
+.nx-login-dismiss{background:#293451;color:#e4ebff}
+
 .auth-screen{position:fixed;inset:0;z-index:99999;background:#05061a;display:flex;justify-content:center;align-items:center;padding:20px;overflow-y:auto}
 .auth-screen.hidden{display:none!important}
 #app-root.hidden{display:none!important}
@@ -1089,9 +1107,21 @@ hr{border-color:rgba(149,176,232,.14)!important}
     <input type="tel" id="phone-input" placeholder="09xxxxxxxxx" maxlength="11">
   </div>
 
-  <div class="auth-input-wrap">
+  <div class="auth-input-wrap" id="password-wrap" style="display:none;">
     <span class="auth-input-icon">🔒</span>
-    <input type="password" id="password-input" placeholder="رمز عبور">
+    <input type="password" id="password-input" placeholder="رمز عبور" autocomplete="current-password">
+  </div>
+
+  <div class="auth-input-wrap" id="otp-wrap" style="display:none;">
+    <span class="auth-input-icon">🔐</span>
+    <input type="text" id="otp-input" placeholder="کد تأیید ۶ رقمی" inputmode="numeric" autocomplete="one-time-code" maxlength="6" style="letter-spacing:8px;text-align:center;font-size:20px;">
+  </div>
+
+  <div class="auth-choice-note" id="auth-choice-note" style="display:none;"></div>
+
+  <div class="auth-method-choice" id="auth-method-choice" style="display:none;">
+    <button type="button" id="login-with-code-btn">🔐 ورود با کد تأیید</button>
+    <button type="button" id="login-with-password-btn">🔑 ورود با رمز عبور</button>
   </div>
 
   <div class="auth-input-wrap" id="username-wrap" style="display:none;">
@@ -1099,8 +1129,9 @@ hr{border-color:rgba(149,176,232,.14)!important}
     <input type="text" id="username-input" placeholder="آیدی (مثلاً: sobhan)" style="direction:ltr; text-align:left;">
   </div>
 
-  <button class="submit-btn" id="submit-btn">ورود</button>
-  <p id="message-area"></p>
+  <button class="submit-btn" id="submit-btn">ادامه</button>
+  <button type="button" class="auth-back-btn" id="auth-back-btn" style="display:none;">تغییر شماره / بازگشت</button>
+  <p id="message-area" role="status" aria-live="polite"></p>
 
   <div class="auth-footer">
     <span>امن و رایگان</span>
@@ -2007,10 +2038,225 @@ window.openEditProfile=async()=>{const p=await loadMyProfile();document.getEleme
 document.getElementById('ep-save').onclick=async()=>{const name=document.getElementById('ep-name').value.trim();const username=document.getElementById('ep-username').value.trim().toLowerCase();const bio=document.getElementById('ep-bio').value.trim();const phone=document.getElementById('ep-phone').value.trim();if(!name){alert(t('nameLbl'));return}if(username&&!/^[a-z0-9_]{3,20}$/.test(username)){alert(t('usernameHint'));return}const btn=document.getElementById('ep-save');btn.disabled=true;btn.textContent='...';try{if(username){const{data:ex}=await sb.from('profiles').select('email').eq('username',username).neq('email',myEmail).maybeSingle();if(ex){alert(lang==='fa'?'این نام کاربری قبلاً گرفته شده':'Username already taken');btn.disabled=false;btn.textContent=t('save');return}}const{error}=await sb.from('profiles').update({name,username:username||null,bio,phone,updated_at:new Date().toISOString()}).eq('email',myEmail);if(error){alert(t('error')+': '+error.message);btn.disabled=false;btn.textContent=t('save');return}namesCache[myEmail]=name;myProfile=null;closeModal('edit-profile-modal');await openMyProfile()}catch(e){alert(t('error')+': '+e.message)}btn.disabled=false;btn.textContent=t('save')};
 document.getElementById('avatar-file').onchange=async(e)=>{const f=e.target.files[0];if(!f)return;e.target.value='';if(!f.type.startsWith('image/')){alert(lang==='fa'?'فقط عکس':'Images only');return}if(f.size>5*1024*1024){alert(lang==='fa'?'حجم عکس زیاد':'Image too large');return}const ext=f.name.split('.').pop()||'jpg';const fn=`avatar-${myEmail.replace(/[^a-z0-9]/gi,'_')}-${Date.now()}.${ext}`;const{error:ue}=await sb.storage.from('avatars').upload(fn,f,{contentType:f.type,upsert:true});if(ue){alert(t('error')+': '+ue.message);return}const{data:ud}=sb.storage.from('avatars').getPublicUrl(fn);const{error:pe}=await sb.from('profiles').update({avatar_url:ud.publicUrl,updated_at:new Date().toISOString()}).eq('email',myEmail);if(pe){alert(t('error')+': '+pe.message);return}avatarsCache[myEmail]=ud.publicUrl;await openMyProfile()};
 
-async function registerSession(){const ua=navigator.userAgent;let device='Unknown device';if(/Android/i.test(ua))device='Android';else if(/iPhone|iPad|iPod/i.test(ua))device='iPhone/iPad';else if(/Windows/i.test(ua))device='Windows';else if(/Mac/i.test(ua))device='Mac';else if(/Linux/i.test(ua))device='Linux';if(/Chrome/i.test(ua))device+=' • Chrome';else if(/Firefox/i.test(ua))device+=' • Firefox';else if(/Safari/i.test(ua))device+=' • Safari';const sessionId=localStorage.getItem('session_id');if(sessionId){await sb.from('sessions').update({last_active:new Date().toISOString()}).eq('id',sessionId)}else{const{data}=await sb.from('sessions').insert({user_email:myEmail,device_info:device,user_agent:ua}).select().single();if(data)localStorage.setItem('session_id',data.id)}}
+function nxCreateSixDigitCode(){
+  if(!window.crypto?.getRandomValues)throw new Error('مرورگر امن برای ساخت کد پشتیبانی نمی‌شود.');
+  const bytes=new Uint32Array(1);
+  window.crypto.getRandomValues(bytes);
+  return String(100000+(bytes[0]%900000));
+}
+function nxGetDeviceLabel(){
+  const ua=navigator.userAgent||'';
+  let device='Unknown device';
+  if(/Android/i.test(ua))device='Android';
+  else if(/iPhone|iPad|iPod/i.test(ua))device='iPhone/iPad';
+  else if(/Windows/i.test(ua))device='Windows';
+  else if(/Mac/i.test(ua))device='Mac';
+  else if(/Linux/i.test(ua))device='Linux';
+  if(/Edg/i.test(ua))device+=' • Edge';
+  else if(/Chrome/i.test(ua))device+=' • Chrome';
+  else if(/Firefox/i.test(ua))device+=' • Firefox';
+  else if(/Safari/i.test(ua))device+=' • Safari';
+  return device;
+}
 
-window.showSessions=async()=>{const list=document.getElementById('sessions-list');list.innerHTML='<div style="text-align:center;padding:20px;color:var(--mut)">...</div>';const{data}=await sb.from('sessions').select('*').eq('user_email',myEmail).order('last_active',{ascending:false});if(!data?.length){list.innerHTML='<div style="text-align:center;padding:20px;color:var(--mut)">'+(lang==='fa'?'نشستی نیست':'No sessions')+'</div>';return}const currentSessionId=localStorage.getItem('session_id');list.innerHTML='';data.forEach(s=>{const isCurrent=s.id===currentSessionId;const diff=Math.floor((Date.now()-new Date(s.last_active).getTime())/1000);const timeAgo=diff<60?(lang==='fa'?'الان':'Just now'):diff<3600?Math.floor(diff/60)+(lang==='fa'?' دقیقه پیش':' min ago'):Math.floor(diff/3600)+(lang==='fa'?' ساعت پیش':' hr ago');const it=document.createElement('div');it.className='session-card';it.innerHTML=`<div class="session-header"><div class="session-icon">📱</div><div class="session-info"><div class="session-device">${esc(s.device_info||'?')}</div><div class="session-time">${timeAgo}</div></div>${isCurrent?'<span class="session-current">'+(lang==='fa'?'فعلی':'Current')+'</span>':''}</div>`;if(!isCurrent){const btn=document.createElement('button');btn.style.cssText='width:100%;padding:8px;border-radius:10px;font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;background:rgba(239,68,68,.15);color:#ef4444;border:none';btn.textContent=lang==='fa'?'خروج از این دستگاه':'Log out this device';btn.onclick=async()=>{if(!confirm(lang==='fa'?'از این دستگاه خارج شوی؟':'Log out from this device?'))return;await sb.from('sessions').delete().eq('id',s.id);showSessions()};it.appendChild(btn)}list.appendChild(it)});document.getElementById('sessions-modal').classList.add('show')};
-window.logoutAll=async()=>{if(!confirm(lang==='fa'?'از همه دستگاه‌ها خارج شوی؟':'Log out from all devices?'))return;await sb.from('sessions').delete().eq('user_email',myEmail);localStorage.removeItem('session_id');localStorage.removeItem('my_phone');location.href='index.html'};
+let sessionHeartbeatTimer=null;
+let loginCodeWatcherTimer=null;
+let sessionVisibilityHandlerInstalled=false;
+const seenLoginCodeRequests=new Set();
+
+async function touchCurrentSession(){
+  if(!savedPhone||!myEmail)return false;
+  const token=localStorage.getItem('nx_session_token');
+  if(!token)return false;
+  const{data,error}=await sb.rpc('nx_register_device_session',{
+    p_phone:savedPhone,
+    p_session_token:token,
+    p_device_info:nxGetDeviceLabel(),
+    p_user_agent:navigator.userAgent||''
+  });
+  if(error){console.warn('Nexom session heartbeat failed:',error.message);return false;}
+  if(!data?.ok){console.warn('Nexom session heartbeat rejected:',data?.reason||'unknown');return false;}
+  if(data.session_id)localStorage.setItem('nx_session_id',data.session_id);
+  return true;
+}
+
+async function registerSession(){
+  if(!savedPhone||!myEmail)return false;
+  let token=localStorage.getItem('nx_session_token');
+
+  if(!token){
+    const legacyId=localStorage.getItem('session_id');
+    if(legacyId){
+      const{data:migrated,error:migrateError}=await sb.rpc('nx_migrate_legacy_session',{
+        p_phone:savedPhone,
+        p_legacy_session_id:legacyId,
+        p_device_info:nxGetDeviceLabel(),
+        p_user_agent:navigator.userAgent||''
+      });
+      if(!migrateError&&migrated?.ok&&migrated.session_token){
+        token=migrated.session_token;
+        localStorage.setItem('nx_session_token',token);
+        if(migrated.session_id)localStorage.setItem('nx_session_id',migrated.session_id);
+        localStorage.removeItem('session_id');
+      }else if(migrateError){
+        console.warn('Legacy session migration failed:',migrateError.message);
+      }
+    }
+  }
+
+  if(!token){
+    localStorage.removeItem('my_phone');
+    localStorage.removeItem('session_id');
+    alert('برای فعال‌سازی نشست امن، یک بار با رمز عبور وارد شوید. سپس دستگاه‌های دیگر می‌توانند کد تأیید دریافت کنند.');
+    location.reload();
+    return false;
+  }
+
+  const{data,error}=await sb.rpc('nx_register_device_session',{
+    p_phone:savedPhone,
+    p_session_token:token,
+    p_device_info:nxGetDeviceLabel(),
+    p_user_agent:navigator.userAgent||''
+  });
+  if(error||!data?.ok){
+    console.error('Nexom session registration failed:',error?.message||data?.reason);
+    if(data?.reason==='SESSION_NOT_FOUND'||data?.reason==='SESSION_REVOKED'){
+      localStorage.removeItem('nx_session_token');
+      localStorage.removeItem('nx_session_id');
+      localStorage.removeItem('my_phone');
+      alert('نشست این دستگاه معتبر نیست. لطفاً دوباره با رمز عبور یا کد تأیید وارد شوید.');
+      location.reload();
+    }
+    return false;
+  }
+
+  localStorage.setItem('nx_session_token',token);
+  localStorage.setItem('nx_session_id',data.session_id);
+  if(sessionHeartbeatTimer)clearInterval(sessionHeartbeatTimer);
+  await touchCurrentSession();
+  sessionHeartbeatTimer=setInterval(()=>{touchCurrentSession();},12000);
+  if(!sessionVisibilityHandlerInstalled){
+    document.addEventListener('visibilitychange',()=>{if(!document.hidden)touchCurrentSession();});
+    window.addEventListener('online',()=>touchCurrentSession());
+    sessionVisibilityHandlerInstalled=true;
+  }
+  return true;
+}
+function showLoginCodeCard(code,requestId,expiresAt){
+  if(document.querySelector(`[data-nx-login-code="${requestId}"]`))return;
+  const overlay=document.createElement('div');
+  overlay.className='nx-login-code-overlay';
+  overlay.dataset.nxLoginCode=requestId;
+  overlay.setAttribute('role','dialog');
+  overlay.setAttribute('aria-modal','true');
+  const card=document.createElement('div');card.className='nx-login-code-card';
+  const avatar=document.createElement('div');avatar.className='nx-login-code-avatar';avatar.textContent='🤖';
+  const name=document.createElement('div');name.className='nx-login-code-name';name.textContent='ربات نکسوم';
+  const desc=document.createElement('div');desc.className='nx-login-code-desc';desc.textContent='پیام ورود به حساب شما: کد زیر را فقط در صورتی در دستگاه جدید وارد کنید که خودتان درخواست ورود داده‌اید.';
+  const value=document.createElement('div');value.className='nx-login-code-value';value.textContent=code;
+  const actions=document.createElement('div');actions.className='nx-login-code-actions';
+  const copy=document.createElement('button');copy.type='button';copy.className='nx-login-copy';copy.textContent='کپی کد';
+  copy.onclick=async()=>{try{await navigator.clipboard.writeText(code);copy.textContent='کپی شد ✓';}catch(e){window.prompt('کد تأیید را کپی کنید:',code);}};
+  const dismiss=document.createElement('button');dismiss.type='button';dismiss.className='nx-login-dismiss';dismiss.textContent='بستن';
+  dismiss.onclick=()=>overlay.remove();
+  actions.append(copy,dismiss);card.append(avatar,name,desc,value,actions);overlay.appendChild(card);document.body.appendChild(overlay);
+  const left=Math.max(1000,new Date(expiresAt||Date.now()+60000).getTime()-Date.now());
+  setTimeout(()=>overlay.remove(),left);
+}
+
+async function checkLoginCodeRequests(){
+  if(!savedPhone)return;
+  const token=localStorage.getItem('nx_session_token');
+  if(!token)return;
+  const{data,error}=await sb.rpc('nx_poll_login_requests',{
+    p_phone:savedPhone,
+    p_session_token:token
+  });
+  if(error){console.warn('Nexom login-code watcher failed:',error.message);return;}
+  if(!data?.ok)return;
+  for(const request of(data.requests||[])){
+    if(!request?.id||seenLoginCodeRequests.has(request.id))continue;
+    let code=String(request.code||'');
+    if(!/^\d{6}$/.test(code)){
+      try{
+        const generatedCode=nxCreateSixDigitCode();
+        const{data:issued,error:issueError}=await sb.rpc('nx_set_login_request_code',{
+          p_phone:savedPhone,
+          p_session_token:token,
+          p_request_id:request.id,
+          p_code:generatedCode
+        });
+        if(issueError||!issued?.ok)continue;
+        code=String(issued.code||'');
+      }catch(e){console.warn('Could not issue login code:',e);continue;}
+    }
+    if(/^\d{6}$/.test(code)){
+      seenLoginCodeRequests.add(request.id);
+      showLoginCodeCard(code,request.id,request.expires_at);
+    }
+  }
+}
+function startLoginCodeWatcher(){
+  if(loginCodeWatcherTimer)clearInterval(loginCodeWatcherTimer);
+  checkLoginCodeRequests();
+  loginCodeWatcherTimer=setInterval(checkLoginCodeRequests,3000);
+}
+
+window.showSessions=async()=>{
+  const list=document.getElementById('sessions-list');
+  list.innerHTML='<div style="text-align:center;padding:20px;color:var(--mut)">در حال دریافت نشست‌ها...</div>';
+  const token=localStorage.getItem('nx_session_token');
+  const{data,error}=await sb.rpc('nx_list_device_sessions',{
+    p_phone:savedPhone,
+    p_session_token:token||''
+  });
+  if(error||!data?.ok){
+    list.innerHTML='<div style="text-align:center;padding:20px;color:#ef4444">خطا در دریافت نشست‌ها: '+esc(error?.message||data?.reason||'دسترسی ناموفق')+'</div>';
+    document.getElementById('sessions-modal').classList.add('show');
+    return;
+  }
+  const sessions=data.sessions||[];
+  if(!sessions.length){
+    list.innerHTML='<div style="text-align:center;padding:20px;color:var(--mut)">نشست فعالی وجود ندارد.</div>';
+    document.getElementById('sessions-modal').classList.add('show');
+    return;
+  }
+  list.innerHTML='';
+  sessions.forEach(session=>{
+    const diff=Math.max(0,Math.floor((Date.now()-new Date(session.last_active).getTime())/1000));
+    const timeAgo=diff<60?'همین حالا':diff<3600?Math.floor(diff/60)+' دقیقه پیش':Math.floor(diff/3600)+' ساعت پیش';
+    const it=document.createElement('div');it.className='session-card';
+    it.innerHTML=`<div class="session-header"><div class="session-icon">📱</div><div class="session-info"><div class="session-device">${esc(session.device_info||'دستگاه ناشناس')}</div><div class="session-time">${timeAgo} ${session.is_active?'· فعال':'· غیرفعال'}</div></div>${session.is_current?'<span class="session-current">فعلی</span>':''}</div>`;
+    if(!session.is_current){
+      const btn=document.createElement('button');
+      btn.style.cssText='width:100%;padding:8px;border-radius:10px;font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;background:rgba(239,68,68,.15);color:#ef4444;border:none';
+      btn.textContent='خروج از این دستگاه';
+      btn.onclick=async()=>{
+        if(!confirm('از این دستگاه خارج شود؟'))return;
+        const{data:revoked,error:revokeError}=await sb.rpc('nx_revoke_device_session',{
+          p_phone:savedPhone,
+          p_session_token:localStorage.getItem('nx_session_token')||'',
+          p_target_session_id:session.id
+        });
+        if(revokeError||!revoked?.ok){alert('خروج از دستگاه انجام نشد: '+(revokeError?.message||revoked?.reason||''));return;}
+        showSessions();
+      };
+      it.appendChild(btn);
+    }
+    list.appendChild(it);
+  });
+  document.getElementById('sessions-modal').classList.add('show');
+};
+window.logoutAll=async()=>{
+  if(!confirm(lang==='fa'?'از همه دستگاه‌ها خارج شوی؟':'Log out from all devices?'))return;
+  const{data,error}=await sb.rpc('nx_revoke_all_device_sessions',{
+    p_phone:savedPhone,
+    p_session_token:localStorage.getItem('nx_session_token')||''
+  });
+  if(error||!data?.ok){alert('خروج از همه دستگاه‌ها انجام نشد: '+(error?.message||data?.reason||''));return;}
+  localStorage.removeItem('nx_session_token');localStorage.removeItem('nx_session_id');localStorage.removeItem('session_id');localStorage.removeItem('my_phone');
+  location.href='index.html';
+};
 
 let twofaCode=null;
 window.openTwoFA=async()=>{const p=await loadMyProfile();const enabled=p?.twofa_enabled===true;if(enabled){if(!confirm(lang==='fa'?'رمز دو مرحله‌ای غیرفعال شود؟':'Disable 2FA?'))return;await sb.from('profiles').update({twofa_enabled:false,twofa_code:null,twofa_expires:null}).eq('email',myEmail);alert(lang==='fa'?'✅ غیرفعال شد':'✅ Disabled');updateTwoFAStatus();return}document.getElementById('twofa-step1').style.display='block';document.getElementById('twofa-step2').style.display='none';document.getElementById('twofa-modal').classList.add('show')};
@@ -2023,7 +2269,7 @@ document.getElementById('password-save').onclick=async()=>{const np=document.get
 window.showPage=p=>{document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));const nm={home:'nav-home',chats:'nav-chats',library:'nav-library',settings:'nav-more'};if(nm[p])document.getElementById(nm[p])?.classList.add('active');if(p==='chats')renderList();if(p==='library')loadLib();if(p==='bots')loadBots();if(p==='education')loadEdu();if(p==='payments')loadWallet();if(p==='settings'){const sel=document.getElementById('lang-select');if(sel)sel.value=lang;updateTwoFAStatus()}};
 window.goTab=x=>{showPage('chats');switchTab(x)};
 window.switchTab=x=>{curTab=x;document.querySelectorAll('.tab').forEach(el=>el.classList.toggle('active',el.dataset.tab===x));renderList()};
-window.logout=async()=>{if(!confirm(t('logoutConfirm')))return;const sessionId=localStorage.getItem('session_id');if(sessionId)await sb.from('sessions').delete().eq('id',sessionId);try{await setOffline()}catch(e){}localStorage.removeItem('my_phone');localStorage.removeItem('session_id');location.href='index.html'};
+window.logout=async()=>{if(!confirm(t('logoutConfirm')))return;try{await sb.rpc('nx_revoke_device_session',{p_phone:savedPhone,p_session_token:localStorage.getItem('nx_session_token')||'',p_target_session_id:localStorage.getItem('nx_session_id')})}catch(e){console.warn('Session revoke failed:',e)}try{await setOffline()}catch(e){}localStorage.removeItem('my_phone');localStorage.removeItem('session_id');localStorage.removeItem('nx_session_id');localStorage.removeItem('nx_session_token');location.href='index.html'};
 window.showNotif=()=>alert(lang==='fa'?'اعلان‌ها به زودی...':'Notifications coming soon...');
 window.closeModal=id=>document.getElementById(id).classList.remove('show');
 
@@ -2911,7 +3157,7 @@ nxApplyChatPrefs();nxProcessScheduled();setInterval(nxProcessScheduled,10000);wi
 // ============================================================
 // راه‌اندازی اولیه
 // ============================================================
-(async()=>{applyLang();await loadMyProfile();await registerSession();await loadStories();await setOnline();await loadAllStatus();setupStatusRealtime();const homeAv=document.getElementById('home-avatar');if(homeAv&&avatarsCache[myEmail]){homeAv.textContent='';homeAv.style.backgroundImage=`url('${avatarsCache[myEmail]}')`}const greeting=document.getElementById('home-greeting');if(greeting&&namesCache[myEmail]){greeting.textContent=(lang==='fa'?'سلام، ':'Hi, ')+namesCache[myEmail]+'!'}stRt=sb.channel('stories-rt').on('postgres_changes',{event:'*',schema:'public',table:'stories'},()=>loadStories()).subscribe();setInterval(()=>{if(document.getElementById('page-chats')?.classList.contains('active') && !curChat){renderList()}},10000);setTimeout(checkInviteCodeInURL,500);const pendingInvite=localStorage.getItem('pending_invite');if(pendingInvite){localStorage.removeItem('pending_invite');setTimeout(()=>processInviteJoin(pendingInvite),1000)}})();
+(async()=>{applyLang();await loadMyProfile();const sessionReady=await registerSession();if(sessionReady)startLoginCodeWatcher();await loadStories();await setOnline();await loadAllStatus();setupStatusRealtime();const homeAv=document.getElementById('home-avatar');if(homeAv&&avatarsCache[myEmail]){homeAv.textContent='';homeAv.style.backgroundImage=`url('${avatarsCache[myEmail]}')`}const greeting=document.getElementById('home-greeting');if(greeting&&namesCache[myEmail]){greeting.textContent=(lang==='fa'?'سلام، ':'Hi, ')+namesCache[myEmail]+'!'}stRt=sb.channel('stories-rt').on('postgres_changes',{event:'*',schema:'public',table:'stories'},()=>loadStories()).subscribe();setInterval(()=>{if(document.getElementById('page-chats')?.classList.contains('active') && !curChat){renderList()}},10000);setTimeout(checkInviteCodeInURL,500);const pendingInvite=localStorage.getItem('pending_invite');if(pendingInvite){localStorage.removeItem('pending_invite');setTimeout(()=>processInviteJoin(pendingInvite),1000)}})();
 setTimeout(() => {
   if ('Notification' in window && Notification.permission === 'default') {
     if (confirm(lang==='fa'?'می‌خوای اعلان پیام‌ها و تماس‌ها رو دریافت کنی؟':'Do you want to receive message and call notifications?')) { askNotificationPermission(); }
@@ -2927,118 +3173,351 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 
 const SUPABASE_URL = 'https://sgjrwmnfvrpjtshlabva.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNnanJ3bW5mdnJwanRzaGxhYnZhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkwNTYwNzcsImV4cCI6MjEwNDYzMjA3N30._BOp-ONPTEbaM2mnGdJbdvjN-7qqA87zvannrOv02Eo';
-
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 let currentMode = 'login';
+let loginStage = 'phone'; // phone -> password | otp
+let pendingLogin = null;
+let otpAttempts = 0;
+const ACTIVE_SESSION_MS = 60 * 1000; // نشست فقط تا یک دقیقه پس از آخرین heartbeat فعال است
+const CODE_VALID_MS = 60 * 1000; // کد ورود یک دقیقه اعتبار دارد
+
 const phoneInput = document.getElementById('phone-input');
 const passwordInput = document.getElementById('password-input');
 const usernameInput = document.getElementById('username-input');
+const otpInput = document.getElementById('otp-input');
+const passwordWrap = document.getElementById('password-wrap');
+const otpWrap = document.getElementById('otp-wrap');
+const usernameWrap = document.getElementById('username-wrap');
+const noteArea = document.getElementById('auth-choice-note');
+const choiceWrap = document.getElementById('auth-method-choice');
+const codeMethodBtn = document.getElementById('login-with-code-btn');
+const passwordMethodBtn = document.getElementById('login-with-password-btn');
 const submitBtn = document.getElementById('submit-btn');
+const backBtn = document.getElementById('auth-back-btn');
 const messageArea = document.getElementById('message-area');
 
 const savedUser = localStorage.getItem('my_phone');
-if (savedUser) { document.getElementById('auth-screen').classList.add('hidden'); document.getElementById('app-root').classList.remove('hidden'); }
+if (savedUser) {
+  document.getElementById('auth-screen').classList.add('hidden');
+  document.getElementById('app-root').classList.remove('hidden');
+}
 
-document.getElementById('tab-login').addEventListener('click', () => {
+function setMessage(message, type='') {
+  messageArea.textContent = message;
+  messageArea.className = type;
+}
+function setBusy(busy) {
+  submitBtn.disabled = busy;
+  backBtn.disabled = busy;
+  if(codeMethodBtn)codeMethodBtn.disabled=busy;
+  if(passwordMethodBtn)passwordMethodBtn.disabled=busy;
+}
+function validPhone() {
+  const phone = phoneInput.value.trim();
+  if (!/^09\d{9}$/.test(phone)) {
+    setMessage(phone ? '⚠️ شماره باید ۱۱ رقم و با ۰۹ شروع شود' : '⚠️ شماره تلفن را وارد کنید', 'error');
+    phoneInput.focus();
+    return null;
+  }
+  return phone;
+}
+function resetLoginStage() {
+  loginStage = 'phone';
+  pendingLogin = null;
+  otpAttempts = 0;
+  passwordWrap.style.display = 'none';
+  otpWrap.style.display = 'none';
+  noteArea.style.display = 'none';
+  choiceWrap.style.display = 'none';
+  backBtn.style.display = 'none';
+  submitBtn.style.display = 'block';
+  passwordInput.value = '';
+  otpInput.value = '';
+  phoneInput.disabled = false;
+  submitBtn.textContent = 'ادامه';
+  setMessage('');
+}
+function showPasswordStage(message) {
+  loginStage = 'password';
+  choiceWrap.style.display = 'none';
+  passwordWrap.style.display = 'block';
+  otpWrap.style.display = 'none';
+  noteArea.style.display = 'block';
+  noteArea.textContent = message || 'می‌توانید با رمز عبور حساب خود وارد شوید؛ حتی اگر روی دستگاه دیگری نشست فعال داشته باشید.';
+  backBtn.style.display = 'block';
+  submitBtn.style.display = 'block';
+  submitBtn.textContent = 'ورود با رمز عبور';
+  phoneInput.disabled = true;
+  passwordInput.focus();
+  setMessage('');
+}
+function showChoiceStage(phone) {
+  loginStage = 'choice';
+  pendingLogin = { phone, challengeId: null, createdAt: Date.now() };
+  passwordWrap.style.display = 'none';
+  otpWrap.style.display = 'none';
+  choiceWrap.style.display = 'flex';
+  noteArea.style.display = 'block';
+  noteArea.textContent = 'برای این شماره یک نشست فعال پیدا شد. روش ورود را خودتان انتخاب کنید؛ می‌توانید با کد دستگاه قبلی یا با رمز عبور وارد شوید.';
+  backBtn.style.display = 'block';
+  submitBtn.style.display = 'none';
+  phoneInput.disabled = true;
+  setMessage('');
+}
+function showOtpStage(challengeId, phone, expiresAt) {
+  loginStage = 'otp';
+  pendingLogin = { challengeId, phone, createdAt: Date.now(), expiresAt: expiresAt || null };
+  otpAttempts = 0;
+  choiceWrap.style.display = 'none';
+  passwordWrap.style.display = 'none';
+  otpWrap.style.display = 'block';
+  noteArea.style.display = 'block';
+  noteArea.textContent = 'کد در یک پیام از طرف ربات نکسوم روی دستگاه قبلی نمایش داده می‌شود. کد تا ۱ دقیقه معتبر است.';
+  backBtn.style.display = 'block';
+  submitBtn.style.display = 'block';
+  submitBtn.textContent = 'تأیید کد و ورود';
+  phoneInput.disabled = true;
+  otpInput.focus();
+  setMessage('درخواست کد به دستگاه قبلی ارسال شد.', 'success');
+}
+function makeRequestId() {
+  if (window.crypto?.randomUUID) return window.crypto.randomUUID();
+  return 'nx_' + Date.now() + '_' + Math.random().toString(36).slice(2);
+}
+
+function selectLoginTab() {
   currentMode = 'login';
   document.getElementById('tab-login').classList.add('active');
   document.getElementById('tab-signup').classList.remove('active');
-  document.getElementById('username-wrap').style.display = 'none';
-  submitBtn.textContent = 'ورود';
-  messageArea.textContent = '';
-});
+  usernameWrap.style.display = 'none';
+  passwordWrap.style.display = 'none';
+  resetLoginStage();
+}
+document.getElementById('tab-login').addEventListener('click', selectLoginTab);
 
 document.getElementById('tab-signup').addEventListener('click', () => {
   currentMode = 'signup';
   document.getElementById('tab-signup').classList.add('active');
   document.getElementById('tab-login').classList.remove('active');
-  document.getElementById('username-wrap').style.display = 'block';
+  usernameWrap.style.display = 'block';
+  passwordWrap.style.display = 'block';
+  otpWrap.style.display = 'none';
+  choiceWrap.style.display = 'none';
+  noteArea.style.display = 'none';
+  backBtn.style.display = 'none';
+  submitBtn.style.display = 'block';
+  phoneInput.disabled = false;
   submitBtn.textContent = 'ثبت‌نام';
-  messageArea.textContent = '';
+  setMessage('');
 });
 
-submitBtn.addEventListener('click', async () => {
-  const phone = phoneInput.value.trim();
-  const password = passwordInput.value;
+backBtn.addEventListener('click', () => {
+  if (currentMode === 'signup') return;
+  resetLoginStage();
+  phoneInput.focus();
+});
 
-  if (!phone) { messageArea.textContent = '⚠️ شماره تلفن را وارد کنید'; messageArea.className = 'error'; return; }
-  if (!/^09\d{9}$/.test(phone)) { messageArea.textContent = '⚠️ شماره باید ۱۱ رقم و با ۰۹ شروع شود'; messageArea.className = 'error'; return; }
-  if (!password) { messageArea.textContent = '⚠️ رمز عبور را وارد کنید'; messageArea.className = 'error'; return; }
-  if (password.length < 6) { messageArea.textContent = '⚠️ رمز باید حداقل ۶ کاراکتر باشد'; messageArea.className = 'error'; return; }
+codeMethodBtn.addEventListener('click', requestLoginCode);
+passwordMethodBtn.addEventListener('click', () => {
+  if(!pendingLogin?.phone)return;
+  showPasswordStage('روش ورود با رمز عبور را انتخاب کردید. رمز حساب خود را وارد کنید.');
+});
 
-  submitBtn.disabled = true;
-  messageArea.textContent = '⏳ صبر کنید...';
-  messageArea.className = '';
+function authDeviceLabel(){
+  const ua=navigator.userAgent||'';
+  let name=/Android/i.test(ua)?'Android':/iPhone|iPad|iPod/i.test(ua)?'iPhone/iPad':/Windows/i.test(ua)?'Windows':/Mac/i.test(ua)?'Mac':/Linux/i.test(ua)?'Linux':'دستگاه ناشناس';
+  if(/Edg/i.test(ua))name+=' • Edge';else if(/Chrome/i.test(ua))name+=' • Chrome';else if(/Firefox/i.test(ua))name+=' • Firefox';else if(/Safari/i.test(ua))name+=' • Safari';
+  return name;
+}
 
+async function beginLogin(phone) {
+  setBusy(true);
+  setMessage('⏳ در حال بررسی نشست‌های فعال در سرور...');
   try {
-    if (currentMode === 'signup') {
-      const username = usernameInput.value.trim().toLowerCase().replace(/[^a-z0-9_]/g, '');
-      if (!username || username.length < 3) {
-        messageArea.textContent = '⚠️ آیدی باید حداقل ۳ حرف باشد (فقط حروف انگلیسی، اعداد و _)';
-        messageArea.className = 'error';
-        submitBtn.disabled = false;
-        return;
-      }
-      const { data: existing } = await supabase.from('my_users').select('id').eq('username', username).maybeSingle();
-      if (existing) {
-        messageArea.textContent = '❌ این آیدی قبلاً گرفته شده!';
-        messageArea.className = 'error';
-        submitBtn.disabled = false;
-        return;
-      }
+    const{data:status,error:statusError}=await supabase.rpc('nx_check_active_sessions',{p_phone:phone});
+    if(statusError)throw new Error('بررسی نشست‌های سرور ناموفق بود. اسکریپت الحاقی بررسی نشست را در Supabase اجرا کن. جزئیات: '+statusError.message);
+    if(!status?.ok)throw new Error(status?.reason==='ACCOUNT_NOT_FOUND'?'این شماره در نکسوم ثبت‌نام نکرده است.':(status?.message||status?.reason||'بررسی نشست ناموفق بود.'));
 
-      const { data: existingPhone } = await supabase.from('my_users').select('id').eq('phone', phone).maybeSingle();
-      if (existingPhone) {
-        messageArea.textContent = '❌ این شماره قبلاً ثبت‌نام کرده است';
-        messageArea.className = 'error';
-        submitBtn.disabled = false;
-        return;
-      }
-
-      const { error } = await supabase.from('my_users').insert({ phone: phone, password: password, username: username });
-
-      if (error) {
-        messageArea.textContent = '❌ خطا: ' + error.message;
-        messageArea.className = 'error';
-        submitBtn.disabled = false;
-        return;
-      }
-
-      messageArea.textContent = '✅ ثبت‌نام موفق! در حال ورود...';
-      messageArea.className = 'success';
-      
-      setTimeout(() => {
-        localStorage.setItem('my_phone', phone);
-        window.location.reload();
-      }, 1000);
-
-    } else {
-      const { data, error } = await supabase.from('my_users').select('*').eq('phone', phone).eq('password', password).maybeSingle();
-
-      if (error || !data) {
-        messageArea.textContent = '❌ شماره یا رمز عبور اشتباه است';
-        messageArea.className = 'error';
-        submitBtn.disabled = false;
-        return;
-      }
-
-      messageArea.textContent = '✅ در حال ورود...';
-      messageArea.className = 'success';
-      
-      setTimeout(() => {
-        localStorage.setItem('my_phone', phone);
-        window.location.reload();
-      }, 500);
+    if(status.active){
+      showChoiceStage(phone);
+    }else{
+      showPasswordStage('برای این شماره نشست فعالی روی دستگاه دیگری پیدا نشد. با رمز عبور حساب خود وارد شوید.');
     }
   } catch (err) {
-    messageArea.textContent = '❌ ' + err.message;
-    messageArea.className = 'error';
-    submitBtn.disabled = false;
+    setMessage('❌ ' + (err?.message || 'خطای نامشخص'), 'error');
+  } finally {
+    setBusy(false);
   }
+}
+
+async function requestLoginCode() {
+  const phone=pendingLogin?.phone;
+  if(!phone){resetLoginStage();setMessage('شماره تلفن معتبر نیست. دوباره تلاش کنید.','error');return;}
+  setBusy(true);
+  setMessage('⏳ در حال ارسال درخواست کد به دستگاه قبلی...');
+  try{
+    const{data:request,error:requestError}=await supabase.rpc('nx_create_login_request',{
+      p_phone:phone,
+      p_device_info:authDeviceLabel()
+    });
+    if(requestError)throw new Error('ایجاد درخواست کد ناموفق بود: '+requestError.message);
+    if(!request?.ok)throw new Error(request?.reason==='TOO_MANY_REQUESTS'?'تعداد درخواست‌های کد زیاد است. یک دقیقه دیگر دوباره تلاش کنید.':(request?.message||request?.reason||'درخواست کد ناموفق بود.'));
+    if(!request.active){
+      showPasswordStage('نشست دستگاه قبلی دیگر فعال نیست. می‌توانید با رمز عبور وارد شوید.');
+      setMessage('نشست قبلی منقضی شده است؛ ورود با رمز عبور را انتخاب کنید.','error');
+      return;
+    }
+    if(!request.request_id)throw new Error('درخواست کد در سرور ثبت نشد.');
+    showOtpStage(request.request_id,phone,request.expires_at);
+  }catch(err){
+    setMessage('❌ '+(err?.message||'خطای نامشخص'),'error');
+  }finally{
+    setBusy(false);
+  }
+}
+
+async function loginWithPassword(phone) {
+  const password=passwordInput.value;
+  if(!password){setMessage('⚠️ رمز عبور را وارد کنید','error');passwordInput.focus();return;}
+  setBusy(true);setMessage('⏳ در حال بررسی رمز و ایجاد نشست امن...');
+  try{
+    const{data:result,error}=await supabase.rpc('nx_create_password_session',{
+      p_phone:phone,
+      p_password:password,
+      p_device_info:authDeviceLabel(),
+      p_user_agent:navigator.userAgent||''
+    });
+    if(error)throw new Error('ورود با رمز ناموفق بود: '+error.message);
+    if(!result?.ok){
+      setMessage(result?.reason==='INVALID_CREDENTIALS'?'❌ شماره یا رمز عبور اشتباه است.':'❌ '+(result?.message||result?.reason||'ورود انجام نشد.'),'error');
+      return;
+    }
+    if(!result.session_token)throw new Error('سرور نشست امن صادر نکرد.');
+    localStorage.setItem('nx_session_token',result.session_token);
+    if(result.session_id)localStorage.setItem('nx_session_id',result.session_id);
+    localStorage.setItem('my_phone',phone);
+    setMessage('✅ ورود موفق؛ در حال باز کردن نکسوم...','success');
+    setTimeout(()=>window.location.reload(),350);
+  }catch(err){setMessage('❌ '+(err?.message||'خطای نامشخص'),'error');}
+  finally{setBusy(false);}
+}
+
+async function loginWithCode(phone) {
+  const entered=otpInput.value.trim();
+  if(!/^\d{6}$/.test(entered)){
+    setMessage('⚠️ کد تأیید باید ۶ رقم باشد.','error');otpInput.focus();return;
+  }
+  if(!pendingLogin||pendingLogin.phone!==phone){
+    resetLoginStage();setMessage('درخواست کد معتبر نیست؛ دوباره شماره را بررسی کنید.','error');return;
+  }
+  const serverExpiry=pendingLogin.expiresAt?new Date(pendingLogin.expiresAt).getTime():0;
+  if((serverExpiry&&Date.now()>serverExpiry)||(!serverExpiry&&Date.now()-pendingLogin.createdAt>CODE_VALID_MS+5000)){
+    resetLoginStage();setMessage('⏰ مهلت درخواست کد تمام شده است. دوباره شماره را وارد کنید.','error');return;
+  }
+
+  setBusy(true);setMessage('⏳ در حال تأیید کد در سرور...');
+  try{
+    const{data:result,error}=await supabase.rpc('nx_verify_login_request',{
+      p_phone:phone,
+      p_request_id:pendingLogin.challengeId,
+      p_code:entered,
+      p_device_info:authDeviceLabel(),
+      p_user_agent:navigator.userAgent||''
+    });
+    if(error)throw new Error('تأیید کد در سرور ناموفق بود: '+error.message);
+    if(!result?.ok){
+      if(result?.reason==='CODE_INVALID'){
+        setMessage('❌ کد اشتباه است. تلاش باقی‌مانده: '+(result.remaining_attempts??0),'error');
+        if((result.remaining_attempts??0)<=0)resetLoginStage();
+      }else if(result?.reason==='CODE_EXPIRED'){
+        resetLoginStage();setMessage('⏰ کد منقضی شده است. دوباره شماره را وارد کنید.','error');
+      }else if(result?.reason==='CODE_PENDING'){
+        setMessage('⌛ دستگاه قبلی هنوز کد را آماده نکرده است. چند لحظه دیگر دوباره تأیید کنید.','error');
+      }else{
+        setMessage('❌ '+(result?.message||result?.reason||'کد تأیید نشد.'),'error');
+      }
+      return;
+    }
+    if(!result.session_token)throw new Error('سرور کد را تأیید کرد اما نشست جدید صادر نکرد.');
+    localStorage.setItem('nx_session_token',result.session_token);
+    if(result.session_id)localStorage.setItem('nx_session_id',result.session_id);
+    localStorage.setItem('my_phone',phone);
+    setMessage('✅ کد تأیید شد؛ در حال ورود...','success');
+    setTimeout(()=>window.location.reload(),350);
+  }catch(err){
+    setMessage('❌ '+(err?.message||'خطای نامشخص'),'error');
+  }finally{
+    setBusy(false);
+  }
+}
+
+async function signup(phone) {
+  const password = passwordInput.value;
+  if (!password) { setMessage('⚠️ رمز عبور را وارد کنید', 'error'); return; }
+  if (password.length < 6) { setMessage('⚠️ رمز باید حداقل ۶ کاراکتر باشد', 'error'); return; }
+  const username = usernameInput.value.trim().toLowerCase().replace(/[^a-z0-9_]/g, '');
+  if (!username || username.length < 3) {
+    setMessage('⚠️ آیدی باید حداقل ۳ حرف باشد (فقط حروف انگلیسی، اعداد و _)', 'error');
+    return;
+  }
+  setBusy(true);
+  setMessage('⏳ در حال ثبت‌نام...');
+  try {
+    const { data: existing, error: usernameError } = await supabase.from('my_users')
+      .select('id').eq('username', username).maybeSingle();
+    if (usernameError) throw usernameError;
+    if (existing) { setMessage('❌ این آیدی قبلاً گرفته شده!', 'error'); return; }
+
+    const { data: existingPhone, error: phoneError } = await supabase.from('my_users')
+      .select('id').eq('phone', phone).maybeSingle();
+    if (phoneError) throw phoneError;
+    if (existingPhone) { setMessage('❌ این شماره قبلاً ثبت‌نام کرده است', 'error'); return; }
+
+    const { error: insertError } = await supabase.from('my_users')
+      .insert({ phone, password, username });
+    if (insertError) throw insertError;
+
+    const{data:sessionResult,error:sessionError}=await supabase.rpc('nx_create_password_session',{
+      p_phone:phone,
+      p_password:password,
+      p_device_info:authDeviceLabel(),
+      p_user_agent:navigator.userAgent||''
+    });
+    if(sessionError)throw new Error('حساب ساخته شد اما نشست اولیه ایجاد نشد: '+sessionError.message);
+    if(!sessionResult?.ok||!sessionResult.session_token)throw new Error('حساب ساخته شد اما نشست امن صادر نشد. دوباره با رمز وارد شوید.');
+
+    setMessage('✅ ثبت‌نام موفق! در حال ورود...', 'success');
+    localStorage.setItem('nx_session_token',sessionResult.session_token);
+    if(sessionResult.session_id)localStorage.setItem('nx_session_id',sessionResult.session_id);
+    localStorage.setItem('my_phone', phone);
+    setTimeout(() => window.location.reload(), 500);
+  } catch (err) {
+    setMessage('❌ خطا: ' + (err?.message || 'خطای نامشخص'), 'error');
+  } finally {
+    setBusy(false);
+  }
+}
+
+submitBtn.addEventListener('click', async () => {
+  const phone = currentMode==='login'&&pendingLogin?.phone ? pendingLogin.phone : validPhone();
+  if (!phone) return;
+  if (currentMode === 'signup') return signup(phone);
+  if (loginStage === 'phone') return beginLogin(phone);
+  if (loginStage === 'choice') return;
+  if (loginStage === 'password') return loginWithPassword(phone);
+  if (loginStage === 'otp') return loginWithCode(phone);
 });
 
-passwordInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') submitBtn.click(); });
+[phoneInput, passwordInput, usernameInput, otpInput].forEach(input => {
+  input?.addEventListener('keydown', event => {
+    if (event.key === 'Enter' && !submitBtn.disabled) {
+      event.preventDefault();
+      submitBtn.click();
+    }
+  });
+});
 </script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"93d2ac2fe4254ad48b487622a1999890","r":1,"spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>
