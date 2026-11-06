@@ -1108,6 +1108,11 @@ hr{border-color:rgba(149,176,232,.14)!important}
 .nx-aparat-chips::-webkit-scrollbar{display:none}
 .nx-aparat-chips button{white-space:nowrap;border:1px solid rgba(145,174,230,.14);background:linear-gradient(145deg,rgba(20,29,52,.92),rgba(13,19,38,.92));color:#cbd8f1;border-radius:13px;padding:9px 12px;font-family:inherit;font-size:11px;font-weight:800;cursor:pointer}
 .nx-aparat-chips button:hover{border-color:rgba(99,245,212,.32);color:#8df4df;background:rgba(27,54,64,.9)}
+.nx-provider-chips{padding-top:0;margin-top:-2px}
+.nx-provider-chips button.active{border-color:rgba(99,245,212,.5);background:linear-gradient(120deg,rgba(99,245,212,.22),rgba(92,200,255,.16));color:#8df4df;box-shadow:0 0 0 2px rgba(99,245,212,.07)}
+.nx-aparat-provider-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 7px;border-radius:8px;background:rgba(99,245,212,.11);border:1px solid rgba(99,245,212,.13);color:#8df4df;font-size:9px;font-weight:900}
+.nx-aparat-source-note{font-size:10px;color:#91a3c4;line-height:1.8;margin:-2px 2px 12px}
+
 .nx-aparat-status{padding:7px 4px;color:#8df4df;font-size:11px;text-align:center;line-height:1.8;min-height:0}
 .nx-aparat-row-status{display:none!important}
 .nx-aparat-block{margin:17px 0 22px;min-width:0}
@@ -1149,6 +1154,51 @@ hr{border-color:rgba(149,176,232,.14)!important}
 @keyframes nxAparatShimmer{to{background-position-x:-220%}}
 @media(min-width:700px){.nx-aparat-grid,.nx-aparat-rail{grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.nx-aparat-card-body{padding:12px}.nx-aparat-video-title{font-size:12px}.nx-aparat-skeleton{height:240px}}
 @media(max-width:380px){.nx-aparat-grid,.nx-aparat-rail{gap:7px}.nx-aparat-card-body{padding:8px}.nx-aparat-video-title{font-size:10.5px}.nx-aparat-skeleton{height:175px}}
+</style>
+
+
+<style id="nx-aparat-nexom-theme">
+.nx-library-content{color:#1a2b1a}
+.nx-aparat-hero{border:1px solid #dcebdc;background:linear-gradient(120deg,#ffffff,#f2faf2);color:#1a2b1a;box-shadow:0 2px 8px rgba(36,80,40,.07)}
+.nx-aparat-hero:after{background:radial-gradient(circle,rgba(91,174,110,.16),transparent 70%)}
+.nx-aparat-brand{background:linear-gradient(135deg,#5bae6e,#4a9d5d);color:#fff;box-shadow:0 6px 18px rgba(91,174,110,.2)}
+.nx-aparat-title{color:#1a2b1a}
+.nx-aparat-subtitle{color:#647764}
+.nx-aparat-capacity{border:1px solid #d6ead7;background:#eaf6ea;color:#438b50}
+.nx-aparat-search{border:1px solid #e0e8e0;background:#fff;box-shadow:0 2px 8px rgba(36,80,40,.06)}
+.nx-aparat-search input{border:1px solid #e0e8e0;background:#f5faf5;color:#1a2b1a}
+.nx-aparat-search input::placeholder{color:#8a9a8a}
+.nx-aparat-search input:focus{border-color:#5bae6e;box-shadow:0 0 0 3px rgba(91,174,110,.12)}
+.nx-aparat-search button{background:linear-gradient(120deg,#5bae6e,#4a9d5d);color:#fff;box-shadow:0 5px 14px rgba(91,174,110,.18)}
+.nx-aparat-chips button{border:1px solid #e0e8e0;background:#fff;color:#526652;box-shadow:0 1px 3px rgba(0,0,0,.035)}
+.nx-aparat-chips button:hover{border-color:#9acba0;color:#3f8a4b;background:#f1faf1}
+.nx-provider-chips button.active{border-color:#8fc899;background:#e7f5e7;color:#39874a;box-shadow:0 0 0 2px rgba(91,174,110,.08)}
+.nx-aparat-provider-badge{background:#e7f5e7;border:1px solid #d5ead7;color:#39874a}
+.nx-aparat-source-note{color:#718171}
+.nx-aparat-status{color:#4a8e55}
+.nx-aparat-section-head h2{color:#1a2b1a}
+.nx-aparat-section-head p{color:#718171}
+.nx-aparat-text-btn{border:1px solid #d5ead7;background:#eaf6ea;color:#438b50}
+.nx-aparat-text-btn:hover{background:#def0df;border-color:#b8dcbc}
+.nx-aparat-card{border:1px solid #e0e8e0;border-radius:16px;background:#fff;color:#1a2b1a;box-shadow:0 2px 7px rgba(28,66,32,.07)}
+.nx-aparat-card:hover{border-color:#b6daba;box-shadow:0 8px 18px rgba(28,66,32,.11)}
+.nx-aparat-thumb-wrap{background:linear-gradient(135deg,#e7f5e7,#dcebdc)}
+.nx-aparat-play{background:rgba(23,66,31,.08);text-shadow:0 2px 8px rgba(0,0,0,.4)}
+.nx-aparat-play:after{border:1px solid rgba(255,255,255,.9);background:rgba(74,157,93,.78)}
+.nx-aparat-video-title{color:#1a2b1a}
+.nx-aparat-video-meta{color:#718171}
+.nx-aparat-card-actions button,.nx-aparat-card-actions a{border:1px solid #d5ead7;background:#eaf6ea;color:#39874a}
+.nx-aparat-card-actions a{background:#f5f8f5;border-color:#e0e8e0;color:#647764}
+.nx-aparat-footnote{color:#718171;border-top:1px solid #e0e8e0}
+.nx-my-library-block{border-top:1px solid #e0e8e0}
+.nx-aparat-player{background:rgba(15,35,18,.72)}
+.nx-aparat-player-card{background:#fff;color:#1a2b1a;border:1px solid #d5ead7;box-shadow:0 20px 65px rgba(0,0,0,.28)}
+.nx-aparat-player-head{border-bottom:1px solid #e0e8e0;color:#1a2b1a}
+.nx-aparat-player-head button{border:1px solid #e0e8e0;background:#f4f8f4;color:#526652}
+.nx-aparat-player-footer{color:#718171}
+.nx-aparat-player-footer a{color:#39874a}
+.nx-aparat-skeleton{border:1px solid #e0e8e0;background:linear-gradient(100deg,#f0f7f0 20%,#e5f2e5 38%,#f0f7f0 58%)}
+@media(min-width:700px){.nx-aparat-rail{grid-template-columns:repeat(4,minmax(0,1fr))}}
 </style>
 
 </head>
@@ -1273,8 +1323,8 @@ hr{border-color:rgba(149,176,232,.14)!important}
     <div class="nx-aparat-brand">▶</div>
     <div class="nx-aparat-hero-copy">
       <div class="nx-aparat-title">فیلم، کارتون و انیمیشن</div>
-      <div class="nx-aparat-subtitle">یک مجموعه یکپارچه برای تماشای فیلم‌های سینمایی، کارتون‌ها، انیمیشن‌ها و برنامه‌های کودک.</div>
-      <div class="nx-aparat-capacity">✦ کاتالوگ قابل گسترش تا ۱٬۰۰۰٬۰۰۰ ویدئو</div>
+      <div class="nx-aparat-subtitle">جست‌وجو و تماشای ویدئوهای عمومی از آپارات، تماشا و نماشا؛ همه در یک کتابخانه.</div>
+      <div class="nx-aparat-capacity">✦ تجمیع سه منبع ویدئویی در یک صفحه</div>
     </div>
   </section>
 
@@ -1289,6 +1339,12 @@ hr{border-color:rgba(149,176,232,.14)!important}
     <button type="button" onclick="nxAparatPreset('کارتون کودک دوبله فارسی')">🧸 کودک</button>
     <button type="button" onclick="nxAparatPreset('مستند فارسی')">🌍 مستند</button>
   </div>
+  <div class="nx-aparat-chips nx-provider-chips" aria-label="منابع ویدئو">
+    <button type="button" class="active" data-nx-provider="all" onclick="nxAparatSetProvider('all',this)">همه منابع</button>
+    <button type="button" data-nx-provider="aparat" onclick="nxAparatSetProvider('aparat',this)">▶ آپارات</button>
+    <button type="button" data-nx-provider="tamasha" onclick="nxAparatSetProvider('tamasha',this)">🎞 تماشا</button>
+    <button type="button" data-nx-provider="namasha" onclick="nxAparatSetProvider('namasha',this)">📺 نماشا</button>
+  </div>
   <div id="nx-aparat-status" class="nx-aparat-status" aria-live="polite"></div>
 
   <section id="nx-aparat-search-section" class="nx-aparat-block" hidden>
@@ -1297,6 +1353,10 @@ hr{border-color:rgba(149,176,232,.14)!important}
   </section>
 
   <div id="nx-aparat-home-feed">
+    <section class="nx-aparat-block nx-aparat-all-block">
+      <div class="nx-aparat-section-head"><div><h2>✨ همه ویدئوها از همه منابع</h2><p>ترکیبی از فیلم، کارتون و برنامه‌های ویدئویی آپارات، تماشا و نماشا</p></div><button type="button" class="nx-aparat-text-btn" onclick="nxAparatMore('all')">ویدئوهای بیشتر</button></div>
+      <div id="nx-aparat-all-results" class="nx-aparat-rail"></div>
+    </section>
     <section class="nx-aparat-block">
       <div class="nx-aparat-section-head"><div><h2>🎬 فیلم‌های سینمایی</h2><p>گزیده فیلم‌های بلند و سینمایی</p></div><button type="button" class="nx-aparat-text-btn" onclick="nxAparatMore('film')">ویدئوهای بیشتر</button></div>
       <div id="nx-aparat-film-status" class="nx-aparat-row-status" aria-hidden="true"></div>
@@ -1918,7 +1978,7 @@ hr{border-color:rgba(149,176,232,.14)!important}
       <button type="button" onclick="nxCloseAparatPlayer()" aria-label="بستن پخش‌کننده">✕</button>
     </div>
     <div class="nx-aparat-player-frame"><iframe id="nx-aparat-iframe" title="پخش ویدئو از آپارات" src="about:blank" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-    <div class="nx-aparat-player-footer"><span>پخش توسط آپارات</span><a id="nx-aparat-original-link" href="https://www.aparat.com" target="_blank" rel="noopener noreferrer">مشاهده در آپارات ↗</a></div>
+    <div class="nx-aparat-player-footer"><span>پخش از منبع اصلی ویدئو</span><a id="nx-aparat-original-link" href="https://www.aparat.com" target="_blank" rel="noopener noreferrer">مشاهده در سایت اصلی ↗</a></div>
   </div>
 </div>
 
@@ -2896,10 +2956,12 @@ window.closeStory=()=>{document.getElementById('story-viewer').classList.remove(
 // داده‌ها در Supabase cache می‌شوند؛ مرورگر فقط صفحه‌های لازم را می‌گیرد.
 // ============================================================
 let nxAparatSearchRequestId = 0;
+let NX_APARAT_PROVIDER_FILTER = "";
 let nxAparatHomeLoaded = false;
 let nxAparatHomeLoading = false;
 const NX_APARAT_PAGE_SIZE = 24;
 const NX_APARAT_HOME_SECTIONS = [
+  {key:'all', query:'', resultsId:'nx-aparat-all-results'},
   {key:'film', query:'فیلم سینمایی دوبله فارسی', resultsId:'nx-aparat-film-results'},
   {key:'cartoon', query:'کارتون دوبله فارسی', resultsId:'nx-aparat-cartoon-results'},
   {key:'animation', query:'انیمیشن دوبله فارسی', resultsId:'nx-aparat-animation-results'},
@@ -2923,12 +2985,20 @@ async function nxAparatInvoke(body) {
   return data;
 }
 
-async function nxAparatServerSearch(query, limit=24, offset=0) {
+async function nxAparatServerSearch(query, limit=24, offset=0, provider=NX_APARAT_PROVIDER_FILTER) {
   const cleanQuery = String(query || '').trim().slice(0,100);
   if (cleanQuery.length < 2) throw new Error('حداقل دو حرف برای جست‌وجو وارد کن.');
-  const data = await nxAparatInvoke({mode:'search', query:cleanQuery, limit, offset});
+  const data = await nxAparatInvoke({mode:'search', query:cleanQuery, limit, offset, provider:provider||''});
   return Array.isArray(data.videos) ? data.videos : [];
 }
+
+window.nxAparatSetProvider = function(provider, button) {
+  NX_APARAT_PROVIDER_FILTER = provider === 'all' ? '' : provider;
+  document.querySelectorAll('.nx-provider-chips [data-nx-provider]').forEach(el=>el.classList.toggle('active',el===button));
+  const input=document.getElementById('nx-aparat-query');
+  if(input && input.value.trim().length>=2) window.nxAparatSearch(input.value.trim());
+  else window.nxAparatLoadHome(true);
+};
 
 window.nxAparatPreset = function(query) {
   const input = document.getElementById('nx-aparat-query');
@@ -2979,15 +3049,22 @@ function nxAparatRenderVideos(videos, targetId='nx-aparat-search-results', appen
     }
     return;
   }
-  const existing = new Set([...grid.querySelectorAll('[data-video-hash]')].map(el=>el.dataset.videoHash));
+  const existing = new Set([...grid.querySelectorAll('[data-video-key]')].map(el=>el.dataset.videoKey));
+  const providerNames = {aparat:'آپارات',tamasha:'تماشا',namasha:'نماشا'};
   videos.forEach(video => {
+    const provider = ['aparat','tamasha','namasha'].includes(video?.provider) ? video.provider : 'aparat';
     const hash = String(video?.hash || '').trim();
-    if (!/^[A-Za-z0-9_-]{3,40}$/.test(hash) || existing.has(hash)) return;
-    existing.add(hash);
+    const sourceId = String(video?.source_id || '').trim();
+    const videoKey = provider + ':' + hash;
+    if (!hash || !sourceId || existing.has(videoKey)) return;
+    existing.add(videoKey);
     const titleText = String(video.title || 'ویدئو').slice(0,220);
-    const safeUrl = `https://www.aparat.com/v/${hash}`;
+    const safeUrl = typeof video.url === 'string' && /^https:\/\//i.test(video.url)
+      ? video.url
+      : (provider==='aparat' ? `https://www.aparat.com/v/${sourceId}` : provider==='tamasha' ? `https://tamasha.com/v/${sourceId}` : `https://www.namasha.com/v/${sourceId}`);
     const card = document.createElement('article');
     card.className = 'nx-aparat-card';
+    card.dataset.videoKey = videoKey;
     card.dataset.videoHash = hash;
     const thumbWrap = document.createElement('div');
     thumbWrap.className = 'nx-aparat-thumb-wrap';
@@ -3008,7 +3085,7 @@ function nxAparatRenderVideos(videos, targetId='nx-aparat-search-results', appen
     play.className = 'nx-aparat-play';
     play.textContent = '▶';
     thumbWrap.appendChild(play);
-    const playVideo = () => window.nxOpenAparatPlayer(hash, titleText, safeUrl);
+    const playVideo = () => window.nxOpenAparatPlayer(video);
     thumbWrap.addEventListener('click', playVideo);
     thumbWrap.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); playVideo(); } });
 
@@ -3019,12 +3096,15 @@ function nxAparatRenderVideos(videos, targetId='nx-aparat-search-results', appen
     title.textContent = titleText;
     const meta = document.createElement('div');
     meta.className = 'nx-aparat-video-meta';
-    const metaParts = [];
+    const metaParts = [providerNames[provider]];
     if (video.uploader) metaParts.push(String(video.uploader).slice(0,80));
     if (Number(video.views) > 0) metaParts.push(`${Number(video.views).toLocaleString('fa-IR')} بازدید`);
     const duration = nxAparatFormatDuration(video.duration);
     if (duration) metaParts.push(duration);
-    meta.textContent = metaParts.join(' · ') || 'ویدئو';
+    meta.textContent = metaParts.join(' · ');
+    const badge=document.createElement('div');
+    badge.className='nx-aparat-provider-badge';
+    badge.textContent=providerNames[provider];
     const actions = document.createElement('div');
     actions.className = 'nx-aparat-card-actions';
     const playButton = document.createElement('button');
@@ -3035,9 +3115,9 @@ function nxAparatRenderVideos(videos, targetId='nx-aparat-search-results', appen
     originalLink.href = safeUrl;
     originalLink.target = '_blank';
     originalLink.rel = 'noopener noreferrer';
-    originalLink.textContent = 'جزئیات';
+    originalLink.textContent = 'سایت اصلی';
     actions.append(playButton, originalLink);
-    body.append(title, meta, actions);
+    body.append(badge,title,meta,actions);
     card.append(thumbWrap, body);
     grid.appendChild(card);
   });
@@ -3052,7 +3132,7 @@ window.nxAparatLoadHome = async function(force=false) {
     if (!state.videos.length) nxAparatShowSkeletons(section.resultsId, 8);
   });
   try {
-    const data = await nxAparatInvoke({mode:'home', limit:NX_APARAT_PAGE_SIZE, catalogCapacity:1000000});
+    const data = await nxAparatInvoke({mode:'home', provider:NX_APARAT_PROVIDER_FILTER, limit:NX_APARAT_PAGE_SIZE, catalogCapacity:1000000});
     for (const section of NX_APARAT_HOME_SECTIONS) {
       const result = data.sections?.[section.key];
       const videos = Array.isArray(result?.videos) ? result.videos : [];
@@ -3083,10 +3163,10 @@ window.nxAparatMore = async function(category) {
   const oldText=btn?.textContent;
   if (btn) { btn.disabled=true; btn.textContent='نمایش بیشتر'; }
   try {
-    const data=await nxAparatInvoke({mode:'more', category, batch:state.batch+1, offset:state.videos.length, limit:NX_APARAT_PAGE_SIZE});
+    const data=await nxAparatInvoke({mode:'more', category, provider:NX_APARAT_PROVIDER_FILTER, batch:state.batch+1, offset:state.videos.length, limit:NX_APARAT_PAGE_SIZE});
     const next=Array.isArray(data.videos)?data.videos:[];
-    const seen=new Set(state.videos.map(v=>v.hash));
-    const unique=next.filter(v=>v?.hash && !seen.has(v.hash));
+    const seen=new Set(state.videos.map(v=>(v.provider||'aparat')+':'+v.hash));
+    const unique=next.filter(v=>v?.hash && !seen.has((v.provider||'aparat')+':'+v.hash));
     state.videos.push(...unique);
     state.batch=Number(data.batch ?? state.batch+1);
     if (unique.length) nxAparatRenderVideos(unique, section.resultsId, true);
@@ -3095,7 +3175,7 @@ window.nxAparatMore = async function(category) {
     if (typeof nxToast==='function') nxToast('بارگذاری ویدئوها ناموفق بود. دوباره تلاش کن.');
   } finally {
     state.busy=false;
-    if (btn) { btn.disabled=false; btn.textContent=oldText||'ویدئوهای بیشتر'; }
+    if (btn) { btn.disabled=state.exhausted; btn.textContent=state.exhausted?'پایان فهرست':(oldText||'ویدئوهای بیشتر'); }
   }
 };
 
@@ -3114,30 +3194,42 @@ window.nxAparatSearch = async function(queryOverride) {
   nxAparatShowSkeletons('nx-aparat-search-results', 8);
   if (status) status.textContent = '';
   try {
-    const videos = await nxAparatServerSearch(query, NX_APARAT_PAGE_SIZE, 0);
+    const videos = await nxAparatServerSearch(query, NX_APARAT_PAGE_SIZE, 0, NX_APARAT_PROVIDER_FILTER);
     if (requestId !== nxAparatSearchRequestId) return;
     nxAparatRenderVideos(videos, 'nx-aparat-search-results');
-    if (status) status.textContent = videos.length ? `${videos.length.toLocaleString('fa-IR')} نتیجه` : 'نتیجه‌ای پیدا نشد.';
+    if (status) status.textContent = videos.length ? `${videos.length.toLocaleString('fa-IR')} نتیجه از ${[...new Set(videos.map(v=>v.provider==='aparat'?'آپارات':v.provider==='tamasha'?'تماشا':'نماشا'))].join('، ')}` : 'نتیجه‌ای پیدا نشد.';
     section?.scrollIntoView({behavior:'smooth', block:'start'});
   } catch (error) {
     if (requestId !== nxAparatSearchRequestId) return;
-    if (status) status.textContent = 'جست‌وجو فعلاً در دسترس نیست. دوباره تلاش کن.';
+    if (status) status.textContent = 'فعلاً ارتباط با منابع ویدئویی برقرار نشد. دوباره تلاش کن.';
     nxAparatRenderVideos([], 'nx-aparat-search-results');
   } finally {
     if (requestId === nxAparatSearchRequestId && button) button.disabled = false;
   }
 };
 
-window.nxOpenAparatPlayer = function(hash, title, originalUrl) {
-  const safeHash = String(hash || '').trim();
-  if (!/^[A-Za-z0-9_-]{3,40}$/.test(safeHash)) { alert('شناسه ویدئو معتبر نیست.'); return; }
+window.nxOpenAparatPlayer = function(videoOrHash, title, originalUrl) {
+  let video;
+  if (videoOrHash && typeof videoOrHash === 'object') video=videoOrHash;
+  else {
+    const hash=String(videoOrHash||'').trim();
+    video={provider:'aparat',source_id:hash,hash,title,url:originalUrl||`https://www.aparat.com/v/${hash}`};
+  }
+  const provider=['aparat','tamasha','namasha'].includes(video.provider)?video.provider:'aparat';
+  const sourceId=String(video.source_id||'').trim();
+  if (!/^[A-Za-z0-9_-]{3,40}$/.test(sourceId)) { alert('شناسه ویدئو معتبر نیست.'); return; }
+  const allowedHosts={aparat:['aparat.com'],tamasha:['tamasha.com'],namasha:['namasha.com']};
+  const validHttps=(value)=>{try{const u=new URL(value);return u.protocol==='https:'&&allowedHosts[provider].some(h=>u.hostname===h||u.hostname.endsWith('.'+h))}catch(_){return false}};
+  const original=validHttps(video.url)?video.url:(provider==='aparat'?`https://www.aparat.com/v/${sourceId}`:provider==='tamasha'?`https://tamasha.com/v/${sourceId}`:`https://www.namasha.com/v/${sourceId}`);
+  let embed=validHttps(video.embed_url)?video.embed_url:original;
+  if(provider==='aparat') embed=`https://www.aparat.com/video/video/embed/videohash/${sourceId}/vt/frame`;
   const modal = document.getElementById('nx-aparat-player');
   const frame = document.getElementById('nx-aparat-iframe');
   const titleEl = document.getElementById('nx-aparat-player-title');
   const link = document.getElementById('nx-aparat-original-link');
-  if (titleEl) titleEl.textContent = title || 'پخش ویدئو';
-  if (link) link.href = (typeof originalUrl === 'string' && /^https:\/\/www\.aparat\.com\/v\/[A-Za-z0-9_-]+/.test(originalUrl)) ? originalUrl : `https://www.aparat.com/v/${safeHash}`;
-  if (frame) frame.src = `https://www.aparat.com/video/video/embed/videohash/${safeHash}/vt/frame`;
+  if (titleEl) titleEl.textContent = `${video.title||title||'پخش ویدئو'} · ${provider==='aparat'?'آپارات':provider==='tamasha'?'تماشا':'نماشا'}`;
+  if (link) { link.href=original; link.textContent=`مشاهده در ${provider==='aparat'?'آپارات':provider==='tamasha'?'تماشا':'نماشا'}`; }
+  if (frame) { frame.src=embed; frame.title=String(video.title||title||'پخش ویدئو'); frame.referrerPolicy='strict-origin-when-cross-origin'; }
   if (modal) { modal.classList.add('show'); modal.setAttribute('aria-hidden','false'); }
 };
 
