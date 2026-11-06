@@ -26,7 +26,8 @@
 <!-- تنظیمات PWA -->
 <!-- ========================================== -->
 <link rel="manifest" href="./manifest.json">
-<meta name="theme-color" content="#2ecc9b">
+<meta name="theme-color" content="#080b17">
+<meta name="nx-library-catalog-version" content="2">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="نکسوم">
@@ -1088,6 +1089,68 @@ hr{border-color:rgba(149,176,232,.14)!important}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
 
 </style>
+
+<style id="nx-aparat-library-styles">
+.nx-library-content{padding:0 12px 120px;min-width:0;color:#edf4ff}
+.nx-aparat-hero{display:flex;align-items:center;gap:13px;padding:17px;margin:4px 0 14px;border:1px solid rgba(99,245,212,.18);border-radius:22px;background:linear-gradient(118deg,rgba(20,65,70,.82),rgba(22,31,61,.94) 58%,rgba(49,31,83,.88));color:#f2f7ff;box-shadow:0 14px 34px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.04);position:relative;overflow:hidden}
+.nx-aparat-hero:after{content:"";position:absolute;left:-35px;top:-70px;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle,rgba(99,245,212,.16),transparent 70%);pointer-events:none}
+.nx-aparat-brand{width:48px;height:48px;flex:0 0 48px;border-radius:17px;display:grid;place-items:center;background:linear-gradient(135deg,#5debd0,#4aabf2 58%,#8a72ff);color:#07121c;font-size:22px;font-weight:1000;box-shadow:0 7px 22px rgba(75,198,226,.23)}
+.nx-aparat-title{font-weight:1000;font-size:17px;margin-bottom:4px;color:#f4f7ff}
+.nx-aparat-subtitle{font-size:11px;line-height:1.85;color:#a9b8d5}
+.nx-aparat-capacity{display:inline-flex;align-items:center;gap:6px;margin-top:7px;padding:5px 9px;border:1px solid rgba(99,245,212,.18);border-radius:20px;background:rgba(99,245,212,.07);color:#8df4df;font-size:10px;font-weight:800}
+.nx-aparat-search{display:flex;gap:8px;margin:0 0 11px;padding:7px;border:1px solid rgba(145,174,230,.13);border-radius:17px;background:rgba(13,20,39,.78);box-shadow:0 8px 22px rgba(0,0,0,.12)}
+.nx-aparat-search input{flex:1;min-width:0;border:1px solid rgba(148,177,235,.14);border-radius:12px;padding:12px 13px;background:rgba(4,9,24,.62);color:#f3f7ff;font:inherit;font-size:13px;outline:none}
+.nx-aparat-search input::placeholder{color:#7788a9}
+.nx-aparat-search input:focus{border-color:rgba(99,245,212,.62);box-shadow:0 0 0 3px rgba(99,245,212,.09)}
+.nx-aparat-search button{border:0;border-radius:12px;padding:0 18px;background:linear-gradient(105deg,#58e9d0,#4eaff6 60%,#8972f8);color:#06131b;font:inherit;font-size:12px;font-weight:1000;cursor:pointer;white-space:nowrap;box-shadow:0 7px 18px rgba(71,190,226,.16)}
+.nx-aparat-search button:disabled{opacity:.65;cursor:default}
+.nx-aparat-chips{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px;scrollbar-width:none}
+.nx-aparat-chips::-webkit-scrollbar{display:none}
+.nx-aparat-chips button{white-space:nowrap;border:1px solid rgba(145,174,230,.14);background:linear-gradient(145deg,rgba(20,29,52,.92),rgba(13,19,38,.92));color:#cbd8f1;border-radius:13px;padding:9px 12px;font-family:inherit;font-size:11px;font-weight:800;cursor:pointer}
+.nx-aparat-chips button:hover{border-color:rgba(99,245,212,.32);color:#8df4df;background:rgba(27,54,64,.9)}
+.nx-aparat-status{padding:7px 4px;color:#8df4df;font-size:11px;text-align:center;line-height:1.8;min-height:0}
+.nx-aparat-row-status{display:none!important}
+.nx-aparat-block{margin:17px 0 22px;min-width:0}
+.nx-aparat-section-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:7px 0 11px}
+.nx-aparat-section-head h2{font-size:14px;font-weight:1000;color:#f0f5ff;margin:0;letter-spacing:-.2px}
+.nx-aparat-section-head p{font-size:10px;color:#91a3c4;margin:4px 0 0;line-height:1.7}
+.nx-aparat-text-btn{border:1px solid rgba(99,245,212,.15);background:linear-gradient(120deg,rgba(99,245,212,.12),rgba(92,200,255,.1));color:#8df4df;border-radius:11px;padding:8px 11px;font:inherit;font-size:10px;font-weight:900;white-space:nowrap;cursor:pointer}
+.nx-aparat-text-btn:hover{background:rgba(99,245,212,.19);border-color:rgba(99,245,212,.3)}
+.nx-aparat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding-bottom:10px}
+.nx-aparat-rail{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:2px 0 8px;overscroll-behavior-inline:contain}
+.nx-aparat-card{min-width:0;overflow:hidden;border:1px solid rgba(145,174,230,.13);border-radius:17px;background:linear-gradient(150deg,rgba(20,29,52,.97),rgba(11,17,34,.97));color:#edf4ff;box-shadow:0 10px 23px rgba(0,0,0,.16),inset 0 1px rgba(255,255,255,.035);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.nx-aparat-card:hover{transform:translateY(-3px);border-color:rgba(99,245,212,.3);box-shadow:0 15px 30px rgba(0,0,0,.23),0 0 20px rgba(99,245,212,.045)}
+.nx-aparat-thumb-wrap{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#133d3d,#1c2949 62%,#302456);overflow:hidden;cursor:pointer}
+.nx-aparat-thumb{width:100%;height:100%;display:block;object-fit:cover}
+.nx-aparat-play{position:absolute;inset:0;display:grid;place-items:center;background:rgba(2,8,20,.1);color:#fff;font-size:27px;text-shadow:0 2px 12px #000;transition:.2s}
+.nx-aparat-play:after{content:"";position:absolute;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.56);background:rgba(8,15,31,.3);backdrop-filter:blur(5px);z-index:-1}
+.nx-aparat-card:hover .nx-aparat-play{background:rgba(0,0,0,.22);transform:scale(1.035)}
+.nx-aparat-card-body{padding:10px 10px 11px}
+.nx-aparat-video-title{font-size:11.5px;font-weight:900;line-height:1.75;min-height:40px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word;color:#eff5ff}
+.nx-aparat-video-meta{font-size:10px;color:#91a3c4;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nx-aparat-card-actions{display:flex;gap:6px;margin-top:9px}
+.nx-aparat-card-actions button,.nx-aparat-card-actions a{flex:1;min-width:0;text-align:center;border:1px solid rgba(99,245,212,.13);border-radius:9px;padding:8px 5px;background:rgba(99,245,212,.1);color:#8df4df;font-family:inherit;font-size:10px;font-weight:900;text-decoration:none;cursor:pointer}
+.nx-aparat-card-actions a{background:rgba(140,156,190,.08);border-color:rgba(140,156,190,.12);color:#aab9d5}
+.nx-aparat-card-actions button:hover,.nx-aparat-card-actions a:hover{filter:brightness(1.18)}
+.nx-aparat-footnote{font-size:10px;color:#8294b5;line-height:1.8;padding:9px 3px 15px;text-align:center;border-top:1px solid rgba(145,174,230,.12)}
+#nx-aparat-search-section[hidden]{display:none!important}
+#nx-aparat-status:empty{display:none}
+.nx-my-library-block{margin:19px 0 5px;padding-top:17px;border-top:1px solid rgba(145,174,230,.14)}
+.nx-aparat-player{display:none;position:fixed;inset:0;z-index:20000;background:rgba(3,7,18,.88);padding:16px;align-items:center;justify-content:center;backdrop-filter:blur(9px)}
+.nx-aparat-player.show{display:flex}
+.nx-aparat-player-card{width:min(100%,900px);background:linear-gradient(145deg,#141d36,#090f20);color:#f2f6ff;border:1px solid rgba(99,245,212,.2);border-radius:21px;overflow:hidden;box-shadow:0 25px 80px rgba(0,0,0,.58)}
+.nx-aparat-player-head{display:flex;align-items:center;gap:12px;justify-content:space-between;padding:13px 15px;font-size:13px;font-weight:900;border-bottom:1px solid rgba(145,174,230,.12)}
+.nx-aparat-player-head button{width:35px;height:35px;border:1px solid rgba(145,174,230,.16);border-radius:12px;background:rgba(255,255,255,.06);color:#dce8ff;font-size:17px;cursor:pointer}
+.nx-aparat-player-frame{position:relative;width:100%;aspect-ratio:16/9;background:#000}
+.nx-aparat-player-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.nx-aparat-player-footer{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;color:#9eafd0;font-size:11px}
+.nx-aparat-player-footer a{color:#8df4df;text-decoration:none;font-weight:900}
+.nx-aparat-skeleton{height:208px;border-radius:17px;border:1px solid rgba(145,174,230,.1);background:linear-gradient(100deg,rgba(17,25,46,.8) 20%,rgba(36,56,82,.75) 38%,rgba(17,25,46,.8) 58%);background-size:220% 100%;animation:nxAparatShimmer 1.35s linear infinite}
+@keyframes nxAparatShimmer{to{background-position-x:-220%}}
+@media(min-width:700px){.nx-aparat-grid,.nx-aparat-rail{grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.nx-aparat-card-body{padding:12px}.nx-aparat-video-title{font-size:12px}.nx-aparat-skeleton{height:240px}}
+@media(max-width:380px){.nx-aparat-grid,.nx-aparat-rail{gap:7px}.nx-aparat-card-body{padding:8px}.nx-aparat-video-title{font-size:10.5px}.nx-aparat-skeleton{height:175px}}
+</style>
+
 </head>
 <body>
 
@@ -1201,11 +1264,66 @@ hr{border-color:rgba(149,176,232,.14)!important}
 
 <div class="page" id="page-library">
 <div class="top-bar">
-<button class="icon-btn" onclick="showPage('home')"><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg></button>
-<div class="app-title"><h1>🎬 <span data-i18n="library">کتابخانه</span></h1><p data-i18n="librarySub">ویدیوها و محتوا</p></div>
-<button class="icon-btn" onclick="openLibModal()"><svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></button>
+<button class="icon-btn" onclick="showPage('home')" aria-label="بازگشت"><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg></button>
+<div class="app-title"><h1>🎬 <span data-i18n="library">کتابخانه</span></h1><p>فیلم، کارتون و محتوای شخصی در یک صفحه</p></div>
+<button class="icon-btn" id="lib-add-btn" onclick="openLibModal()" title="افزودن به کتابخانه" aria-label="افزودن به کتابخانه"><svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></button>
 </div>
-<div id="lib-list"></div>
+<div class="nx-library-content">
+  <section class="nx-aparat-hero">
+    <div class="nx-aparat-brand">▶</div>
+    <div class="nx-aparat-hero-copy">
+      <div class="nx-aparat-title">فیلم، کارتون و انیمیشن</div>
+      <div class="nx-aparat-subtitle">یک مجموعه یکپارچه برای تماشای فیلم‌های سینمایی، کارتون‌ها، انیمیشن‌ها و برنامه‌های کودک.</div>
+      <div class="nx-aparat-capacity">✦ کاتالوگ قابل گسترش تا ۱٬۰۰۰٬۰۰۰ ویدئو</div>
+    </div>
+  </section>
+
+  <form class="nx-aparat-search" id="nx-aparat-search-form">
+    <input id="nx-aparat-query" type="search" autocomplete="off" maxlength="100" placeholder="نام فیلم، کارتون یا انیمیشن را جست‌وجو کن…" aria-label="جست‌وجوی فیلم و کارتون">
+    <button type="submit" id="nx-aparat-search-btn">جست‌وجو</button>
+  </form>
+  <div class="nx-aparat-chips" aria-label="دسته‌بندی‌ها">
+    <button type="button" onclick="nxAparatPreset('فیلم سینمایی دوبله فارسی')">🎬 فیلم سینمایی</button>
+    <button type="button" onclick="nxAparatPreset('کارتون دوبله فارسی')">🐻 کارتون</button>
+    <button type="button" onclick="nxAparatPreset('انیمیشن دوبله فارسی')">🪄 انیمیشن</button>
+    <button type="button" onclick="nxAparatPreset('کارتون کودک دوبله فارسی')">🧸 کودک</button>
+    <button type="button" onclick="nxAparatPreset('مستند فارسی')">🌍 مستند</button>
+  </div>
+  <div id="nx-aparat-status" class="nx-aparat-status" aria-live="polite"></div>
+
+  <section id="nx-aparat-search-section" class="nx-aparat-block" hidden>
+    <div class="nx-aparat-section-head"><h2>نتایج جست‌وجو</h2><button type="button" class="nx-aparat-text-btn" onclick="nxAparatClearSearch()">پاک‌کردن</button></div>
+    <div id="nx-aparat-search-results" class="nx-aparat-grid"></div>
+  </section>
+
+  <div id="nx-aparat-home-feed">
+    <section class="nx-aparat-block">
+      <div class="nx-aparat-section-head"><div><h2>🎬 فیلم‌های سینمایی</h2><p>گزیده فیلم‌های بلند و سینمایی</p></div><button type="button" class="nx-aparat-text-btn" onclick="nxAparatMore('film')">ویدئوهای بیشتر</button></div>
+      <div id="nx-aparat-film-status" class="nx-aparat-row-status" aria-hidden="true"></div>
+      <div id="nx-aparat-film-results" class="nx-aparat-rail"></div>
+    </section>
+    <section class="nx-aparat-block">
+      <div class="nx-aparat-section-head"><div><h2>🐻 کارتون‌ها</h2><p>کارتون‌های محبوب و دوبله‌شده</p></div><button type="button" class="nx-aparat-text-btn" onclick="nxAparatMore('cartoon')">ویدئوهای بیشتر</button></div>
+      <div id="nx-aparat-cartoon-status" class="nx-aparat-row-status" aria-hidden="true"></div>
+      <div id="nx-aparat-cartoon-results" class="nx-aparat-rail"></div>
+    </section>
+    <section class="nx-aparat-block">
+      <div class="nx-aparat-section-head"><div><h2>🪄 انیمیشن‌ها</h2><p>انیمیشن‌های سینمایی و سریالی</p></div><button type="button" class="nx-aparat-text-btn" onclick="nxAparatMore('animation')">ویدئوهای بیشتر</button></div>
+      <div id="nx-aparat-animation-status" class="nx-aparat-row-status" aria-hidden="true"></div>
+      <div id="nx-aparat-animation-results" class="nx-aparat-rail"></div>
+    </section>
+    <section class="nx-aparat-block">
+      <div class="nx-aparat-section-head"><div><h2>🧸 محتوای کودک</h2><p>برنامه‌ها و ویدئوهای مناسب کودکان</p></div><button type="button" class="nx-aparat-text-btn" onclick="nxAparatMore('kids')">ویدئوهای بیشتر</button></div>
+      <div id="nx-aparat-kids-status" class="nx-aparat-row-status" aria-hidden="true"></div>
+      <div id="nx-aparat-kids-results" class="nx-aparat-rail"></div>
+    </section>
+  </div>
+
+  <section class="nx-my-library-block">
+    <div class="nx-aparat-section-head"><div><h2>📁 کتابخانه من</h2><p>عکس‌ها و ویدئوهایی که خودت در نکسوم ذخیره کرده‌ای</p></div><button type="button" class="nx-aparat-text-btn" onclick="openLibModal()">＋ افزودن</button></div>
+    <div id="lib-list"></div>
+  </section>
+</div></div>
 </div>
 
 <div class="page" id="page-bots">
@@ -1792,6 +1910,18 @@ hr{border-color:rgba(149,176,232,.14)!important}
 <div class="call-controls"><button class="call-btn mic" id="call-mic-btn">🎤</button><button class="call-btn" id="nx-screen-share-btn" title="اشتراک صفحه" style="background:rgba(255,255,255,.12);color:#fff">🖥️</button><button class="call-btn end" id="call-end-btn">📞</button></div>
 </div>
 
+
+<div class="nx-aparat-player" id="nx-aparat-player" aria-hidden="true">
+  <div class="nx-aparat-player-card" role="dialog" aria-modal="true" aria-labelledby="nx-aparat-player-title">
+    <div class="nx-aparat-player-head">
+      <div id="nx-aparat-player-title">پخش ویدئو</div>
+      <button type="button" onclick="nxCloseAparatPlayer()" aria-label="بستن پخش‌کننده">✕</button>
+    </div>
+    <div class="nx-aparat-player-frame"><iframe id="nx-aparat-iframe" title="پخش ویدئو از آپارات" src="about:blank" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+    <div class="nx-aparat-player-footer"><span>پخش توسط آپارات</span><a id="nx-aparat-original-link" href="https://www.aparat.com" target="_blank" rel="noopener noreferrer">مشاهده در آپارات ↗</a></div>
+  </div>
+</div>
+
 <div class="bottom-nav">
 <button class="nav-item active" id="nav-home" onclick="showPage('home')"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg><span data-i18n="home">خانه</span></button>
 <button class="nav-item" id="nav-chats" onclick="showPage('chats')"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg><span data-i18n="chats">چت‌ها</span></button>
@@ -2266,7 +2396,7 @@ async function updateTwoFAStatus(){const p=await loadMyProfile();const el=docume
 window.changePassword=()=>{document.getElementById('new-password').value='';document.getElementById('confirm-password').value='';document.getElementById('password-modal').classList.add('show')};
 document.getElementById('password-save').onclick=async()=>{const np=document.getElementById('new-password').value;const cp=document.getElementById('confirm-password').value;if(np.length<6){alert(lang==='fa'?'رمز باید حداقل ۶ کاراکتر باشد':'Password min 6 chars');return}if(np!==cp){alert(lang==='fa'?'رمزها یکی نیستند':'Passwords do not match');return}const btn=document.getElementById('password-save');btn.disabled=true;btn.textContent='...';const{error}=await sb.from('my_users').update({password:np}).eq('phone',savedPhone);btn.disabled=false;btn.textContent=t('save');if(error){alert(t('error')+': '+error.message);return}closeModal('password-modal');alert(lang==='fa'?'✅ رمز تغییر کرد':'✅ Password changed')};
 
-window.showPage=p=>{document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));const nm={home:'nav-home',chats:'nav-chats',library:'nav-library',settings:'nav-more'};if(nm[p])document.getElementById(nm[p])?.classList.add('active');if(p==='chats')renderList();if(p==='library')loadLib();if(p==='bots')loadBots();if(p==='education')loadEdu();if(p==='payments')loadWallet();if(p==='settings'){const sel=document.getElementById('lang-select');if(sel)sel.value=lang;updateTwoFAStatus()}};
+window.showPage=p=>{document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));const nm={home:'nav-home',chats:'nav-chats',library:'nav-library',settings:'nav-more'};if(nm[p])document.getElementById(nm[p])?.classList.add('active');if(p==='chats')renderList();if(p==='library'){loadLib();nxAparatLoadHome();}if(p==='bots')loadBots();if(p==='education')loadEdu();if(p==='payments')loadWallet();if(p==='settings'){const sel=document.getElementById('lang-select');if(sel)sel.value=lang;updateTwoFAStatus()}};
 window.goTab=x=>{showPage('chats');switchTab(x)};
 window.switchTab=x=>{curTab=x;document.querySelectorAll('.tab').forEach(el=>el.classList.toggle('active',el.dataset.tab===x));renderList()};
 window.logout=async()=>{if(!confirm(t('logoutConfirm')))return;try{await sb.rpc('nx_revoke_device_session',{p_phone:savedPhone,p_session_token:localStorage.getItem('nx_session_token')||'',p_target_session_id:localStorage.getItem('nx_session_id')})}catch(e){console.warn('Session revoke failed:',e)}try{await setOffline()}catch(e){}localStorage.removeItem('my_phone');localStorage.removeItem('session_id');localStorage.removeItem('nx_session_id');localStorage.removeItem('nx_session_token');location.href='index.html'};
@@ -2760,6 +2890,275 @@ function replyToStory(userEmail) {
 window.nextStory=()=>{if(!curStUser)return;const sts=stByUser[curStUser];if(curStIdx<sts.length-1){curStIdx++;showStory()}else{const us=Object.keys(stByUser);const i=us.indexOf(curStUser);if(i<us.length-1){curStUser=us[i+1];curStIdx=0;showStory()}else closeStory()}};
 window.prevStory=()=>{if(!curStUser)return;if(curStIdx>0){curStIdx--;showStory()}else{const us=Object.keys(stByUser);const i=us.indexOf(curStUser);if(i>0){curStUser=us[i-1];curStIdx=stByUser[curStUser].length-1;showStory()}}};
 window.closeStory=()=>{document.getElementById('story-viewer').classList.remove('show');if(stTmr){clearInterval(stTmr);stTmr=null}document.getElementById('story-media').innerHTML='';curStUser=null;curStIdx=0};
+
+// ============================================================
+// کتابخانه و کاتالوگ ویدئوی نکسوم
+// داده‌ها در Supabase cache می‌شوند؛ مرورگر فقط صفحه‌های لازم را می‌گیرد.
+// ============================================================
+let nxAparatSearchRequestId = 0;
+let nxAparatHomeLoaded = false;
+let nxAparatHomeLoading = false;
+const NX_APARAT_PAGE_SIZE = 24;
+const NX_APARAT_HOME_SECTIONS = [
+  {key:'film', query:'فیلم سینمایی دوبله فارسی', resultsId:'nx-aparat-film-results'},
+  {key:'cartoon', query:'کارتون دوبله فارسی', resultsId:'nx-aparat-cartoon-results'},
+  {key:'animation', query:'انیمیشن دوبله فارسی', resultsId:'nx-aparat-animation-results'},
+  {key:'kids', query:'کارتون کودک دوبله فارسی', resultsId:'nx-aparat-kids-results'}
+];
+const nxAparatCategoryState = Object.fromEntries(NX_APARAT_HOME_SECTIONS.map(s => [s.key, {videos:[], batch:0, busy:false, exhausted:false}]));
+
+async function nxAparatInvoke(body) {
+  const {data, error} = await sb.functions.invoke('aparat-search', {body});
+  if (error) {
+    let detail = error.message || 'ارتباط با کتابخانه برقرار نشد.';
+    try {
+      if (error.context && typeof error.context.json === 'function') {
+        const payload = await error.context.json();
+        detail = payload?.error || payload?.message || detail;
+      }
+    } catch (_) {}
+    throw new Error(detail);
+  }
+  if (!data || data.ok !== true) throw new Error(data?.error || 'پاسخ کتابخانه معتبر نیست.');
+  return data;
+}
+
+async function nxAparatServerSearch(query, limit=24, offset=0) {
+  const cleanQuery = String(query || '').trim().slice(0,100);
+  if (cleanQuery.length < 2) throw new Error('حداقل دو حرف برای جست‌وجو وارد کن.');
+  const data = await nxAparatInvoke({mode:'search', query:cleanQuery, limit, offset});
+  return Array.isArray(data.videos) ? data.videos : [];
+}
+
+window.nxAparatPreset = function(query) {
+  const input = document.getElementById('nx-aparat-query');
+  if (input) input.value = query;
+  return window.nxAparatSearch(query);
+};
+
+window.nxAparatClearSearch = function() {
+  const input = document.getElementById('nx-aparat-query');
+  const section = document.getElementById('nx-aparat-search-section');
+  const grid = document.getElementById('nx-aparat-search-results');
+  const status = document.getElementById('nx-aparat-status');
+  if (input) input.value = '';
+  if (grid) grid.replaceChildren();
+  if (section) section.hidden = true;
+  if (status) status.textContent = '';
+};
+
+function nxAparatFormatDuration(seconds) {
+  if (!seconds || !Number.isFinite(Number(seconds))) return '';
+  const n = Math.max(0, Math.floor(Number(seconds)));
+  const h = Math.floor(n / 3600), m = Math.floor((n % 3600) / 60), sec = n % 60;
+  return h ? `${h}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}` : `${m}:${String(sec).padStart(2,'0')}`;
+}
+
+function nxAparatShowSkeletons(targetId, count=8) {
+  const grid = document.getElementById(targetId);
+  if (!grid) return;
+  grid.replaceChildren();
+  for (let i=0;i<count;i++) {
+    const skeleton=document.createElement('div');
+    skeleton.className='nx-aparat-skeleton';
+    grid.appendChild(skeleton);
+  }
+}
+
+function nxAparatRenderVideos(videos, targetId='nx-aparat-search-results', append=false) {
+  const grid = document.getElementById(targetId);
+  if (!grid) return;
+  if (!append) grid.replaceChildren();
+  if (!Array.isArray(videos) || !videos.length) {
+    if (!append) {
+      const empty = document.createElement('div');
+      empty.className = 'nx-aparat-status';
+      empty.style.gridColumn = '1/-1';
+      empty.textContent = 'فعلاً ویدئویی در این بخش موجود نیست.';
+      grid.appendChild(empty);
+    }
+    return;
+  }
+  const existing = new Set([...grid.querySelectorAll('[data-video-hash]')].map(el=>el.dataset.videoHash));
+  videos.forEach(video => {
+    const hash = String(video?.hash || '').trim();
+    if (!/^[A-Za-z0-9_-]{3,40}$/.test(hash) || existing.has(hash)) return;
+    existing.add(hash);
+    const titleText = String(video.title || 'ویدئو').slice(0,220);
+    const safeUrl = `https://www.aparat.com/v/${hash}`;
+    const card = document.createElement('article');
+    card.className = 'nx-aparat-card';
+    card.dataset.videoHash = hash;
+    const thumbWrap = document.createElement('div');
+    thumbWrap.className = 'nx-aparat-thumb-wrap';
+    thumbWrap.setAttribute('role', 'button');
+    thumbWrap.setAttribute('tabindex', '0');
+    thumbWrap.setAttribute('aria-label', `پخش ${titleText}`);
+    if (typeof video.thumbnail === 'string' && /^https:\/\//i.test(video.thumbnail)) {
+      const img = document.createElement('img');
+      img.className = 'nx-aparat-thumb';
+      img.loading = 'lazy';
+      img.referrerPolicy = 'no-referrer';
+      img.src = video.thumbnail;
+      img.alt = titleText;
+      img.onerror = () => img.remove();
+      thumbWrap.appendChild(img);
+    }
+    const play = document.createElement('div');
+    play.className = 'nx-aparat-play';
+    play.textContent = '▶';
+    thumbWrap.appendChild(play);
+    const playVideo = () => window.nxOpenAparatPlayer(hash, titleText, safeUrl);
+    thumbWrap.addEventListener('click', playVideo);
+    thumbWrap.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); playVideo(); } });
+
+    const body = document.createElement('div');
+    body.className = 'nx-aparat-card-body';
+    const title = document.createElement('div');
+    title.className = 'nx-aparat-video-title';
+    title.textContent = titleText;
+    const meta = document.createElement('div');
+    meta.className = 'nx-aparat-video-meta';
+    const metaParts = [];
+    if (video.uploader) metaParts.push(String(video.uploader).slice(0,80));
+    if (Number(video.views) > 0) metaParts.push(`${Number(video.views).toLocaleString('fa-IR')} بازدید`);
+    const duration = nxAparatFormatDuration(video.duration);
+    if (duration) metaParts.push(duration);
+    meta.textContent = metaParts.join(' · ') || 'ویدئو';
+    const actions = document.createElement('div');
+    actions.className = 'nx-aparat-card-actions';
+    const playButton = document.createElement('button');
+    playButton.type = 'button';
+    playButton.textContent = '▶ تماشا';
+    playButton.addEventListener('click', playVideo);
+    const originalLink = document.createElement('a');
+    originalLink.href = safeUrl;
+    originalLink.target = '_blank';
+    originalLink.rel = 'noopener noreferrer';
+    originalLink.textContent = 'جزئیات';
+    actions.append(playButton, originalLink);
+    body.append(title, meta, actions);
+    card.append(thumbWrap, body);
+    grid.appendChild(card);
+  });
+}
+
+window.nxAparatLoadHome = async function(force=false) {
+  if (nxAparatHomeLoading || (nxAparatHomeLoaded && !force)) return;
+  nxAparatHomeLoading = true;
+  NX_APARAT_HOME_SECTIONS.forEach(section => {
+    const state=nxAparatCategoryState[section.key];
+    if (force) { state.videos=[]; state.batch=0; state.exhausted=false; }
+    if (!state.videos.length) nxAparatShowSkeletons(section.resultsId, 8);
+  });
+  try {
+    const data = await nxAparatInvoke({mode:'home', limit:NX_APARAT_PAGE_SIZE, catalogCapacity:1000000});
+    for (const section of NX_APARAT_HOME_SECTIONS) {
+      const result = data.sections?.[section.key];
+      const videos = Array.isArray(result?.videos) ? result.videos : [];
+      const state=nxAparatCategoryState[section.key];
+      state.videos=videos;
+      state.batch=0;
+      nxAparatRenderVideos(videos, section.resultsId);
+    }
+    nxAparatHomeLoaded = true;
+  } catch (error) {
+    NX_APARAT_HOME_SECTIONS.forEach(section => {
+      const state=nxAparatCategoryState[section.key];
+      if (!state.videos.length) nxAparatRenderVideos([], section.resultsId);
+    });
+    const status=document.getElementById('nx-aparat-status');
+    if (status) status.textContent='کتابخانه فعلاً در دسترس نیست. دوباره تلاش کن.';
+  } finally {
+    nxAparatHomeLoading = false;
+  }
+};
+
+window.nxAparatMore = async function(category) {
+  const section=NX_APARAT_HOME_SECTIONS.find(s=>s.key===category);
+  const state=nxAparatCategoryState[category];
+  if (!section || !state || state.busy || state.exhausted) return;
+  state.busy=true;
+  const btn=section.resultsId ? document.querySelector(`button[onclick="nxAparatMore('${category}')"]`) : null;
+  const oldText=btn?.textContent;
+  if (btn) { btn.disabled=true; btn.textContent='نمایش بیشتر'; }
+  try {
+    const data=await nxAparatInvoke({mode:'more', category, batch:state.batch+1, offset:state.videos.length, limit:NX_APARAT_PAGE_SIZE});
+    const next=Array.isArray(data.videos)?data.videos:[];
+    const seen=new Set(state.videos.map(v=>v.hash));
+    const unique=next.filter(v=>v?.hash && !seen.has(v.hash));
+    state.videos.push(...unique);
+    state.batch=Number(data.batch ?? state.batch+1);
+    if (unique.length) nxAparatRenderVideos(unique, section.resultsId, true);
+    else { state.exhausted=true; if (btn) { btn.disabled=true; btn.textContent='پایان فهرست'; } if (typeof nxToast==='function') nxToast('ویدئوی بیشتری در این دسته پیدا نشد؛ جست‌وجو را امتحان کن.'); }
+  } catch (error) {
+    if (typeof nxToast==='function') nxToast('بارگذاری ویدئوها ناموفق بود. دوباره تلاش کن.');
+  } finally {
+    state.busy=false;
+    if (btn) { btn.disabled=false; btn.textContent=oldText||'ویدئوهای بیشتر'; }
+  }
+};
+
+window.nxAparatSearch = async function(queryOverride) {
+  const input = document.getElementById('nx-aparat-query');
+  const status = document.getElementById('nx-aparat-status');
+  const grid = document.getElementById('nx-aparat-search-results');
+  const section = document.getElementById('nx-aparat-search-section');
+  const button = document.getElementById('nx-aparat-search-btn');
+  const query = String(queryOverride || input?.value || '').trim();
+  if (query.length < 2) { if (status) status.textContent='حداقل دو حرف وارد کن.'; input?.focus(); return; }
+  if (input) input.value = query;
+  const requestId = ++nxAparatSearchRequestId;
+  if (button) button.disabled = true;
+  if (section) section.hidden = false;
+  nxAparatShowSkeletons('nx-aparat-search-results', 8);
+  if (status) status.textContent = '';
+  try {
+    const videos = await nxAparatServerSearch(query, NX_APARAT_PAGE_SIZE, 0);
+    if (requestId !== nxAparatSearchRequestId) return;
+    nxAparatRenderVideos(videos, 'nx-aparat-search-results');
+    if (status) status.textContent = videos.length ? `${videos.length.toLocaleString('fa-IR')} نتیجه` : 'نتیجه‌ای پیدا نشد.';
+    section?.scrollIntoView({behavior:'smooth', block:'start'});
+  } catch (error) {
+    if (requestId !== nxAparatSearchRequestId) return;
+    if (status) status.textContent = 'جست‌وجو فعلاً در دسترس نیست. دوباره تلاش کن.';
+    nxAparatRenderVideos([], 'nx-aparat-search-results');
+  } finally {
+    if (requestId === nxAparatSearchRequestId && button) button.disabled = false;
+  }
+};
+
+window.nxOpenAparatPlayer = function(hash, title, originalUrl) {
+  const safeHash = String(hash || '').trim();
+  if (!/^[A-Za-z0-9_-]{3,40}$/.test(safeHash)) { alert('شناسه ویدئو معتبر نیست.'); return; }
+  const modal = document.getElementById('nx-aparat-player');
+  const frame = document.getElementById('nx-aparat-iframe');
+  const titleEl = document.getElementById('nx-aparat-player-title');
+  const link = document.getElementById('nx-aparat-original-link');
+  if (titleEl) titleEl.textContent = title || 'پخش ویدئو';
+  if (link) link.href = (typeof originalUrl === 'string' && /^https:\/\/www\.aparat\.com\/v\/[A-Za-z0-9_-]+/.test(originalUrl)) ? originalUrl : `https://www.aparat.com/v/${safeHash}`;
+  if (frame) frame.src = `https://www.aparat.com/video/video/embed/videohash/${safeHash}/vt/frame`;
+  if (modal) { modal.classList.add('show'); modal.setAttribute('aria-hidden','false'); }
+};
+
+window.nxCloseAparatPlayer = function() {
+  const modal = document.getElementById('nx-aparat-player');
+  const frame = document.getElementById('nx-aparat-iframe');
+  if (frame) frame.src = 'about:blank';
+  if (modal) { modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); }
+};
+
+document.getElementById('nx-aparat-search-form')?.addEventListener('submit', e => {
+  e.preventDefault();
+  window.nxAparatSearch();
+});
+document.getElementById('nx-aparat-player')?.addEventListener('click', e => {
+  if (e.target?.id === 'nx-aparat-player') window.nxCloseAparatPlayer();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') window.nxCloseAparatPlayer();
+});
+
 async function loadLib(){const list=document.getElementById('lib-list');list.innerHTML='<div class="empty-state"><div class="icon">⏳</div></div>';const{data}=await sb.from('library').select('*').order('created_at',{ascending:false});if(!data?.length){list.innerHTML='<div class="empty-state"><div class="icon">🎬</div><h3>'+(lang==='fa'?'هنوز محتوایی نیست':'No content yet')+'</h3></div>';return}list.innerHTML='';data.forEach(l=>{const it=document.createElement('div');it.className='list-item';const thumb=l.media_type==='video'?`<div class="list-avatar" style="font-size:22px">🎬</div>`:`<div class="list-avatar" style="background-image:url('${esc(l.media_url)}')"></div>`;it.innerHTML=`${thumb}<div class="list-info"><div class="list-name">${esc(l.title||'—')}</div><div class="list-sub">${esc(l.description||'—')}</div></div>`;it.onclick=()=>{if(l.media_type==='video'){const w=window.open('','_blank');w.document.write(`<video src="${l.media_url}" autoplay controls style="width:100%;height:100%;background:#000"></video>`)}else openLightbox(l.media_url)};list.appendChild(it)})}
 window.openLibModal=()=>{selLibFile=null;document.getElementById('lib-title').value='';document.getElementById('lib-desc').value='';const p=document.getElementById('lib-preview');p.innerHTML=t('nothingSelected');p.classList.add('empty');document.getElementById('lib-modal').classList.add('show')};
 document.getElementById('file-lib').onchange=e=>{const f=e.target.files[0];if(!f)return;e.target.value='';selLibFile=f;const p=document.getElementById('lib-preview');p.classList.remove('empty');if(f.type.startsWith('image/')){const r=new FileReader();r.onload=ev=>{p.innerHTML=`<img src="${ev.target.result}">`};r.readAsDataURL(f)}else{const u=URL.createObjectURL(f);p.innerHTML=`<video src="${u}" controls></video>`}};
